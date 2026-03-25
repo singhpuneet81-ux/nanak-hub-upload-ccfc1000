@@ -1,0 +1,60 @@
+{
+  "serviceKey": "sole_trader_tax_return",
+  "label": "Sole Trader Tax Return",
+  "incomeStreams": [
+    { "id": "tfn", "label": "TFN Income (PAYG Employment)", "desc": "Salary, wages, government payments", "basePrice": 99, "icon": "User", "type": "checkbox" },
+    { "id": "abn", "label": "ABN Income (Sole Trader / Business)", "desc": "Self-employed income, Uber, freelancing", "basePrice": 40, "pricePrefix": "From ", "icon": "Building2", "type": "expandable" },
+    { "id": "rental", "label": "Rental Properties", "desc": "Investment properties with rental income", "basePrice": 50, "priceSuffix": " each", "icon": "Home", "type": "counter" },
+    { "id": "crypto", "label": "Cryptocurrency Capital Gains Schedule", "desc": "Crypto trading, DeFi, staking, NFTs", "basePrice": 100, "icon": "Bitcoin", "type": "checkbox" },
+    { "id": "shares", "label": "Shares & Investments", "desc": "Share trading, dividends (Comsec, NABSec), capital gains", "basePrice": 10, "priceSuffix": "/share sold", "icon": "TrendingUp", "type": "sharecounter" },
+    { "id": "cgt_property", "label": "Capital Gain Tax Property Sale", "desc": "Capital gains tax calculation on property sales", "basePrice": 250, "icon": "Landmark", "type": "checkbox" },
+    { "id": "cfds", "label": "CFDs (Contracts for Difference)", "desc": "CFD trading tax calculations and reporting", "basePrice": 100, "icon": "CandlestickChart", "type": "checkbox" },
+    { "id": "foreign_income", "label": "Foreign Income / Overseas Assets", "desc": "Foreign employment, overseas investments, rental abroad", "basePrice": 100, "icon": "Globe", "type": "checkbox" }
+  ],
+  "abnIncomeTiers": {
+    "0-50k": 40,
+    "50k-100k": 40,
+    "100k-200k": 40,
+    "200k+": 40
+  },
+  "abnGstSurcharge": 20,
+  "basPrice": 75,
+  "discountThreshold": 3,
+  "discountPercent": 10,
+  "premiumSurchargePerStream": 50,
+  "plans": {
+    "essential": {
+      "title": "Essential",
+      "features": [
+        "Accurate tax return lodgement",
+        "Standard deduction claims",
+        "Email support"
+      ]
+    },
+    "premium": {
+      "title": "Premium",
+      "features": [
+        "All Essential features",
+        "Tax planning consultation",
+        "Priority phone support",
+        "Dedicated accountant"
+      ]
+    }
+  },
+  "declarations": [
+    "The information I have provided is true and correct",
+    "I authorize Nanak Accountants & Associates to access my ATO records using my TFN",
+    "I understand a registered tax accountant will prepare and lodge my tax return",
+    "I agree to review and sign the draft return before lodgement",
+    "I have read and agree to the Terms of Service and Privacy Policy"
+  ],
+  "whatHappensNext": [
+    { "title": "Accountant Contact", "desc": "Registered accountant contacts you in 24-48hrs" },
+    { "title": "ATO Data Prefill", "desc": "All income & tax info pulled from ATO automatically" },
+    { "title": "Draft Preparation", "desc": "Your return prepared with maximum deductions" },
+    { "title": "Review & Sign", "desc": "Review draft and sign online securely" },
+    { "title": "Lodge & Confirm", "desc": "Lodged to ATO + confirmation sent to you" }
+  ],
+  "pageTitle": "Build Your Perfect Package",
+  "pageSubtitle": "Select all your income streams to get an accurate quote"
+}

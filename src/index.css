@@ -1,96 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* 
+  Design System for Australian Business Registration Checkout
+  Pixel-perfect matching to provided screenshots
 */
 
 @layer base {
   :root {
+    /* Background colors */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+  --foreground: 220 40% 13%;
+    
+    /* Card surfaces */
+   --card: 0 0% 100%;
+  --card-foreground: 220 40% 13%;
+    
+    /* Popover/Dropdown */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
+    --popover-foreground: 220 40% 13%;
+    
+    /* Primary - Blue for active states */
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary - Light gray */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 40% 13%;
+    
+    /* Muted text and backgrounds */
+    --muted: 220 14% 96%;
+    --muted-foreground: 0 0% 0%;
+    --placeholder: 220 10% 62%;
+    
+    /* Accent - For hover states */
+    --accent: 220 14% 96%;
+    --accent-foreground: 220 40% 13%;
+    
+    /* Success - Green */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --success-light: 142 76% 94%;
+    
+    /* CTA Orange */
+    --cta: 24 95% 53%;
+    --cta-foreground: 0 0% 100%;
+    --cta-hover: 24 95% 48%;
+    
+    /* Warning/Savings */
+    --savings: 142 71% 45%;
+    --savings-background: 142 76% 94%;
+    
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Borders */
+    --border: 220 13% 91%;
+    --border-active: 217 91% 60%;
+    --input: 220 13% 91%;
+    --ring: 217 91% 60%;
+    
+    /* Selection card states */
+    --card-selected: 217 91% 60%;
+    --card-selected-bg: 217 100% 98%;
+    
+    /* Stepper */
+    --stepper-done: 142 71% 45%;
+    --stepper-active: 217 91% 60%;
+    --stepper-pending: 220 13% 80%;
+    --stepper-line: 220 13% 88%;
+    
+    /* Header bar */
+    --header-bg: 217 91% 60%;
+    --header-foreground: 0 0% 100%;
+    
+    /* Badge colors */
+    --badge-recommended: 142 71% 45%;
+    --badge-popular: 280 87% 65%;
+    
+    /* Radius */
     --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    
+    /* Shadows - matching screenshot exactly */
+    --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.03);
+    --shadow-card-hover: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-summary: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.03);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: 220 40% 8%;
+    --foreground: 220 20% 98%;
+    --card: 220 40% 12%;
+    --card-foreground: 220 20% 98%;
+    --popover: 220 40% 12%;
+    --popover-foreground: 220 20% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 40% 18%;
+    --secondary-foreground: 220 20% 98%;
+    --muted: 220 40% 18%;
+    --muted-foreground: 220 13% 65%;
+    --accent: 220 40% 18%;
+    --accent-foreground: 220 20% 98%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 40% 22%;
+    --input: 220 40% 22%;
+    --ring: 217 91% 60%;
+    --border-active: 217 91% 60%;
   }
 }
 
@@ -99,7 +122,353 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground;
+  html, body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Global placeholder styling — lighter than input text */
+input::placeholder,
+textarea::placeholder,
+select::placeholder {
+  color: hsl(var(--placeholder)) !important;
+  opacity: 1;
+}
+
+@layer components {
+  /* Soft input style matching screenshots */
+  .soft-input {
+    @apply w-full h-12 px-4 bg-card border border-border rounded-lg text-foreground text-sm;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary;
+    @apply transition-all duration-200;
+  }
+  
+  .soft-input-with-icon {
+    @apply soft-input pl-11;
+  }
+  
+  .soft-select {
+    @apply soft-input appearance-none cursor-pointer pr-10;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.75rem center;
+    background-repeat: no-repeat;
+    background-size: 1.25em 1.25em;
+  }
+  
+  .soft-textarea {
+    @apply w-full px-4 py-3 bg-card border border-border rounded-lg text-foreground text-sm;
+    @apply placeholder:text-muted-foreground resize-none;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary;
+    @apply transition-all duration-200;
+    min-height: 100px;
+  }
+  
+  /* Option card styles */
+  .option-card {
+    @apply relative bg-card border-2 border-border rounded-xl p-5 cursor-pointer;
+    @apply transition-all duration-200;
+    @apply hover:border-primary/40 hover:shadow-md;
+  }
+  
+  .option-card-selected {
+    @apply border-primary bg-[hsl(var(--card-selected-bg))];
+  }
+  
+  .option-card-highlighted {
+    @apply border-primary shadow-lg;
+    background: linear-gradient(180deg, hsl(280 87% 98%) 0%, hsl(0 0% 100%) 100%);
+  }
+  
+  /* Primary CTA button - Orange matching screenshot exactly */
+  .btn-cta {
+    @apply inline-flex items-center justify-center gap-2;
+    @apply h-12 px-8 rounded-2xl font-semibold text-sm;
+    @apply text-white;
+    background: linear-gradient(180deg, hsl(24, 95%, 55%) 0%, hsl(24, 95%, 50%) 100%);
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    @apply hover:brightness-105 active:scale-[0.98];
+    @apply transition-all duration-200;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:brightness-100;
+  }
+  
+  /* Secondary button - Back button style */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2;
+    @apply h-12 px-6 rounded-2xl font-medium text-sm;
+    @apply bg-card text-foreground border border-border;
+    @apply hover:bg-secondary active:scale-[0.98];
+    @apply transition-all duration-200;
+  }
+  
+  /* Need help button style - matches screenshot */
+  .btn-help {
+    @apply inline-flex items-center justify-center gap-2;
+    @apply w-full h-10 rounded-2xl font-medium text-sm;
+    @apply bg-card text-primary border border-border;
+    @apply hover:bg-secondary;
+    @apply transition-all duration-200;
+  }
+  
+  /* Toggle button group */
+  .toggle-group {
+    @apply inline-flex bg-secondary rounded-lg p-1;
+  }
+  
+  .toggle-btn {
+    @apply px-6 py-2 rounded-md text-sm font-medium;
+    @apply text-muted-foreground;
+    @apply transition-all duration-200;
+  }
+  
+  .toggle-btn-active {
+    @apply bg-primary text-primary-foreground shadow-sm;
+  }
+  
+  /* Counter controls */
+  .counter-btn {
+    @apply w-10 h-10 rounded-full;
+    @apply flex items-center justify-center;
+    @apply transition-all duration-200;
+    @apply disabled:opacity-30 disabled:cursor-not-allowed;
+    background-color: hsl(var(--cta));
+    color: white;
+    border: none;
+  }
+  .counter-btn:hover:not(:disabled) {
+    background-color: hsl(var(--cta) / 0.85);
+  }
+
+  .counter-btn-inline {
+    @apply w-10 h-10 rounded-lg flex items-center justify-center transition-all;
+    @apply disabled:opacity-30 disabled:cursor-not-allowed;
+    background-color: hsl(var(--cta));
+    color: white;
+    border: none;
+  }
+  .counter-btn-inline:hover:not(:disabled) {
+    background-color: hsl(var(--cta) / 0.85);
+    transform: scale(1.05);
+  }
+  .counter-btn-inline-sm {
+    @apply w-9 h-9 rounded-lg flex items-center justify-center transition-all;
+    @apply disabled:opacity-30 disabled:cursor-not-allowed;
+    background-color: hsl(var(--cta));
+    color: white;
+    border: none;
+  }
+  .counter-btn-inline-sm:hover:not(:disabled) {
+    background-color: hsl(var(--cta) / 0.85);
+    transform: scale(1.05);
+  }
+
+  .upload-box {
+    @apply border-2 border-dashed border-border rounded-xl p-8;
+    @apply flex flex-col items-center justify-center gap-3;
+    @apply cursor-pointer hover:border-primary/50 hover:bg-primary/5;
+    @apply transition-all duration-200;
+  }
+  
+  /* Stepper styles - matching screenshot with circular icons and dashed lines */
+  .stepper-icon {
+    @apply w-10 h-10 rounded-full flex items-center justify-center;
+    @apply transition-all duration-300;
+  }
+  
+  .stepper-icon-done {
+    @apply bg-[hsl(var(--stepper-done))] text-white;
+  }
+  
+  .stepper-icon-active {
+    @apply bg-[hsl(var(--stepper-active))] text-white;
+  }
+  
+  .stepper-icon-pending {
+    @apply bg-card border-2 border-[hsl(var(--stepper-line))] text-muted-foreground;
+  }
+  
+  /* Dashed line for stepper - matching screenshot */
+  .stepper-line-dashed {
+    height: 2px;
+    flex: 1;
+    background-image: repeating-linear-gradient(
+      90deg,
+      hsl(var(--stepper-line)),
+      hsl(var(--stepper-line)) 6px,
+      transparent 6px,
+      transparent 12px
+    );
+  }
+  
+  .stepper-line-done {
+    background-image: repeating-linear-gradient(
+      90deg,
+      hsl(var(--stepper-done)),
+      hsl(var(--stepper-done)) 6px,
+      transparent 6px,
+      transparent 12px
+    );
+  }
+  
+  /* Summary card - subtle shadow matching screenshot */
+  .summary-card {
+    @apply bg-card rounded-xl border border-border;
+    box-shadow: var(--shadow-summary);
+  }
+  
+  /* Badge styles */
+  .badge-recommended {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium;
+    @apply bg-[hsl(var(--badge-recommended))] text-white;
+  }
+  
+  .badge-popular {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide;
+    @apply bg-[hsl(var(--badge-popular))] text-white;
+  }
+  
+  /* Savings strip */
+  .savings-strip {
+    @apply flex items-center gap-2 px-4 py-2 rounded-lg;
+    @apply bg-[hsl(var(--savings-background))] text-[hsl(var(--success))];
+    @apply text-sm font-medium;
+  }
+  
+  /* Declaration box */
+  .declaration-box {
+    @apply bg-primary/5 border border-primary/20 rounded-xl p-5;
+  }
+  
+  /* Form label */
+  .form-label {
+    @apply block text-sm font-medium text-foreground mb-2;
+  }
+  
+  /* Section header - matching blue color from screenshot */
+  .section-header {
+    @apply flex items-center gap-2 text-sm font-semibold text-primary mb-4;
+  }
+  
+  /* Content card - matching shadow from screenshot */
+  .content-card {
+    @apply bg-card rounded-xl p-6 md:p-8 border border-border;
+    box-shadow: var(--shadow-card);
+      overflow: visible;
+  }
+  
+  /* Radio indicator */
+  .radio-indicator {
+    @apply w-5 h-5 rounded-full border-2 border-border;
+    @apply flex items-center justify-center;
+    @apply transition-all duration-200;
+  }
+  
+  .radio-indicator-selected {
+    @apply border-primary;
+  }
+  
+  .radio-indicator-selected::after {
+    content: '';
+    @apply w-2.5 h-2.5 rounded-full bg-primary;
+  }
+  
+  /* Checkbox custom */
+  .checkbox-custom {
+    @apply w-5 h-5 rounded border-2 border-border;
+    @apply flex items-center justify-center cursor-pointer;
+    @apply transition-all duration-200;
+  }
+  
+  .checkbox-custom-checked {
+    @apply bg-primary border-primary;
+  }
+  
+  /* Trust markers */
+  .trust-marker {
+    @apply flex items-center gap-2 text-sm text-muted-foreground;
+  }
+  
+  /* Discount code link styling */
+  .discount-link {
+    @apply text-sm text-primary flex items-center gap-1.5 hover:underline cursor-pointer;
+  }
+
+  /* When embedded in an iframe (WordPress), make everything transparent
+     and kill internal scrolling so the parent page owns the scrollbar */
+  .iframe-embed {
+    background: transparent !important;
+    overflow: visible !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  .iframe-embed .bg-background {
+    background: transparent !important;
+  }
+
+  .iframe-embed .bg-card {
+    background: transparent !important;
+  }
+
+  .iframe-embed .border-b {
+    border-bottom-color: transparent !important;
+  }
+}
+
+/* Sticky bottom navigation for checkout steps on mobile */
+@media (max-width: 767px) {
+  .checkout-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 51;
+    background: hsl(var(--card));
+    border-top: 1px solid hsl(var(--border));
+    padding: 12px 16px;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Mobile summary bar sits above the fixed nav */
+  .checkout-mobile-summary {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 58px;
+    z-index: 50;
+    background: hsl(var(--card));
+    border-top: 1px solid hsl(var(--border));
+    padding: 8px 16px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.04);
+  }
+
+  /* Ensure content isn't hidden behind both fixed bars */
+  .checkout-content-pad {
+    padding-bottom: 130px;
+  }
+}
+
+.signature-input {
+  font-family: "Pacifico", cursive;
+  font-size: 1.25rem;
+  letter-spacing: 0.05em;
+  background: linear-gradient(
+    to bottom,
+    transparent 70%,
+    rgba(0, 0, 0, 0.04) 71%
+  );
+  padding: 14px 16px;
+  height: 56px;
 }

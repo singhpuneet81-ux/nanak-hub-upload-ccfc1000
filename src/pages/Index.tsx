@@ -1,16 +1,55 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React from "react";
+import { useSearchParams } from "react-router-dom";
+import { CheckoutPage } from "./CheckoutPage";
+import { GSTCheckoutPage } from "./GSTCheckoutpage";
+import ABNCheckoutPage from "./ABNCheckoutPage";
+import BusinessNameCheckoutPage from "./BusinessNameCheckoutPage";
+import { FamilyTrustCheckoutPage } from "./FamilyTrustCheckoutPage";
+import { CharitySetupCheckoutPage } from "./CharitySetupCheckoutPage";
+import { UnitTrustCheckoutPage } from "./UnitTrustCheckoutPage";
+import TFNCheckoutPage from "./TFNcheckoutPage";
+import { PartnershipCheckoutPage } from "./PartnershipCheckoutPage";
+import BareTrustCheckoutPage from "./BareTrustCheckoutPage";
+import NDISCheckoutPage from "./NDISCheckoutPage";
+import DGRCheckoutPage from "./DGRCheckoutPage";
+import ServiceSelectionPage from "./ServiceSelectionPage";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
-  return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
-    </div>
-  );
+const Index: React.FC = () => {
+  const [searchParams] = useSearchParams();
+  const service = searchParams.get("service");
+
+  // Route based on ?service= query parameter
+  switch (service) {
+    case "gst":
+      return <GSTCheckoutPage />;
+    case "abn":
+      return <ABNCheckoutPage />;
+    case "business_name":
+      return <BusinessNameCheckoutPage />;
+    case "family_trust":
+      return <FamilyTrustCheckoutPage />;
+    case "charity":
+      return <CharitySetupCheckoutPage />;
+    case "charity_ia":
+      return <CharitySetupCheckoutPage />;
+    case "charity_clg":
+      return <CharitySetupCheckoutPage />;
+    case "unit_trust":
+      return <UnitTrustCheckoutPage />;
+    case "tfn":
+      return <TFNCheckoutPage />;
+    case "partnership":
+      return <PartnershipCheckoutPage />;
+    case "bare_trust":
+      return <BareTrustCheckoutPage />;
+    case "ndis":
+      return <NDISCheckoutPage />;
+    case "dgr":
+      return <DGRCheckoutPage />;
+    default:
+      // No service param → show service selection landing
+      return <ServiceSelectionPage />;
+  }
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;

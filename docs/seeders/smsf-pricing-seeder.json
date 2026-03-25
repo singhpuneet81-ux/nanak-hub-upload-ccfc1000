@@ -1,0 +1,47 @@
+{
+  "serviceKey": "smsf_accounting",
+  "label": "SMSF Accounting",
+  "baseAnnual": 1200,
+  "annualDiscount": 0.2,
+  "propertyRates": {
+    "residential": 250,
+    "commercial": 300
+  },
+  "investmentAddons": [
+    { "id": "high_volume_trading", "label": "High Volume Trading", "sub": "Active share trading portfolio with frequent transactions", "price": 250 },
+    { "id": "unlisted_investments", "label": "Unlisted Investments", "sub": "Private company shares, unlisted trusts or unit trusts", "price": 300 },
+    { "id": "overseas_investments", "label": "Overseas Investments", "sub": "International shares, foreign currency or offshore assets", "price": 300 },
+    { "id": "cryptocurrency", "label": "Cryptocurrency", "sub": "Bitcoin, Ethereum & other digital assets", "price": 350 }
+  ],
+  "extraMemberFee": 200,
+  "pensionFee": 250,
+  "strategySessionFee": 500,
+  "catchUpFee": 750,
+  "baseFeatures": [
+    "Annual Financial Statements",
+    "SMSF Tax Return Lodgement",
+    "Member Statements",
+    "Trustee Minutes",
+    "ATO Compliance",
+    "Class Super Platform",
+    "Pension Documentation",
+    "Independent Audit Included"
+  ],
+  "standardExtras": [
+    "1 Residential Property included",
+    "Up to 2 members",
+    "Listed shares & managed funds"
+  ],
+  "customScenarios": [
+    "Multiple residential properties",
+    "Commercial properties",
+    "Crypto, overseas or unlisted investments",
+    "3+ fund members",
+    "Pension phase members"
+  ],
+  "standardCardTitle": "Standard SMSF",
+  "standardCardSubtitle": "1 property · Up to 2 members",
+  "customCardTitle": "Build Your Package",
+  "customCardSubtitle": "Customise for your fund",
+  "disclaimerText": "All prices exclude GST · Annual billing only · Independent audit included"
+}

@@ -1,0 +1,9 @@
+export { FTPageHeader } from "./FTPageHeader";
+export { FTStepper } from "./FTStepper";
+export { FTOrderSummary } from "./FTOrderSummary";
+export { FTStepTrustDetails } from "./FTStepTrustDetails";
+export { FTStepAppointorBeneficiaries } from "./FTStepAppointorBeneficiaries";
+export { FTStepDirectorsShareholders } from "./FTStepDirectorsShareholders";
+export { FTStepAddons } from "./FTStepAddons";
+export { FTStepPackage } from "./FTStepPackage";
+export { FTStepReviewPay } from "./FTStepReviewPay";

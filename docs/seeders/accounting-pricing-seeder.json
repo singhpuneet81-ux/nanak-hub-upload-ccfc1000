@@ -1,0 +1,206 @@
+[
+  {
+    "serviceKey": "company_accounting",
+    "label": "Company Accounting",
+    "enableStrikePricing": true,
+    "tiers": {
+      "under75k":    { "compliance": 1200, "monthly": 100, "strikeCompliance": 1500, "strikeMonthly": 130 },
+      "75to200k":    { "compliance": 1400, "monthly": 120, "strikeCompliance": 1750, "strikeMonthly": 150 },
+      "200to500k":   { "compliance": 1600, "monthly": 140, "strikeCompliance": 2000, "strikeMonthly": 175 },
+      "500to1m":     { "compliance": 1800, "monthly": 160, "strikeCompliance": 2250, "strikeMonthly": 200 },
+      "1mto2m":      { "compliance": 2000, "monthly": 180, "strikeCompliance": 2500, "strikeMonthly": 225 },
+      "2mto5m":      { "compliance": 2500, "monthly": 200, "strikeCompliance": 3125, "strikeMonthly": 250 }
+    },
+    "revenueTiers": [
+      { "id": "under75k", "label": "Under $75K" },
+      { "id": "75to200k", "label": "$75K – $200K" },
+      { "id": "200to500k", "label": "$200K – $500K" },
+      { "id": "500to1m", "label": "$500K – $1M" },
+      { "id": "1mto2m", "label": "$1M – $2M" },
+      { "id": "2mto5m", "label": "$2M – $5M" }
+    ],
+    "annualDiscount": 0.20,
+    "transitionFee": 600,
+    "startDates": [
+      { "id": "jul", "label": "1 July 2025", "months": 12, "desc": "Full Year" },
+      { "id": "oct", "label": "1 October 2025", "months": 9, "desc": "9 months" },
+      { "id": "jan", "label": "1 January 2026", "months": 6, "desc": "6 months" },
+      { "id": "apr", "label": "1 April 2026", "months": 3, "desc": "3 months" }
+    ],
+    "addons": {
+      "catchUpFee": 750,
+      "registeredOfficeFee": 300,
+      "taxPlanningFee": 500,
+      "payrollPerEmployee": 120
+    },
+    "plans": {
+      "essential": {
+        "title": "Essential",
+        "subtitle": "Compliance-focused",
+        "badge": null,
+        "features": ["Monthly Bookkeeping", "Quarterly BAS Lodgement", "Annual Tax Return", "Annual Financial Statements", "ASIC Annual Review"],
+        "extraFeatures": ["Accounts Payable Management", "Accounts Receivable Management", "Payroll Processing", "Bank & Credit Card Reconciliation", "Company Tax Return Lodgement"]
+      },
+      "premium": {
+        "title": "Premium",
+        "subtitle": "Strategic growth",
+        "badge": "MOST POPULAR",
+        "features": ["Everything in Essential", "Tax Planning Sessions", "Priority Phone Support", "Monthly Management Reports", "Quarterly Strategy Meetings", "Dedicated Accountant"],
+        "extraFeatures": ["ASIC Annual Review", "Accounts Payable Management", "Accounts Receivable Management", "Payroll Processing", "Annual Financial Statements", "Bank & Credit Card Reconciliation", "Company Tax Return Lodgement", "Cloud Accounting Software Setup", "Quarterly Review Meetings", "Strategic Tax Advisory"]
+      }
+    }
+  },
+  {
+    "serviceKey": "trust_accounting",
+    "label": "Trust Accounting",
+    "enableStrikePricing": true,
+    "tiers": {
+      "under75k":    { "compliance": 1000, "monthly": 77, "strikeCompliance": 1250, "strikeMonthly": 100 },
+      "75to200k":    { "compliance": 1200, "monthly": 95, "strikeCompliance": 1500, "strikeMonthly": 120 },
+      "200to500k":   { "compliance": 1400, "monthly": 115, "strikeCompliance": 1750, "strikeMonthly": 145 },
+      "500to1m":     { "compliance": 1600, "monthly": 135, "strikeCompliance": 2000, "strikeMonthly": 170 },
+      "1mto2m":      { "compliance": 1800, "monthly": 155, "strikeCompliance": 2250, "strikeMonthly": 195 },
+      "2mto5m":      { "compliance": 2200, "monthly": 180, "strikeCompliance": 2750, "strikeMonthly": 225 }
+    },
+    "revenueTiers": [
+      { "id": "under75k", "label": "Under $75K" },
+      { "id": "75to200k", "label": "$75K – $200K" },
+      { "id": "200to500k", "label": "$200K – $500K" },
+      { "id": "500to1m", "label": "$500K – $1M" },
+      { "id": "1mto2m", "label": "$1M – $2M" },
+      { "id": "2mto5m", "label": "$2M – $5M" }
+    ],
+    "annualDiscount": 0.20,
+    "transitionFee": 600,
+    "startDates": [
+      { "id": "jul", "label": "1 July 2025", "months": 12, "desc": "Full Year" },
+      { "id": "oct", "label": "1 October 2025", "months": 9, "desc": "9 months" },
+      { "id": "jan", "label": "1 January 2026", "months": 6, "desc": "6 months" },
+      { "id": "apr", "label": "1 April 2026", "months": 3, "desc": "3 months" }
+    ],
+    "addons": {
+      "catchUpFee": 750,
+      "registeredOfficeFee": 300,
+      "taxPlanningFee": 500,
+      "payrollPerEmployee": 120
+    },
+    "plans": {
+      "essential": {
+        "title": "Essential",
+        "subtitle": "Compliance-focused",
+        "badge": null,
+        "features": ["Trust Transaction Recording", "Trust Distribution Calculations", "Beneficiary Statements", "Trust Tax Return Preparation", "Quarterly BAS Lodgement"],
+        "extraFeatures": ["Bank & Credit Card Reconciliation", "Accounts Payable Management", "Accounts Receivable Management", "Trust Distribution Minutes", "Annual Financial Statements", "Trust Compliance Review"]
+      },
+      "premium": {
+        "title": "Premium",
+        "subtitle": "Strategic growth",
+        "badge": "MOST POPULAR",
+        "features": ["Everything in Essential", "Tax Planning Sessions", "Priority Phone Support", "Monthly Management Reports", "Quarterly Strategy Meetings", "Dedicated Accountant"],
+        "extraFeatures": ["Trust Distribution Minutes", "Annual Financial Statements", "Bank & Credit Card Reconciliation", "Accounts Payable Management", "Accounts Receivable Management", "Trust Compliance Review", "Cloud Accounting Software Setup", "Quarterly Review Meetings", "Strategic Tax Advisory", "Trust Restructuring Advice"]
+      }
+    }
+  },
+  {
+    "serviceKey": "nfp_accounting",
+    "label": "NFP Accounting",
+    "enableStrikePricing": true,
+    "tiers": {
+      "under75k":    { "compliance": 1200, "monthly": 99, "strikeCompliance": 1500, "strikeMonthly": 125 },
+      "75to200k":    { "compliance": 1400, "monthly": 120, "strikeCompliance": 1750, "strikeMonthly": 150 },
+      "200to500k":   { "compliance": 1600, "monthly": 140, "strikeCompliance": 2000, "strikeMonthly": 175 },
+      "500to1m":     { "compliance": 1800, "monthly": 160, "strikeCompliance": 2250, "strikeMonthly": 200 },
+      "1mto2m":      { "compliance": 2000, "monthly": 180, "strikeCompliance": 2500, "strikeMonthly": 225 },
+      "2mto5m":      { "compliance": 2500, "monthly": 200, "strikeCompliance": 3125, "strikeMonthly": 250 }
+    },
+    "revenueTiers": [
+      { "id": "under75k", "label": "Under $75K" },
+      { "id": "75to200k", "label": "$75K – $200K" },
+      { "id": "200to500k", "label": "$200K – $500K" },
+      { "id": "500to1m", "label": "$500K – $1M" },
+      { "id": "1mto2m", "label": "$1M – $2M" },
+      { "id": "2mto5m", "label": "$2M – $5M" }
+    ],
+    "annualDiscount": 0.20,
+    "transitionFee": 600,
+    "startDates": [
+      { "id": "jul", "label": "1 July 2025", "months": 12, "desc": "Full Year" },
+      { "id": "oct", "label": "1 October 2025", "months": 9, "desc": "9 months" },
+      { "id": "jan", "label": "1 January 2026", "months": 6, "desc": "6 months" },
+      { "id": "apr", "label": "1 April 2026", "months": 3, "desc": "3 months" }
+    ],
+    "addons": {
+      "catchUpFee": 750,
+      "registeredOfficeFee": 300,
+      "taxPlanningFee": 500,
+      "payrollPerEmployee": 120
+    },
+    "plans": {
+      "essential": {
+        "title": "Essential",
+        "subtitle": "Compliance-focused",
+        "badge": null,
+        "features": ["NFP Financial Reporting", "Fund & Grant Tracking", "Donor Management & Receipting", "ACNC Annual Information Statement", "Quarterly BAS Lodgement"],
+        "extraFeatures": ["Bank & Credit Card Reconciliation", "Accounts Payable Management", "Accounts Receivable Management", "Grant Acquittal Reports", "Annual Financial Statements", "NFP Compliance Review"]
+      },
+      "premium": {
+        "title": "Premium",
+        "subtitle": "Strategic growth",
+        "badge": "MOST POPULAR",
+        "features": ["Everything in Essential", "Tax Planning Sessions", "Priority Phone Support", "Monthly Management Reports", "Quarterly Strategy Meetings", "Dedicated Accountant"],
+        "extraFeatures": ["Grant Acquittal Reports", "Annual Financial Statements", "Bank & Credit Card Reconciliation", "Accounts Payable Management", "Accounts Receivable Management", "NFP Compliance Review", "Cloud Accounting Software Setup", "Quarterly Review Meetings", "Strategic Tax Advisory", "DGR Compliance Support"]
+      }
+    }
+  },
+  {
+    "serviceKey": "partnership_tax",
+    "label": "Partnership Tax",
+    "enableStrikePricing": true,
+    "tiers": {
+      "under75k":    { "compliance": 1000, "monthly": 85, "strikeCompliance": 1250, "strikeMonthly": 110 },
+      "75to200k":    { "compliance": 1200, "monthly": 105, "strikeCompliance": 1500, "strikeMonthly": 135 },
+      "200to500k":   { "compliance": 1400, "monthly": 125, "strikeCompliance": 1750, "strikeMonthly": 160 },
+      "500to1m":     { "compliance": 1600, "monthly": 145, "strikeCompliance": 2000, "strikeMonthly": 185 },
+      "1mto2m":      { "compliance": 1800, "monthly": 165, "strikeCompliance": 2250, "strikeMonthly": 210 },
+      "2mto5m":      { "compliance": 2200, "monthly": 190, "strikeCompliance": 2750, "strikeMonthly": 240 }
+    },
+    "revenueTiers": [
+      { "id": "under75k", "label": "Under $75K" },
+      { "id": "75to200k", "label": "$75K – $200K" },
+      { "id": "200to500k", "label": "$200K – $500K" },
+      { "id": "500to1m", "label": "$500K – $1M" },
+      { "id": "1mto2m", "label": "$1M – $2M" },
+      { "id": "2mto5m", "label": "$2M – $5M" }
+    ],
+    "annualDiscount": 0.20,
+    "transitionFee": 600,
+    "startDates": [
+      { "id": "jul", "label": "1 July 2025", "months": 12, "desc": "Full Year" },
+      { "id": "oct", "label": "1 October 2025", "months": 9, "desc": "9 months" },
+      { "id": "jan", "label": "1 January 2026", "months": 6, "desc": "6 months" },
+      { "id": "apr", "label": "1 April 2026", "months": 3, "desc": "3 months" }
+    ],
+    "addons": {
+      "catchUpFee": 750,
+      "registeredOfficeFee": 300,
+      "taxPlanningFee": 500,
+      "payrollPerEmployee": 120
+    },
+    "plans": {
+      "essential": {
+        "title": "Essential",
+        "subtitle": "Compliance-focused",
+        "badge": null,
+        "features": ["Partnership Tax Returns", "Profit Distribution", "Partner Capital Tracking", "Partnership BAS", "Quarterly BAS Lodgement"],
+        "extraFeatures": ["Bank & Credit Card Reconciliation", "Accounts Payable Management", "Accounts Receivable Management", "Partner Distribution Statements", "Annual Financial Statements", "Partnership Compliance Review"]
+      },
+      "premium": {
+        "title": "Premium",
+        "subtitle": "Strategic growth",
+        "badge": "MOST POPULAR",
+        "features": ["Everything in Essential", "Tax Planning Sessions", "Priority Phone Support", "Monthly Management Reports", "Quarterly Strategy Meetings", "Dedicated Accountant"],
+        "extraFeatures": ["Partner Distribution Statements", "Annual Financial Statements", "Bank & Credit Card Reconciliation", "Accounts Payable Management", "Accounts Receivable Management", "Partnership Compliance Review", "Cloud Accounting Software Setup", "Quarterly Review Meetings", "Strategic Tax Advisory", "Partnership Restructuring Advice"]
+      }
+    }
+  }
+]
