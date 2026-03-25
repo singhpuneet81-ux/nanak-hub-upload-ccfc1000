@@ -420,7 +420,7 @@
                 accepted={customer.declarationAccepted || false}
                 onAcceptChange={(accepted) => handleChange("declarationAccepted", accepted)}
               />
-                <div className="mt-8 flex justify-end">
+                <div className="mt-8 hidden md:flex justify-end">
                 <PrimaryButton onClick={nextStep} disabled={!isValid()}>
                   Continue
                 </PrimaryButton>
