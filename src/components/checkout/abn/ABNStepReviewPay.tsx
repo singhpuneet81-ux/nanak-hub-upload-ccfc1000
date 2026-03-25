@@ -263,9 +263,9 @@ const lineItems = useMemo<LineItem[]>(() => {
         </div>
       )}
 
-      {/* Buttons */}
-      <div className="checkout-nav flex flex-col-reverse sm:flex-row gap-3">
-        <BackButton onClick={prevStep} className="sm:w-32" />
+      {/* Buttons - desktop only, mobile uses unified bottom bar */}
+      <div className="hidden md:flex gap-3">
+        <BackButton onClick={prevStep} className="w-32" />
         <PrimaryButton onClick={handleSubmit} disabled={isSubmitting} className="flex-1">
           Complete & Pay {formatCurrency(total)}
         </PrimaryButton>

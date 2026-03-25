@@ -387,8 +387,8 @@ updateSelections({
 
 
    
-         {/* Navigation */}
-         <div className="checkout-nav flex gap-4">
+         {/* Navigation - desktop only */}
+         <div className="hidden md:flex gap-4">
            <button
              onClick={prevStep}
              className="flex-1 h-12 border border-border rounded-lg font-medium flex items-center justify-center gap-2 hover:bg-secondary"
