@@ -1,5 +1,4 @@
 import React, { useState, useMemo } from "react";
-import { Calculator } from "lucide-react";
 import {
   BarChart,
   Bar,
@@ -7,14 +6,12 @@ import {
   YAxis,
   Tooltip,
   ResponsiveContainer,
-  Cell,
-  Legend,
 } from "recharts";
 
 type GstMode = "add" | "remove";
 
 const GSTCalculatorPage: React.FC = () => {
-  const [amount, setAmount] = useState<string>("4565");
+  const [amount, setAmount] = useState<string>("60000");
   const [mode, setMode] = useState<GstMode>("add");
 
   const parsed = useMemo(() => {
@@ -39,140 +36,141 @@ const GSTCalculatorPage: React.FC = () => {
 
   const parseInput = (val: string) => val.replace(/,/g, "");
 
-  const totalLabel = mode === "add" ? "Amount after GST" : "Amount before GST";
   const baseNum = parseFloat(amount) || 0;
+  const totalLabel = mode === "add" ? "GST" : "GST";
 
-  const chartData = [
-    {
-      name: totalLabel,
-      value: mode === "add" ? parsed.total : parsed.total,
-      color: "hsl(142, 71%, 45%)",
-    },
-    {
-      name: "Amount",
-      value: baseNum,
-      color: "hsl(24, 95%, 53%)",
-    },
-  ];
-
-  // For the stacked bar approach, let's use grouped bars
-  const barData = [
-    { name: totalLabel, amount: parsed.total },
-    { name: "Amount", amount: baseNum },
-  ];
+  const handleCopy = () => {
+    const text = `${mode === "add" ? "Adding" : "Removing"} 10% GST ${mode === "add" ? "to" : "from"} ${fmt(baseNum)} | Total: ${fmt(parsed.total)} | GST: ${fmt(parsed.gst)}`;
+    navigator.clipboard.writeText(text);
+  };
 
   return (
     <div className="min-h-screen bg-background">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
-        {/* Calculator Card */}
         <div className="bg-card rounded-2xl border border-border shadow-sm overflow-hidden">
-          {/* Header */}
-          <div className="bg-primary px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-4">
-            {/* Amount Input */}
-            <div className="flex-1">
-              <label className="block text-xs font-bold text-primary-foreground/80 uppercase tracking-wider mb-1.5">
-                Amount
-              </label>
-              <div className="relative">
-                <input
-                  type="text"
-                  inputMode="decimal"
-                  value={fmtInput(amount)}
-                  onChange={(e) => setAmount(parseInput(e.target.value))}
-                  className="w-full sm:w-48 px-3 py-2 rounded-lg border-2 border-primary-foreground/20 bg-primary-foreground text-foreground text-sm font-semibold focus:outline-none focus:border-primary-foreground/50 transition-all"
-                />
-              </div>
-            </div>
 
-            {/* Mode Buttons */}
-            <div className="flex gap-2">
+          {/* ── Header: Amount Input ── */}
+          <div className="px-6 pt-6 pb-4">
+            <label className="block text-[11px] font-bold text-muted-foreground uppercase tracking-widest mb-2">
+              Enter Amount
+            </label>
+            <div className="relative">
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-lg font-bold text-foreground">$</span>
+              <input
+                type="text"
+                inputMode="decimal"
+                value={fmtInput(amount)}
+                onChange={(e) => setAmount(parseInput(e.target.value))}
+                className="w-full pl-10 pr-4 py-3 rounded-xl border-2 border-border bg-background text-2xl font-bold text-foreground focus:outline-none focus:border-primary transition-all"
+              />
+            </div>
+          </div>
+
+          {/* ── Operation Toggle ── */}
+          <div className="px-6 pb-5">
+            <label className="block text-[11px] font-bold text-muted-foreground uppercase tracking-widest mb-2">
+              Select Operation
+            </label>
+            <div className="flex gap-3">
               <button
                 onClick={() => setMode("remove")}
-                className={`px-4 sm:px-5 py-2.5 rounded-lg text-sm font-bold uppercase tracking-wide transition-all ${
+                className={`flex-1 py-3 rounded-xl text-sm font-bold uppercase tracking-wide transition-all ${
                   mode === "remove"
-                    ? "bg-primary-foreground text-primary shadow-md"
-                    : "bg-primary-foreground/15 text-primary-foreground border-2 border-primary-foreground/30 hover:bg-primary-foreground/25"
+                    ? "bg-success text-success-foreground shadow-md"
+                    : "bg-muted text-muted-foreground hover:bg-accent"
                 }`}
               >
-                Subtract GST
+                − Subtract
               </button>
               <button
                 onClick={() => setMode("add")}
-                className={`px-4 sm:px-5 py-2.5 rounded-lg text-sm font-bold uppercase tracking-wide transition-all ${
+                className={`flex-1 py-3 rounded-xl text-sm font-bold uppercase tracking-wide transition-all ${
                   mode === "add"
-                    ? "bg-primary-foreground text-primary shadow-md"
-                    : "bg-primary-foreground/15 text-primary-foreground border-2 border-primary-foreground/30 hover:bg-primary-foreground/25"
+                    ? "bg-primary text-primary-foreground shadow-md"
+                    : "bg-muted text-muted-foreground hover:bg-accent"
                 }`}
               >
-                Add GST
+                + Add GST
               </button>
             </div>
-
-            {/* Clear */}
-            <button
-              onClick={() => { setAmount(""); setMode("add"); }}
-              className="text-primary-foreground/60 hover:text-primary-foreground transition-colors self-start sm:self-center"
-              title="Clear"
-            >
-              <svg width="18" height="18" viewBox="0 0 16 16" fill="none">
-                <path d="M2 4h12M5 4V2.667A1.333 1.333 0 016.333 1.333h3.334A1.333 1.333 0 0111 2.667V4m2 0v9.333a1.333 1.333 0 01-1.333 1.334H4.333A1.333 1.333 0 013 13.333V4h10z" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
           </div>
 
-          {/* Results Section */}
-          <div className="p-6 sm:p-8">
-            {/* Legend + Values */}
-            <div className="flex items-center justify-center gap-6 sm:gap-10 mb-2 flex-wrap">
-              <div className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-sm shrink-0" style={{ background: "hsl(var(--success))" }} />
-                <span className="text-xs font-medium text-muted-foreground">{totalLabel}</span>
+          {/* ── Divider ── */}
+          <div className="border-t border-border" />
+
+          {/* ── Results Cards ── */}
+          <div className="px-6 pt-5 pb-4">
+            <div className="grid grid-cols-3 gap-3">
+              {/* GST Total */}
+              <div className="rounded-xl border border-border overflow-hidden">
+                <div className="h-1.5 w-full" style={{ background: "hsl(var(--success))" }} />
+                <div className="p-3 pt-2.5">
+                  <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-1">
+                    {mode === "add" ? "Total" : "Net Amount"}
+                  </p>
+                  <p className="text-base sm:text-lg font-extrabold" style={{ color: "hsl(var(--success))" }}>
+                    {fmt(mode === "add" ? parsed.total : parsed.total)}
+                  </p>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-sm shrink-0" style={{ background: "hsl(var(--cta))" }} />
-                <span className="text-xs font-medium text-muted-foreground">Amount</span>
+
+              {/* Cost Amount */}
+              <div className="rounded-xl border border-border overflow-hidden">
+                <div className="h-1.5 w-full" style={{ background: "hsl(var(--cta))" }} />
+                <div className="p-3 pt-2.5">
+                  <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-1">
+                    Cost Amount
+                  </p>
+                  <p className="text-base sm:text-lg font-extrabold" style={{ color: "hsl(var(--cta))" }}>
+                    {fmt(baseNum)}
+                  </p>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-sm shrink-0" style={{ background: "hsl(var(--primary))" }} />
-                <span className="text-xs font-medium text-muted-foreground">GST Amount</span>
+
+              {/* GST Amount */}
+              <div className="rounded-xl border border-border overflow-hidden">
+                <div className="h-1.5 w-full" style={{ background: "hsl(var(--primary))" }} />
+                <div className="p-3 pt-2.5">
+                  <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-1">
+                    GST Amount
+                  </p>
+                  <p className="text-base sm:text-lg font-extrabold text-primary">
+                    {fmt(parsed.gst)}
+                  </p>
+                </div>
               </div>
             </div>
+          </div>
 
-            {/* Big Numbers */}
-            <div className="grid grid-cols-3 gap-4 mb-6 text-center">
-              <div>
-                <p className="text-xl sm:text-2xl font-extrabold" style={{ color: "hsl(var(--success))" }}>
-                  {fmt(parsed.total)}
-                </p>
-              </div>
-              <div>
-                <p className="text-xl sm:text-2xl font-extrabold" style={{ color: "hsl(var(--cta))" }}>
-                  {fmt(baseNum)}
-                </p>
-              </div>
-              <div>
-                <p className="text-xl sm:text-2xl font-extrabold text-primary">
-                  {fmt(parsed.gst)}
-                </p>
-              </div>
+          {/* ── Final Amount Banner ── */}
+          <div className="mx-6 mb-4 rounded-xl overflow-hidden" style={{ background: "hsl(var(--success))" }}>
+            <div className="flex items-center justify-between px-5 py-3">
+              <span className="text-xs font-bold uppercase tracking-widest text-success-foreground/80">
+                Final Amount
+              </span>
+              <span className="text-xl font-extrabold text-success-foreground">
+                {fmt(mode === "add" ? parsed.total : parsed.total)}
+              </span>
             </div>
+          </div>
 
-            {/* Bar Chart */}
-            <div className="w-full h-[120px]">
+          {/* ── Bar Chart ── */}
+          <div className="px-6 pb-2">
+            <div className="w-full h-[100px]">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart
                   layout="vertical"
                   data={[
                     {
-                      name: "With GST",
-                      total: parsed.total,
-                      base: baseNum,
-                      gst: parsed.gst,
+                      name: "Total",
+                      total: mode === "add" ? parsed.total : baseNum,
+                      base: 0,
+                      gst: 0,
                     },
                     {
                       name: "Breakdown",
                       total: 0,
-                      base: baseNum,
+                      base: mode === "add" ? baseNum : parsed.total,
                       gst: parsed.gst,
                     },
                   ]}
@@ -197,17 +195,25 @@ const GSTCalculatorPage: React.FC = () => {
                       fontSize: "13px",
                     }}
                   />
-                  <Bar dataKey="total" stackId="a" fill="hsl(142, 71%, 45%)" radius={[4, 4, 4, 4]} barSize={28} name={totalLabel} />
-                  <Bar dataKey="base" stackId="b" fill="hsl(24, 95%, 53%)" radius={[0, 0, 0, 0]} barSize={28} name="Amount" />
-                  <Bar dataKey="gst" stackId="b" fill="hsl(217, 91%, 60%)" radius={[0, 4, 4, 0]} barSize={28} name="GST Amount" />
+                  <Bar dataKey="total" stackId="a" fill="hsl(142, 71%, 45%)" radius={[4, 4, 4, 4]} barSize={24} name="Total" />
+                  <Bar dataKey="base" stackId="b" fill="hsl(24, 95%, 53%)" radius={[4, 0, 0, 4]} barSize={24} name="Amount" />
+                  <Bar dataKey="gst" stackId="b" fill="hsl(217, 91%, 60%)" radius={[0, 4, 4, 0]} barSize={24} name="GST" />
                 </BarChart>
               </ResponsiveContainer>
             </div>
+          </div>
 
-            {/* Footer Note */}
-            <p className="text-xs text-muted-foreground mt-4 text-center">
-              {mode === "add" ? "Adding" : "Removing"} 10% GST {mode === "add" ? "to" : "from"} ${amount ? parseFloat(amount).toLocaleString("en-AU") : "0"}
+          {/* ── Footer ── */}
+          <div className="px-6 pb-5 flex items-center justify-between">
+            <p className="text-xs text-muted-foreground">
+              {mode === "add" ? "Adding" : "Removing"} 10% GST {mode === "add" ? "to" : "from"} {fmt(baseNum)}
             </p>
+            <button
+              onClick={handleCopy}
+              className="px-5 py-2 rounded-lg bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wide hover:opacity-90 transition-opacity"
+            >
+              Copy
+            </button>
           </div>
         </div>
       </div>
