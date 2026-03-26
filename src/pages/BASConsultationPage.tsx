@@ -49,10 +49,19 @@ const BASConsultationPage: React.FC = () => {
 
       toast({
         title: "Request submitted!",
-      description: "We'll get back to you within the same day.",
-    });
+        description: "We'll get back to you within the same day.",
+      });
 
-    setForm({ fullName: "", email: "", phone: "", businessName: "", message: "" });
+      setForm({ fullName: "", email: "", phone: "", businessName: "", message: "" });
+    } catch (err: any) {
+      toast({
+        title: "Submission failed",
+        description: err.message || "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
