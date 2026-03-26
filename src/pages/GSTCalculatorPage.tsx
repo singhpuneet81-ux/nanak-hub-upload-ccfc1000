@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { Calculator, DollarSign, Info, ChevronDown, BarChart3, Zap, Globe, TrendingUp } from "lucide-react";
+import { Calculator, ChevronDown } from "lucide-react";
 
 type GstMode = "add" | "remove";
 
