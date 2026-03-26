@@ -58,8 +58,8 @@ const GSTCalculatorPage: React.FC = () => {
                 <input
                   type="text"
                   inputMode="decimal"
-                  value={amount}
-                  onChange={(e) => setAmount(e.target.value.replace(/[^0-9.]/g, ""))}
+                  value={fmtInput(amount)}
+                  onChange={(e) => setAmount(parseInput(e.target.value))}
                   className="w-full pl-8 pr-4 py-2.5 rounded-lg border border-border bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all"
                 />
               </div>
