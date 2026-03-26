@@ -117,6 +117,7 @@ const App = () => (
           <Route path="/careers" element={<CareersPage />} />
           <Route path="/careers/apply" element={<JobApplicationPage />} />
           <Route path="/webinars" element={<WebinarPage />} />
+          <Route path="/bas-consultation" element={<BASConsultationPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
