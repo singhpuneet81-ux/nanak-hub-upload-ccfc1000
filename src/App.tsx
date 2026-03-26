@@ -52,6 +52,7 @@ import PaymentFailure from "./pages/PaymentFailure";
 import CareersPage from "./pages/CareersPage";
 import JobApplicationPage from "./components/careers/JobApplicationPage";
 import WebinarPage from "./pages/WebinarPage";
+import BASConsultationPage from "./pages/BASConsultationPage";
 import { useIframeResize } from "./hooks/useIframeResize";
 import { usePageMeta } from "./hooks/usePageMeta";
 
@@ -116,6 +117,7 @@ const App = () => (
           <Route path="/careers" element={<CareersPage />} />
           <Route path="/careers/apply" element={<JobApplicationPage />} />
           <Route path="/webinars" element={<WebinarPage />} />
+          <Route path="/bas-consultation" element={<BASConsultationPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
