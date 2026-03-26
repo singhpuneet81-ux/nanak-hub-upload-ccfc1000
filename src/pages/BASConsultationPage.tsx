@@ -29,16 +29,39 @@ const BASConsultationPage: React.FC = () => {
     }
 
     setLoading(true);
-    // Simulate submission — replace with Supabase edge function when Cloud is enabled
-    await new Promise((r) => setTimeout(r, 1000));
-    setLoading(false);
+    try {
+      const res = await fetch("https://api.connect.cavaluer.com/api/bas-consultations", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName: form.fullName.trim(),
+          email: form.email.trim(),
+          phone: form.phone.trim(),
+          businessName: form.businessName.trim(),
+          message: form.message.trim(),
+        }),
+      });
+      const data = await res.json();
 
-    toast({
-      title: "Request submitted!",
-      description: "We'll get back to you within the same day.",
-    });
+      if (!res.ok) {
+        throw new Error(data.error || "Something went wrong");
+      }
 
-    setForm({ fullName: "", email: "", phone: "", businessName: "", message: "" });
+      toast({
+        title: "Request submitted!",
+        description: "We'll get back to you within the same day.",
+      });
+
+      setForm({ fullName: "", email: "", phone: "", businessName: "", message: "" });
+    } catch (err: any) {
+      toast({
+        title: "Submission failed",
+        description: err.message || "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
