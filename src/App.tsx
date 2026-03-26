@@ -52,6 +52,7 @@ import PaymentFailure from "./pages/PaymentFailure";
 import CareersPage from "./pages/CareersPage";
 import JobApplicationPage from "./components/careers/JobApplicationPage";
 import WebinarPage from "./pages/WebinarPage";
+import BASConsultationPage from "./pages/BASConsultationPage";
 import { useIframeResize } from "./hooks/useIframeResize";
 import { usePageMeta } from "./hooks/usePageMeta";
 
