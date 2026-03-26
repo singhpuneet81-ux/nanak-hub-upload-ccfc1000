@@ -36,10 +36,8 @@ const GSTCalculatorPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-background">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        {/* Two-column layout: calculator left, info right */}
-        <div className="flex flex-col lg:flex-row gap-8">
-          {/* LEFT — Calculator Card */}
-          <div className="w-full lg:w-[420px] shrink-0">
+        <div className="flex justify-center">
+          <div className="w-full max-w-[420px]">
             <div className="bg-card rounded-2xl border border-border shadow-sm p-6 sm:p-8 sticky top-8">
               <div className="flex items-center justify-between mb-6">
                 <h1 className="text-xl sm:text-2xl font-bold text-foreground flex items-center gap-2">
