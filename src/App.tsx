@@ -99,6 +99,7 @@ const App = () => (
           <Route path="/buying-a-business" element={<BuyingBusinessPage />} />
           <Route path="/business-due-diligence" element={<BusinessDueDiligencePage />} />
           <Route path="/stamp-duty-calculator" element={<StampDutyCalculatorPage />} />
+          <Route path="/gst-calculator" element={<GSTCalculatorPage />} />
           <Route path="/trust-accounting" element={<TrustAccountingCheckoutPage />} />
           <Route path="/trust-accounting-landing" element={<TrustAccountingLandingPage />} />
           <Route path="/smsf-accounting" element={<SMSFAccountingCheckoutPage />} />
