@@ -24,6 +24,15 @@ const GSTCalculatorPage: React.FC = () => {
   const fmt = (n: number) =>
     n.toLocaleString("en-AU", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
+  const fmtInput = (val: string) => {
+    const clean = val.replace(/[^0-9.]/g, "");
+    const parts = clean.split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.length > 1 ? `${parts[0]}.${parts[1]}` : parts[0];
+  };
+
+  const parseInput = (val: string) => val.replace(/,/g, "");
+
   return (
     <div className="min-h-screen bg-background">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
