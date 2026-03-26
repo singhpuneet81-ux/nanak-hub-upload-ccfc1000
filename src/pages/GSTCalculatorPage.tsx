@@ -46,7 +46,10 @@ const GSTCalculatorPage: React.FC = () => {
                   <Calculator className="w-5 h-5 text-primary" />
                   GST Calculator
                 </h1>
-                <button className="text-muted-foreground hover:text-foreground transition-colors">
+                <button
+                  onClick={() => { setAmount(""); setMode("add"); setGstRate("10"); setDropdownOpen(false); }}
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4h12M5 4V2.667A1.333 1.333 0 016.333 1.333h3.334A1.333 1.333 0 0111 2.667V4m2 0v9.333a1.333 1.333 0 01-1.333 1.334H4.333A1.333 1.333 0 013 13.333V4h10z" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 </button>
               </div>
