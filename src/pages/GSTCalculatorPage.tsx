@@ -134,46 +134,4 @@ const GSTCalculatorPage: React.FC = () => {
   );
 };
 
-/* Reusable coloured info card */
-const InfoCard: React.FC<{
-  color: "orange" | "yellow" | "purple";
-  icon: React.ReactNode;
-  title: string;
-  children: React.ReactNode;
-}> = ({ color, icon, title, children }) => {
-  const borderMap = { orange: "border-l-[hsl(var(--cta))]", yellow: "border-l-yellow-400", purple: "border-l-purple-500" };
-  const iconBg = { orange: "bg-[hsl(var(--cta))]/10 text-[hsl(var(--cta))]", yellow: "bg-yellow-50 text-yellow-600", purple: "bg-purple-50 text-purple-600" };
-
-  return (
-    <div className={`bg-card rounded-2xl border border-border border-l-4 ${borderMap[color]} p-6`}>
-      <h2 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-        <span className={`p-1.5 rounded-lg ${iconBg[color]}`}>{icon}</span>
-        {title}
-      </h2>
-      {children}
-    </div>
-  );
-};
-
-/* Scenario example block */
-const ScenarioCard: React.FC<{ title: string; desc: string; formula: string; accent: string }> = ({
-  title, desc, formula, accent,
-}) => {
-  const bgMap: Record<string, string> = {
-    primary: "bg-primary/5 border-primary/20",
-    success: "bg-[hsl(var(--success-light))] border-[hsl(var(--success))]/20",
-    cta: "bg-[hsl(var(--cta))]/5 border-[hsl(var(--cta))]/20",
-  };
-
-  return (
-    <div className={`rounded-lg border p-3 ${bgMap[accent] || bgMap.primary}`}>
-      <p className="text-sm font-semibold text-foreground">{title}</p>
-      <p className="text-xs text-muted-foreground">{desc}</p>
-      <p className="text-xs font-medium mt-1" style={{ color: accent === "cta" ? "hsl(var(--cta))" : accent === "success" ? "hsl(var(--success))" : "hsl(var(--primary))" }}>
-        {formula}
-      </p>
-    </div>
-  );
-};
-
 export default GSTCalculatorPage;
