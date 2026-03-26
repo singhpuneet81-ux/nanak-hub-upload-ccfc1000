@@ -35,6 +35,7 @@ import BusinessHealthStructuringPage from "./pages/BusinessHealthStructuringPage
 import BuyingBusinessPage from "./pages/BuyingBusinessPage";
 import BusinessDueDiligencePage from "./pages/BusinessDueDiligencePage";
 import StampDutyCalculatorPage from "./pages/StampDutyCalculatorPage";
+import GSTCalculatorPage from "./pages/GSTCalculatorPage";
 import BundleCheckoutPage from "./pages/BundleCheckoutPage";
 import TrustAccountingCheckoutPage from "./pages/TrustAccountingCheckoutPage";
 import TrustAccountingLandingPage from "./pages/TrustAccountingLandingPage";
