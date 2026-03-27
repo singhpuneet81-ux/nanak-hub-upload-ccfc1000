@@ -24,7 +24,7 @@ export const PillToggle: React.FC<PillToggleProps> = ({
           {label} {required && <span className="text-destructive">*</span>}
         </label>
       )}
-      <div className="checkout-nav flex gap-3">
+      <div className="flex gap-3">
         {options.map((option) => (
           <button
             key={option.value}
