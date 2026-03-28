@@ -249,17 +249,6 @@ const CharitySetupCheckoutContent: React.FC = () => {
     }
   };
 
-  const handleMobileContinue = async () => {
-    if (currentStep === 5) {
-      // Submit on last step — trigger the contact/payment submit
-      return; // Let the inline form handle submission on desktop; on mobile the button is hidden for step 5
-    }
-    handleNext();
-  };
-
-  const mobileButtonText = currentStep === 5
-    ? `Complete & Pay ${total > 0 ? formatCurrency(total) : ""}`
-    : "Continue";
 
   return (
     <div className="min-h-screen bg-background">
