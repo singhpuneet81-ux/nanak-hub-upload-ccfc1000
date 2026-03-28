@@ -187,7 +187,7 @@ export const IAStepPrimaryContact: React.FC<IAStepPrimaryContactProps> = ({ onNe
         {errors.residentialAddress && <p className="text-destructive text-sm mt-1">{errors.residentialAddress}</p>}
       </div>
 
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         <Input value={suburb} onChange={(e) => setSuburb(e.target.value)} placeholder="Suburb" />
         <Select value={state} onValueChange={setState}>
           <SelectTrigger>

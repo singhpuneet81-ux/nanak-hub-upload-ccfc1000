@@ -134,7 +134,7 @@ const IAFlow: React.FC<{ onBackToStructure: () => void }> = ({ onBackToStructure
     <div className="min-h-screen bg-background">
       <IAPageHeader />
       <IAStepper currentStep={step} onStepClick={goToStep} />
-      <div className="max-w-7xl mx-auto px-0 sm:px-4 py-4 sm:py-8">
+      <div className="max-w-7xl mx-auto px-0 sm:px-4 py-4 sm:py-8 pb-32 md:pb-8">
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="flex-1">
             <div className="checkout-content-pad bg-card sm:rounded-2xl sm:border sm:border-border p-4 sm:p-6 md:p-8">
