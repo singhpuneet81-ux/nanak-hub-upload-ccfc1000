@@ -282,10 +282,7 @@ const CharitySetupCheckoutContent: React.FC = () => {
           <button
             onClick={handleMobileContinue}
             disabled={isContinueDisabled}
-            className="flex-1 h-14 rounded-2xl font-semibold text-base text-white flex items-center justify-center gap-2 active:scale-[0.98] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
-            style={{
-              background: "linear-gradient(180deg, hsl(24, 95%, 55%) 0%, hsl(24, 95%, 50%) 100%)",
-            }}
+            className="btn-cta flex-1 h-14 text-base shadow-md"
           >
             {mobileButtonText}
             {currentStep < 5 && <ArrowRight size={18} />}
