@@ -90,7 +90,7 @@ const BusinessNameCheckoutContent: React.FC = () => {
           </div>
 
           {/* Order Summary Sidebar */}
-          <div className={`lg:col-span-1 ${visualCurrentStep < stepDefs.length ? 'hidden lg:block' : ''}`}>
+          <div className="lg:col-span-1 hidden lg:block">
             <BNOrderSummary />
           </div>
         </div>
