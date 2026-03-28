@@ -19,11 +19,13 @@ export const BTStepPayment: React.FC = () => {
   const { customer, updateCustomer, prevStep } = useCheckout();
   const { packages } = usePricingPackages();
   const BT_PRICE = packages.bare_trust.foundation.price;
+  const ASIC_FEE = 611;
 
+  // Match OrderSummary calculation exactly
   const { subtotal, gst, total } = useMemo(() => {
-    const sub = Math.round((BT_PRICE / 1.1) * 100) / 100;
-    const g = Math.round((BT_PRICE - sub) * 100) / 100;
-    return { subtotal: sub, gst: g, total: BT_PRICE };
+    const gstableAmount = BT_PRICE;
+    const g = Math.round(gstableAmount / 11);
+    return { subtotal: gstableAmount + ASIC_FEE, gst: g, total: gstableAmount + ASIC_FEE + g };
   }, [BT_PRICE]);
 
   const allDeclarationsAccepted =
