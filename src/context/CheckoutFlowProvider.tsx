@@ -348,18 +348,21 @@ const serviceKey = useMemo((): PricingServiceKey => {
   const setStep = useCallback((step: number) => {
     if (step >= 0 && step <= 10) {
       setCurrentStep(step);
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, []);
 
   const nextStep = useCallback(() => {
     if (currentStep < 10) {
       setCurrentStep((prev) => prev + 1);
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, [currentStep]);
 
   const prevStep = useCallback(() => {
     if (currentStep > 0) {
       setCurrentStep((prev) => prev - 1);
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, [currentStep]);
 
