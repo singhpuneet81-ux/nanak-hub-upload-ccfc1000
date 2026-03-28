@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ArrowRight, ArrowLeft, Info, Users, Plus, Minus, MapPin, Phone, Mail } from "lucide-react";
 import { useCheckout } from "@/context/CheckoutFlowProvider";
 import { Input } from "@/components/ui/input";

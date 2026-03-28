@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ArrowRight, Info, Check, Building2 } from "lucide-react";
 import { useCheckout } from "@/context/CheckoutFlowProvider";
 import { Input } from "@/components/ui/input";
