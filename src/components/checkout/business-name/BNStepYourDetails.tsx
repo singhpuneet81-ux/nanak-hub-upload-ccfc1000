@@ -631,13 +631,15 @@ onChange={(e) => {
       </div>
 
       {/* CTA */}
-      <button
-        onClick={handleContinue}
-        className="w-full h-12 bg-[hsl(var(--cta))] hover:bg-[hsl(var(--cta))]/90 text-white rounded-lg font-medium flex items-center justify-center gap-2 transition-colors disabled:opacity-50"
-      >
-        Continue to Registration Term
-        <ArrowRight className="w-4 h-4" />
-      </button>
+      <div className="checkout-nav flex gap-4">
+        <button
+          onClick={handleContinue}
+          className="flex-1 h-12 bg-[hsl(var(--cta))] hover:bg-[hsl(var(--cta))]/90 text-white rounded-lg font-medium flex items-center justify-center gap-2 transition-colors disabled:opacity-50"
+        >
+          Continue to Registration Term
+          <ArrowRight className="w-4 h-4" />
+        </button>
+      </div>
     </div>
   );
 };
