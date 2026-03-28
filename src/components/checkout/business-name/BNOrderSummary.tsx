@@ -19,7 +19,7 @@ export const BNOrderSummary: React.FC = () => {
   const { asicFee, accountingFee, payrollFee, annualSavings, subtotal, gst, total, asicLabel, accountingLabel, payrollLabel } = useMemo(() => {
     // ASIC Fee based on registration term
     const term = getTermById(selections.registrationTerm);
-    const asicFeeAmount = term?.asicFee ?? 0;
+    const asicFeeAmount = term?.asicFee ?? 44;
     const asicLbl = term?.id === "3_year" ? "ASIC Fee (3 Years)" : "ASIC Fee (1 Year)";
 
     // Accounting fee
