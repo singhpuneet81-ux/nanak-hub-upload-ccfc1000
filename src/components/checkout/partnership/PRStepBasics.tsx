@@ -191,7 +191,7 @@ export const PRStepBasics: React.FC = () => {
                 value={customer.prStreetAddress || ""}
                 onChange={(e) => handleChange("prStreetAddress", e.target.value)}
               />
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <SoftInput
                   label="City/Suburb"
                   required
