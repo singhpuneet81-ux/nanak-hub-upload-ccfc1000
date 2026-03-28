@@ -207,7 +207,7 @@ const isValid =
         </div>
       </div>
 
-      {/* Continue button */}
+      {/* Continue button - hidden on mobile, shown on desktop */}
     <button
   onClick={handleContinue}
   disabled={!isValid}
