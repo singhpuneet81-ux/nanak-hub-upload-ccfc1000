@@ -286,7 +286,7 @@ export const CSStepTrustees: React.FC<CSStepTrusteesProps> = ({ onNext, onBack }
                   placeholder="Street address"
                   className="mb-3"
                 />
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   <Input
                     value={trustee.suburb}
                     onChange={(e) => updateTrustee(trustee.id, "suburb", e.target.value)}
