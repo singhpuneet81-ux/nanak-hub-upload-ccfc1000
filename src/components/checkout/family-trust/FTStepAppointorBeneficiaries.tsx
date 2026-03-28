@@ -216,7 +216,7 @@ export const FTStepAppointorBeneficiaries: React.FC<FTStepAppointorBeneficiaries
           </div>
         </div>
 
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div className="space-y-2">
             <Label htmlFor="suburb">Suburb</Label>
             <Input
@@ -227,81 +227,24 @@ export const FTStepAppointorBeneficiaries: React.FC<FTStepAppointorBeneficiaries
               className="h-12"
             />
           </div>
-          {/* <div className="space-y-2">
-            <Label>State</Label>
-            <Select value={state} onValueChange={setState}>
-              <SelectTrigger className="h-12">
-                <SelectValue placeholder="State" />
-              </SelectTrigger>
-              <SelectContent>
-              {STATES.map((state) => (
-                                       <option key={state.value} value={state.value}>
-                                         {state.label}
-                                       </option>
-                                     ))}
-              </SelectContent>
-            </Select>
-          </div> */}
           <div className="space-y-2">
-  <Label>State / Territory <span className="text-destructive">*</span></Label>
-
-  <div className="relative">
-    <select
-      value={state}
-      onChange={(e) => { setState(e.target.value); updateCustomer({ appointorState: e.target.value }); }}
-      className="
-        h-12 w-full
-        rounded-lg border border-border
-        bg-background
-        px-4 pr-10
-        text-sm text-foreground
-        focus:outline-none
-        focus:ring-2 focus:ring-primary/20
-        focus:border-primary
-        appearance-none
-      "
-    >
-      <option value="">Select State</option>
-      {STATES.map((s) => (
-        <option key={s.value} value={s.value}>
-          {s.label}
-        </option>
-      ))}
-    </select>
-
-    {/* Custom dropdown arrow */}
-    <svg
-      className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground"
-      viewBox="0 0 20 20"
-      fill="currentColor"
-    >
-      <path
-        fillRule="evenodd"
-        d="M5.23 7.21a.75.75 0 011.06.02L10 11.188l3.71-3.96a.75.75 0 111.08 1.04l-4.24 4.53a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z"
-        clipRule="evenodd"
-      />
-    </svg>
-  </div>
-</div>
-
-          <div>
-  {/* <select
-    value={state}
-    onChange={(e) => setState(e.target.value)}
-    className="soft-select"
-  >
-    <option value="">Select State</option>
-    {STATES.map((s) => (
-      <option key={s.value} value={s.value}>
-        {s.label}
-      </option>
-    ))}
-  </select> */}
-  {/* <p className="text-xs text-muted-foreground mt-1">
-    State / Territory
-  </p> */}
-</div>
-
+            <Label>State / Territory <span className="text-destructive">*</span></Label>
+            <div className="relative">
+              <select
+                value={state}
+                onChange={(e) => { setState(e.target.value); updateCustomer({ appointorState: e.target.value }); }}
+                className="h-12 w-full rounded-lg border border-border bg-background px-4 pr-10 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary appearance-none"
+              >
+                <option value="">Select State</option>
+                {STATES.map((s) => (
+                  <option key={s.value} value={s.value}>{s.label}</option>
+                ))}
+              </select>
+              <svg className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.188l3.71-3.96a.75.75 0 111.08 1.04l-4.24 4.53a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+              </svg>
+            </div>
+          </div>
           <div className="space-y-2">
             <Label htmlFor="postcode">Postcode</Label>
             <Input
