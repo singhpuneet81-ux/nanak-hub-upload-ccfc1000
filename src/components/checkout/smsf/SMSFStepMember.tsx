@@ -656,7 +656,7 @@ export const SMSFStepMember: React.FC<SMSFStepMemberProps> = ({
                   value={ben.address}
                   onChange={(e) => updateBeneficiary(ben.id, "address", e.target.value)}
                 />
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <SoftInput
                     label="City"
                     placeholder="City"

@@ -281,12 +281,12 @@ export const PRStepBasics: React.FC = () => {
       </div>
 
       {/* Continue */}
-      <div className="flex items-center justify-between pt-4">
-        <p className="text-sm text-muted-foreground flex items-center gap-1.5">
+      <div className="checkout-nav flex flex-col-reverse sm:flex-row gap-3 pt-4">
+        <p className="text-sm text-muted-foreground flex items-center gap-1.5 hidden sm:flex">
           <Lock className="w-4 h-4" />
           Your information is encrypted and secure
         </p>
-        <PrimaryButton onClick={nextStep} disabled={!isValid()}>
+        <PrimaryButton onClick={nextStep} disabled={!isValid()} className="flex-1 sm:flex-none">
           Continue to Partner Details
         </PrimaryButton>
       </div>
