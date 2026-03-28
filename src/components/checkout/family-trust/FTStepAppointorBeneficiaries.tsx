@@ -93,7 +93,8 @@ export const FTStepAppointorBeneficiaries: React.FC<FTStepAppointorBeneficiaries
     else setErrors(prev => { const next = { ...prev }; delete next[key]; return next; });
   };
 
-  const handleContinue = () => {
+  // Auto-save to context so mobile bottom nav works
+  useEffect(() => {
     updateCustomer({
       appointorFirstName: firstName,
       appointorLastName: lastName,
@@ -105,6 +106,9 @@ export const FTStepAppointorBeneficiaries: React.FC<FTStepAppointorBeneficiaries
       appointorPostcode: postcode,
       beneficiaries,
     });
+  }, [firstName, lastName, email, phone, address, suburb, state, postcode, beneficiaries]);
+
+  const handleContinue = () => {
     onNext();
   };
 

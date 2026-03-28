@@ -87,11 +87,12 @@ export const FTStepDirectorsShareholders: React.FC<FTStepDirectorsShareholdersPr
     else setErrors(prev => { const next = { ...prev }; delete next[key]; return next; });
   };
 
+  // Auto-save to context so mobile bottom nav works
+  useEffect(() => {
+    updateCustomer({ directors, shareholders });
+  }, [directors, shareholders]);
+
   const handleContinue = () => {
-    updateCustomer({
-      directors,
-      shareholders,
-    });
     onNext();
   };
 

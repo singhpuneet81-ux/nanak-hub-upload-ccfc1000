@@ -49,18 +49,22 @@ export const FTStepTrustDetails: React.FC<FTStepTrustDetailsProps> = ({ onNext }
   customer.otherBusinessActivity || ""
 );
 
+  // Auto-save to context so mobile bottom nav works
+  useEffect(() => {
+    updateCustomer({
+      trustName,
+      trusteeName,
+      businessActivity,
+      otherBusinessActivity:
+        businessActivity === "Other (Please Specify)"
+          ? otherBusinessActivity
+          : "",
+    });
+  }, [trustName, trusteeName, businessActivity, otherBusinessActivity]);
+
   const handleContinue = () => {
-  updateCustomer({
-    trustName,
-    trusteeName,
-    businessActivity,
-    otherBusinessActivity:
-      businessActivity === "Other (Please Specify)"
-        ? otherBusinessActivity
-        : "",
-  });
-  onNext();
-};
+    onNext();
+  };
 
 const isValid =
   trustName &&
