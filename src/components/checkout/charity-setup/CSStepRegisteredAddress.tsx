@@ -194,7 +194,7 @@ export const CSStepRegisteredAddress: React.FC<CSStepRegisteredAddressProps> = (
       </div>
 
       {/* Navigation */}
-      <div className="checkout-nav flex justify-between pt-4">
+      <div className="checkout-nav hidden md:flex justify-between pt-4">
         <button
           onClick={onBack}
           className="flex items-center gap-2 px-5 py-2.5 border border-border rounded-lg font-medium hover:bg-muted transition-colors"

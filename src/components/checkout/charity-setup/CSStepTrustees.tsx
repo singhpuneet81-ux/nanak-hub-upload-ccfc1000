@@ -338,7 +338,7 @@ export const CSStepTrustees: React.FC<CSStepTrusteesProps> = ({ onNext, onBack }
       {errors.count && <p className="text-destructive text-sm">{errors.count}</p>}
 
       {/* Navigation */}
-      <div className="checkout-nav flex justify-between pt-4">
+      <div className="checkout-nav hidden md:flex justify-between pt-4">
         <button
           onClick={onBack}
           className="flex items-center gap-2 px-5 py-2.5 border border-border rounded-lg font-medium hover:bg-muted transition-colors"
