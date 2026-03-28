@@ -365,7 +365,7 @@ export const FTStepPackage: React.FC<FTStepPackageProps> = ({
       )}
 
       {/* Navigation */}
-      <div className="checkout-nav flex gap-4 pt-4">
+      <div className="checkout-nav hidden md:flex gap-4 pt-4">
         <button
           onClick={onBack}
           className="flex-1 h-12 border rounded-lg flex items-center justify-center gap-2"
