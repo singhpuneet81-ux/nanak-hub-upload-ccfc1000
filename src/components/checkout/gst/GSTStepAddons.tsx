@@ -126,9 +126,9 @@ export const GSTStepAddons: React.FC = () => {
         </div>
       </div>
 
-      {/* Buttons */}
-      <div className="checkout-nav flex flex-col-reverse sm:flex-row gap-3">
-        <BackButton onClick={prevStep} className="sm:w-32" />
+      {/* Buttons - desktop only, mobile uses unified bottom bar */}
+      <div className="hidden md:flex gap-3 mt-8">
+        <BackButton onClick={prevStep} className="w-32" />
         <PrimaryButton onClick={nextStep} className="flex-1">
           Continue
         </PrimaryButton>
