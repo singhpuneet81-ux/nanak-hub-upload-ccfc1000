@@ -366,7 +366,7 @@ interface FTStepReviewPayProps {
       {/* ================= BUTTONS ================= */}
 
       <CheckoutLoader visible={isSubmitting} />
-      <div className="checkout-nav flex flex-col-reverse sm:flex-row gap-3">
+      <div className="checkout-nav hidden md:flex flex-col-reverse sm:flex-row gap-3">
         <BackButton onClick={onBack} className="sm:w-32" />
         <PrimaryButton
           onClick={async () => {

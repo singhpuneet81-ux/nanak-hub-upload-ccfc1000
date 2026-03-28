@@ -154,7 +154,7 @@ export const FTStepAddons: React.FC<FTStepAddonsProps> = ({ onNext, onBack }) =>
       </div>
 
       {/* Buttons */}
-      <div className="checkout-nav flex flex-col-reverse sm:flex-row gap-3 mt-8">
+      <div className="checkout-nav hidden md:flex flex-col-reverse sm:flex-row gap-3 mt-8">
         <BackButton onClick={onBack} className="sm:w-32" />
         <PrimaryButton onClick={onNext} className="flex-1">
           Continue

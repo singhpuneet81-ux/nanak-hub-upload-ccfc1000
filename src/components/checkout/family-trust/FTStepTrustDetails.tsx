@@ -212,7 +212,7 @@ const isValid =
   onClick={handleContinue}
   disabled={!isValid}
   className={cn(
-    "w-full py-4 rounded-xl font-semibold text-white flex items-center justify-center gap-2 transition-all",
+    "w-full py-4 rounded-xl font-semibold text-white hidden md:flex items-center justify-center gap-2 transition-all",
     isValid
       ? "bg-[hsl(var(--cta))] hover:bg-[hsl(var(--cta))]/90 disabled:opacity-50"
       : "bg-[hsl(var(--cta))]/40 cursor-not-allowed disabled:opacity-50"

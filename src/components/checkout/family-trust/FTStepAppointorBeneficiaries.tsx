@@ -426,7 +426,7 @@ export const FTStepAppointorBeneficiaries: React.FC<FTStepAppointorBeneficiaries
       </div>
 
       {/* Navigation buttons */}
-      <div className="checkout-nav flex gap-4">
+      <div className="checkout-nav hidden md:flex gap-4">
         <button
           onClick={onBack}
           className="flex-1 py-4 rounded-xl font-semibold bg-muted text-foreground flex items-center justify-center gap-2 hover:bg-muted/80 transition-all"
