@@ -73,26 +73,28 @@ const CLGFlow: React.FC<{ onBackToStructure: () => void }> = ({ onBackToStructur
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="max-w-6xl mx-auto px-4 md:px-8 pt-6">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 pt-6">
         <CLGPageHeader />
       </div>
 
       <div className="bg-card border-b border-border">
-        <div className="max-w-6xl mx-auto px-4 md:px-8">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
           <CLGStepper currentStep={step} onStepClick={goToStep} />
         </div>
       </div>
 
-      <main className="max-w-6xl mx-auto px-4 md:px-8 py-6 pb-28 lg:pb-8 checkout-content-pad">
-        <div className="flex flex-col lg:flex-row gap-6">
-          <div className="flex-1 min-w-0">{renderStep()}</div>
-          <div className={`w-[340px] shrink-0 ${step < 6 ? 'hidden lg:block' : ''}`}>
+      <div className="max-w-7xl mx-auto px-0 sm:px-4 py-4 sm:py-8 pb-32 md:pb-8">
+        <div className="flex flex-col lg:flex-row gap-8">
+          <div className="flex-1">
+            <div className="checkout-content-pad bg-card sm:rounded-2xl sm:border sm:border-border p-4 sm:p-6 md:p-8">
+              {renderStep()}
+            </div>
+          </div>
+          <div className={`w-full lg:w-[380px] ${step < 6 ? 'hidden lg:block' : ''}`}>
             <CLGOrderSummary />
           </div>
         </div>
-      </main>
-
-      <SummaryMobile />
+      </div>
     </div>
   );
 };

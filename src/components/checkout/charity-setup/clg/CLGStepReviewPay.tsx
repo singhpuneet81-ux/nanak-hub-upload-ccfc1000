@@ -99,14 +99,14 @@ export const CLGStepReviewPay: React.FC<{ onBack: () => void }> = ({ onBack }) =
             </div>
             <h3 className="font-semibold text-foreground">Company Details</h3>
           </div>
-          <div className="ml-11 space-y-2 text-sm">
-            <div className="flex justify-between">
+          <div className="sm:ml-11 space-y-2 text-sm">
+            <div className="flex flex-col sm:flex-row sm:justify-between gap-0.5">
               <span className="text-muted-foreground">Company Name</span>
-              <span className="font-medium text-foreground">{companyName}</span>
+              <span className="font-medium text-foreground break-words text-right">{companyName}</span>
             </div>
-            <div className="flex justify-between">
+            <div className="flex flex-col sm:flex-row sm:justify-between gap-0.5">
               <span className="text-muted-foreground">Charity Subtype</span>
-              <span className="font-medium text-foreground">{subtypeLabel}</span>
+              <span className="font-medium text-foreground break-words text-right">{subtypeLabel}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-muted-foreground">Guarantee Amount</span>
