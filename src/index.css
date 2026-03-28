@@ -433,12 +433,42 @@ select::placeholder {
     left: 0;
     right: 0;
     z-index: 51;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: nowrap;
+    flex-direction: row !important;
     background: hsl(var(--card));
     border-top: 1px solid hsl(var(--border));
-    padding: 12px 16px;
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
     margin: 0 !important;
     border-radius: 0 !important;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.06);
+  }
+
+  .checkout-nav > * {
+    min-width: 0;
+  }
+
+  .checkout-nav > :only-child {
+    flex: 1 1 auto;
+    width: 100%;
+    min-height: 56px;
+    justify-content: center;
+    text-align: center;
+    box-shadow: var(--shadow-card);
+  }
+
+  .checkout-nav > :first-child:not(:only-child) {
+    flex: 0 0 auto;
+  }
+
+  .checkout-nav > :last-child:not(:only-child) {
+    flex: 1 1 auto;
+    min-height: 56px;
+    justify-content: center;
+    text-align: center;
+    box-shadow: var(--shadow-card);
   }
 
   /* Mobile summary bar sits above the fixed nav */
@@ -446,7 +476,7 @@ select::placeholder {
     position: fixed;
     left: 0;
     right: 0;
-    bottom: 58px;
+    bottom: calc(80px + env(safe-area-inset-bottom, 0px));
     z-index: 50;
     background: hsl(var(--card));
     border-top: 1px solid hsl(var(--border));
@@ -456,7 +486,7 @@ select::placeholder {
 
   /* Ensure content isn't hidden behind both fixed bars */
   .checkout-content-pad {
-    padding-bottom: 130px;
+    padding-bottom: 180px;
   }
 }
 
