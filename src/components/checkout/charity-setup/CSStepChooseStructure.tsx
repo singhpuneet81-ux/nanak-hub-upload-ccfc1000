@@ -181,7 +181,7 @@ export const CSStepChooseStructure: React.FC<CSStepChooseStructureProps> = ({ on
       {error && <p className="text-destructive text-sm">{error}</p>}
 
       {/* Continue button */}
-      <div className="checkout-nav hidden md:flex justify-end pt-4">
+      <div className="hidden md:flex justify-end pt-4">
         <button
           onClick={handleContinue}
           className="flex items-center gap-2 px-6 py-3 bg-[hsl(var(--cta))] text-white rounded-lg font-medium hover:opacity-90 transition-opacity disabled:opacity-50"
