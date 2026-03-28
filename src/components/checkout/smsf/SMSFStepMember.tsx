@@ -507,7 +507,7 @@ export const SMSFStepMember: React.FC<SMSFStepMemberProps> = ({
             <label className="form-label">
               Do you have a Director Identification Number? <span className="text-destructive">*</span>
             </label>
-            <div className="checkout-nav flex gap-4">
+            <div className="flex gap-4">
               <label className="flex items-center gap-2 cursor-pointer">
                 <input
                   type="radio"
