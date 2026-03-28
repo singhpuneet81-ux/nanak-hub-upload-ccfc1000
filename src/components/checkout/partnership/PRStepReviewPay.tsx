@@ -342,7 +342,7 @@ export const PRStepReviewPay: React.FC = () => {
           disabled={!allDeclared || isSubmitting}
           className="flex-1"
         >
-          Complete & Pay {formatCurrency(total)}
+          Complete & Pay 
         </PrimaryButton>
       </div>
     </div>
