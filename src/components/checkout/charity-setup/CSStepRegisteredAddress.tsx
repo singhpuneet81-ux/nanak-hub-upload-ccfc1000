@@ -116,7 +116,7 @@ export const CSStepRegisteredAddress: React.FC<CSStepRegisteredAddressProps> = (
           {errors.streetAddress && <p className="text-destructive text-sm mt-1">{errors.streetAddress}</p>}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div>
             <label className="block text-sm font-medium text-foreground mb-1.5">
               Suburb <span className="text-destructive">*</span>
