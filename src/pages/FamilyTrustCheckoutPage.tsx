@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { CheckoutFlowProvider } from "@/context/CheckoutFlowProvider";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import {
   FTPageHeader,
   FTStepper,
