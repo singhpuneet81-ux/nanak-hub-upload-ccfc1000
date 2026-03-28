@@ -46,22 +46,22 @@ export const StepPricing: React.FC = () => {
   };
 
  return (
-    <div className="py-10 px-4 bg-white">
+    <div className="py-6 sm:py-10 px-3 sm:px-4 bg-background">
       <div className="mx-auto max-w-[900px] grid grid-cols-1 lg:grid-cols-2 gap-4">
 
         {/* ================= FOUNDATION ================= */}
-        <div className="bg-white border rounded-lg shadow-sm flex flex-col">
-          <div className="px-4 py-3 border-b">
+        <div className="bg-card border border-border rounded-lg shadow-sm flex flex-col">
+          <div className="px-4 py-3 border-b border-border">
             <div className="flex justify-between">
               <div>
-                <h3 className="font-bold text-sm">{foundationTitle}</h3>
-                <p className="text-xs text-gray-500">One-time only</p>
+                <h3 className="font-bold text-sm text-foreground">{foundationTitle}</h3>
+                <p className="text-xs text-muted-foreground">One-time only</p>
               </div>
               <div className="text-right">
-                <div className="text-2xl font-bold">
+                <div className="text-2xl font-bold text-foreground">
                   ${pricing.foundation.price}
                 </div>
-                <div className="text-xs text-gray-400">one-time</div>
+                <div className="text-xs text-muted-foreground">one-time</div>
               </div>
             </div>
           </div>
@@ -69,8 +69,8 @@ export const StepPricing: React.FC = () => {
           <div className="p-4 flex-grow flex flex-col">
             <ul className="space-y-1 mb-4 flex-grow">
               {pricing.foundation.features.map((f, i) => (
-                <li key={i} className="flex gap-2 text-xs">
-                  <Check className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
+                <li key={i} className="flex gap-2 text-xs text-foreground">
+                  <Check className="w-4 h-4 text-[hsl(var(--success))] shrink-0 mt-0.5" />
                   {f}
                 </li>
               ))}
@@ -78,31 +78,31 @@ export const StepPricing: React.FC = () => {
 
             <button
               onClick={() => handlePackageSelect("registration_only")}
-              className="w-full h-12 bg-gray-900 text-white rounded-2xl flex items-center justify-center gap-2 font-semibold"
+              className="w-full h-12 bg-primary text-primary-foreground rounded-2xl flex items-center justify-center gap-2 font-semibold"
             >
               {foundationCtaLabel}
               <ArrowRight className="w-4 h-4" />
             </button>
 
-            <p className="text-center text-xs text-gray-400 mt-2">
+            <p className="text-center text-xs text-muted-foreground mt-2">
               Setup only • No ongoing services
             </p>
           </div>
         </div>
 
         {/* ================= ACCOUNTING ================= */}
-        <div className="border-2 border-orange-500 rounded-lg bg-orange-50 flex flex-col relative">
+        <div className="border-2 border-[hsl(var(--cta))] rounded-lg bg-[hsl(var(--cta)/0.05)] flex flex-col relative">
 
-          <div className="p-4 border-b border-orange-200">
+          <div className="p-4 border-b border-[hsl(var(--cta)/0.2)]">
             <div className="flex items-start gap-3">
-              <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-[hsl(var(--cta))] rounded-lg flex items-center justify-center">
                 <Target className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h3 className="font-bold text-lg">
+                <h3 className="font-bold text-lg text-foreground">
                   Registration + Accounting
                 </h3>
-                <p className="text-xs text-orange-700">
+                <p className="text-xs text-[hsl(var(--cta))]">
                   Build your custom package
                 </p>
               </div>
@@ -110,35 +110,35 @@ export const StepPricing: React.FC = () => {
           </div>
 
           <div className="p-4 flex-grow flex flex-col">
-            <p className="text-sm text-gray-700 mb-4">
+            <p className="text-sm text-muted-foreground mb-4">
               Get everything in{" "}
-              <strong>{serviceDisplayName}</strong> plus complete ongoing
+              <strong className="text-foreground">{serviceDisplayName}</strong> plus complete ongoing
               accounting and compliance services tailored to your business.
             </p>
 
             <ul className="space-y-1 mb-4">
-              <li className="flex gap-2 text-xs font-semibold">
-                <Check className="w-4 h-4 text-green-600" />
+              <li className="flex gap-2 text-xs font-semibold text-foreground">
+                <Check className="w-4 h-4 text-[hsl(var(--success))]" />
                 Customized to your revenue tier
               </li>
-              <li className="flex gap-2 text-xs font-semibold">
-                <Check className="w-4 h-4 text-green-600" />
+              <li className="flex gap-2 text-xs font-semibold text-foreground">
+                <Check className="w-4 h-4 text-[hsl(var(--success))]" />
                 Monthly or annual billing options
               </li>
             </ul>
 
             <div className="mb-4">
-              <p className="text-xs font-bold uppercase text-gray-600 mb-1">
+              <p className="text-xs font-bold uppercase text-muted-foreground mb-1">
                 Includes:
               </p>
               <ul className="space-y-1">
                 {pricing.accounting.includes.map((item, i) => (
-                  <li key={i} className="flex gap-2 text-xs">
-                    <Check className="w-4 h-4 text-orange-600" />
+                  <li key={i} className="flex gap-2 text-xs text-foreground">
+                    <Check className="w-4 h-4 text-[hsl(var(--cta))]" />
                     {item}
                   </li>
                 ))}
-                <li className="text-xs text-orange-600 font-semibold ml-6">
+                <li className="text-xs text-[hsl(var(--cta))] font-semibold ml-6">
                   + {pricing.accounting.extraCount} more services
                 </li>
               </ul>
@@ -155,7 +155,7 @@ export const StepPricing: React.FC = () => {
               <ArrowRight className="w-4 h-4" />
             </button>
 
-            <p className="text-center text-xs text-gray-600 mt-2">
+            <p className="text-center text-xs text-muted-foreground mt-2">
               Choose your business type, select revenue tier & get custom pricing
             </p>
           </div>
