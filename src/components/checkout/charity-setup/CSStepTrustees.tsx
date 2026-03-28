@@ -286,7 +286,7 @@ export const CSStepTrustees: React.FC<CSStepTrusteesProps> = ({ onNext, onBack }
                   placeholder="Street address"
                   className="mb-3"
                 />
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   <Input
                     value={trustee.suburb}
                     onChange={(e) => updateTrustee(trustee.id, "suburb", e.target.value)}
@@ -338,7 +338,7 @@ export const CSStepTrustees: React.FC<CSStepTrusteesProps> = ({ onNext, onBack }
       {errors.count && <p className="text-destructive text-sm">{errors.count}</p>}
 
       {/* Navigation */}
-      <div className="checkout-nav flex justify-between pt-4">
+      <div className="checkout-nav hidden md:flex justify-between pt-4">
         <button
           onClick={onBack}
           className="flex items-center gap-2 px-5 py-2.5 border border-border rounded-lg font-medium hover:bg-muted transition-colors"

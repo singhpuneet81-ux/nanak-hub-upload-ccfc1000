@@ -116,7 +116,7 @@ export const CSStepRegisteredAddress: React.FC<CSStepRegisteredAddressProps> = (
           {errors.streetAddress && <p className="text-destructive text-sm mt-1">{errors.streetAddress}</p>}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div>
             <label className="block text-sm font-medium text-foreground mb-1.5">
               Suburb <span className="text-destructive">*</span>
@@ -194,7 +194,7 @@ export const CSStepRegisteredAddress: React.FC<CSStepRegisteredAddressProps> = (
       </div>
 
       {/* Navigation */}
-      <div className="checkout-nav flex justify-between pt-4">
+      <div className="checkout-nav hidden md:flex justify-between pt-4">
         <button
           onClick={onBack}
           className="flex items-center gap-2 px-5 py-2.5 border border-border rounded-lg font-medium hover:bg-muted transition-colors"
