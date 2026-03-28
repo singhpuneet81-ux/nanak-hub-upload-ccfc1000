@@ -238,13 +238,15 @@ if (
       </div>
 
       {/* Continue Button */}
-      <button
-        onClick={handleNext}
-        className="w-full py-3.5 bg-[hsl(var(--cta))] hover:opacity-90 text-white rounded-lg font-semibold flex items-center justify-center gap-2 transition-opacity disabled:opacity-50"
-      >
-        Continue to Unitholders
-        <ArrowRight size={18} />
-      </button>
+      <div className="checkout-nav pt-4">
+        <button
+          onClick={handleNext}
+          className="w-full py-3.5 bg-[hsl(var(--cta))] hover:opacity-90 text-white rounded-lg font-semibold flex items-center justify-center gap-2 transition-opacity disabled:opacity-50"
+        >
+          Continue to Unitholders
+          <ArrowRight size={18} />
+        </button>
+      </div>
     </div>
   );
 };

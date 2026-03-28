@@ -31,7 +31,7 @@ export const UTStepper: React.FC<UTStepperProps> = ({
   };
 
   return (
-    <div className="w-full px-4 py-5 md:px-8 md:py-6 bg-card border-b border-border">
+    <div className="w-full px-2 sm:px-4 py-4 md:px-8 md:py-6 bg-card border-b border-border">
       <div className="flex items-center justify-between max-w-4xl mx-auto">
         {steps.map((step, index) => {
           const status = getStepStatus(step.number);

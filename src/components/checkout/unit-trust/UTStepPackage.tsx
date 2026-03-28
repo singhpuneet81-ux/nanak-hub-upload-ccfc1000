@@ -382,16 +382,16 @@ export const UTStepPackage: React.FC<UTStepPackageProps> = ({
       )}
 
       {/* Navigation */}
-      <div className="grid grid-cols-2 gap-4 pt-4">
+      <div className="checkout-nav flex flex-col-reverse sm:flex-row gap-3 pt-4">
         <button
           onClick={onBack}
-          className="py-3 border border-border rounded-lg font-medium flex items-center justify-center gap-2 hover:bg-muted transition-colors"
+          className="py-3 border border-border rounded-lg font-medium flex items-center justify-center gap-2 hover:bg-muted transition-colors sm:w-32"
         >
           <ArrowLeft size={18} /> Back
         </button>
         <button
           onClick={onNext}
-          className="py-3 bg-[hsl(var(--cta))] hover:opacity-90 text-white rounded-lg font-semibold flex items-center justify-center gap-2 transition-opacity disabled:opacity-50"
+          className="flex-1 py-3 bg-[hsl(var(--cta))] hover:opacity-90 text-white rounded-lg font-semibold flex items-center justify-center gap-2 transition-opacity disabled:opacity-50"
         >
           Continue to Payment <ArrowRight size={18} />
         </button>

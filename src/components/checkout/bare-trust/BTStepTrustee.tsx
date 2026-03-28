@@ -163,7 +163,7 @@ export const BTStepTrustee: React.FC = () => {
                 value={customer.btAddressLine2 || ""}
                 onChange={(e) => updateCustomer({ btAddressLine2: e.target.value })}
               />
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <SoftInput
                   label="City/Suburb"
                   required
@@ -192,9 +192,9 @@ export const BTStepTrustee: React.FC = () => {
       </div>
 
       {/* Navigation */}
-      <div className="flex items-center justify-between pt-4">
-        <BackButton onClick={prevStep} />
-        <PrimaryButton onClick={nextStep} disabled={!isValid()}>
+      <div className="checkout-nav flex flex-col-reverse sm:flex-row gap-3 pt-4">
+        <BackButton onClick={prevStep} className="sm:w-32" />
+        <PrimaryButton onClick={nextStep} disabled={!isValid()} className="flex-1">
           Continue to Loan Details
         </PrimaryButton>
       </div>

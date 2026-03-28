@@ -227,7 +227,7 @@ export const SMSFStepMember: React.FC<SMSFStepMemberProps> = ({
         <SectionHeader icon={<User className="w-4 h-4 text-primary" />} title="Personal Details" subtitle="Legal name as it appears on official documents" section="personal" />
         {expandedSections.includes("personal") && (
           <div className="mt-4 space-y-4">
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               <SoftSelect
                 label="Title"
                 options={TITLE_OPTIONS}
@@ -356,7 +356,7 @@ export const SMSFStepMember: React.FC<SMSFStepMemberProps> = ({
               value={member.addressLine2 || ""}
               onChange={(e) => updateMember("addressLine2", e.target.value)}
             />
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <SoftInput
                 label="City / Suburb"
                 required
@@ -656,7 +656,7 @@ export const SMSFStepMember: React.FC<SMSFStepMemberProps> = ({
                   value={ben.address}
                   onChange={(e) => updateBeneficiary(ben.id, "address", e.target.value)}
                 />
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <SoftInput
                     label="City"
                     placeholder="City"
