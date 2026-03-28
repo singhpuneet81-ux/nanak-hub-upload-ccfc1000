@@ -181,10 +181,10 @@ export const BTStepPayment: React.FC = () => {
               </span>
             </div>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="checkout-nav flex flex-col-reverse sm:flex-row items-center gap-3">
             <BackButton
               onClick={prevStep}
-              className="bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
+              className="bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 sm:w-32"
             />
             <PrimaryButton
               onClick={handleSubmit}
@@ -193,6 +193,7 @@ export const BTStepPayment: React.FC = () => {
                 !allDeclarationsAccepted ||
                 !(customer.btSignature || "").trim()
               }
+              className="flex-1"
             >
               <Check className="w-4 h-4" />
               Pay {formatCurrency(total)} & Submit
