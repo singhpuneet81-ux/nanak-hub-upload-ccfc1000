@@ -157,12 +157,25 @@ const CharitySetupCheckoutContent: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [showCLGFlow, setShowCLGFlow] = useState(false);
   const [showIAFlow, setShowIAFlow] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { packages } = usePricingPackages();
 
   useEffect(() => {
     const structure = searchParams.get("structure");
     if (structure === "clg") setShowCLGFlow(true);
     if (structure === "ia") setShowIAFlow(true);
   }, []);
+
+  const charityStructure = customer?.charityStructure as string | undefined;
+
+  const CHARITY_STRUCTURES: Record<string, { name: string; price: number }> = {
+    incorporated_association: { name: "Incorporated Association", price: packages.charity_ia?.foundation?.price ?? 0 },
+    company_limited_guarantee: { name: "Company Limited by Guarantee", price: packages.charity_clg?.foundation?.price ?? 0 },
+    charitable_trust: { name: "Charitable Trust", price: packages.charity?.foundation?.price ?? 0 },
+  };
+
+  const total = charityStructure ? (CHARITY_STRUCTURES[charityStructure]?.price || 0) : 0;
+  const isContinueDisabled = currentStep === 1 ? !charityStructure : false;
 
   const handleNext = () => {
     if (currentStep === 1) {
@@ -188,6 +201,14 @@ const CharitySetupCheckoutContent: React.FC = () => {
     setCurrentStep(step);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  const handleMobileContinue = () => {
+    handleNext();
+  };
+
+  const mobileButtonText = currentStep === 5
+    ? `Complete & Pay ${total > 0 ? formatCurrency(total) : ""}`
+    : "Continue";
 
   if (showCLGFlow) {
     return (
@@ -227,21 +248,6 @@ const CharitySetupCheckoutContent: React.FC = () => {
         return <CSStepChooseStructure onNext={handleNext} />;
     }
   };
-
-  const { packages } = usePricingPackages();
-  const charityStructure = customer?.charityStructure as string | undefined;
-
-  const CHARITY_STRUCTURES: Record<string, { name: string; price: number }> = {
-    incorporated_association: { name: "Incorporated Association", price: packages.charity_ia?.foundation?.price ?? 0 },
-    company_limited_guarantee: { name: "Company Limited by Guarantee", price: packages.charity_clg?.foundation?.price ?? 0 },
-    charitable_trust: { name: "Charitable Trust", price: packages.charity?.foundation?.price ?? 0 },
-  };
-
-  const total = charityStructure ? (CHARITY_STRUCTURES[charityStructure]?.price || 0) : 0;
-
-  const isContinueDisabled = currentStep === 1 ? !charityStructure : false;
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleMobileContinue = async () => {
     if (currentStep === 5) {
