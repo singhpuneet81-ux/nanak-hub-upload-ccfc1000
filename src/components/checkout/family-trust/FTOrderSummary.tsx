@@ -76,7 +76,7 @@ export const FTOrderSummary: React.FC = () => {
           <p className="font-medium text-foreground mb-2">Family Trust Setup</p>
           <div className="flex justify-between">
             <span className="text-muted-foreground">Our service fee</span>
-            <span className="font-medium text-foreground">${baseFee.toLocaleString()}</span>
+            <span className="font-medium text-foreground">${FT_BASE_PRICE.toLocaleString()}</span>
           </div>
           <div className="flex justify-between">
             <span className="text-muted-foreground">
