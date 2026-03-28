@@ -209,7 +209,7 @@ const CharitySetupCheckoutContent: React.FC = () => {
   };
 
   const mobileButtonText = currentStep === 5
-    ? `Complete & Pay ${total > 0 ? formatCurrency(total) : ""}`
+    ? `Complete & Pay `
     : "Continue";
 
   if (showCLGFlow) {

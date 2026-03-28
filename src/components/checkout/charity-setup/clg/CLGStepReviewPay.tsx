@@ -213,7 +213,7 @@ export const CLGStepReviewPay: React.FC<{ onBack: () => void }> = ({ onBack }) =
       <div className="checkout-nav flex flex-col-reverse sm:flex-row gap-3">
         <BackButton onClick={onBack} className="sm:w-32" />
         <PrimaryButton onClick={handleSubmit} disabled={isSubmitting} className="flex-1">
-          Complete & Pay {formatCurrency(total)}
+          Complete & Pay 
         </PrimaryButton>
       </div>
     </div>

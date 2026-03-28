@@ -322,7 +322,7 @@ export const SMSFStepReviewPay: React.FC = () => {
           }
           className="flex-1"
         >
-          Complete & Pay {formatCurrency(total)}
+          Complete & Pay 
         </PrimaryButton>
       </div>
     </div>

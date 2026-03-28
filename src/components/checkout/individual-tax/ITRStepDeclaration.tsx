@@ -134,7 +134,7 @@ export const ITRStepDeclaration: React.FC = () => {
         <div className="checkout-nav flex flex-col-reverse sm:flex-row gap-3">
           <BackButton onClick={prevStep} className="sm:w-32" />
           <PrimaryButton onClick={handleSubmit} disabled={!isValid() || isSubmitting} className="flex-1">
-            Complete & Pay ${price}
+            Complete & Pay
           </PrimaryButton>
         </div>
       </div>
