@@ -55,7 +55,7 @@ const UnitTrustCheckoutPageContent: React.FC = () => {
       <UTPageHeader />
       <UTStepper currentStep={currentStep} onStepClick={goToStep} />
 
-      <div className="max-w-6xl mx-auto px-0 sm:px-4 py-4 sm:py-8">
+      <div className="max-w-6xl mx-auto px-2 sm:px-4 py-4 sm:py-8 checkout-content-pad">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-2">
