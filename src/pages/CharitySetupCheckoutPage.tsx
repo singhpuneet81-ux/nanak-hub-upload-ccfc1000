@@ -254,10 +254,10 @@ const CharitySetupCheckoutContent: React.FC = () => {
     <div className="min-h-screen bg-background">
       <CSPageHeader />
       <CSStepper currentStep={currentStep} onStepClick={handleGoToStep} />
-      <div className="max-w-7xl mx-auto px-0 sm:px-4 py-4 sm:py-8">
+      <div className="max-w-7xl mx-auto px-0 sm:px-4 py-4 sm:py-8 pb-32 md:pb-8">
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="flex-1">
-            <div className="checkout-content-pad bg-card sm:rounded-2xl sm:border sm:border-border p-4 sm:p-6 md:p-8">
+            <div className="bg-card sm:rounded-2xl sm:border sm:border-border p-4 sm:p-6 md:p-8">
               {renderStep()}
             </div>
           </div>
@@ -282,7 +282,7 @@ const CharitySetupCheckoutContent: React.FC = () => {
           <button
             onClick={handleMobileContinue}
             disabled={isContinueDisabled}
-            className="flex-1 h-12 rounded-2xl font-semibold text-sm text-white flex items-center justify-center gap-2 active:scale-[0.98] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="flex-1 h-14 rounded-2xl font-semibold text-base text-white flex items-center justify-center gap-2 active:scale-[0.98] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
             style={{
               background: "linear-gradient(180deg, hsl(24, 95%, 55%) 0%, hsl(24, 95%, 50%) 100%)",
             }}
