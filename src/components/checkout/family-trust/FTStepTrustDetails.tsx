@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ArrowRight, Info, Check, Building2 } from "lucide-react";
 import { useCheckout } from "@/context/CheckoutFlowProvider";
 import { Input } from "@/components/ui/input";
@@ -49,18 +49,22 @@ export const FTStepTrustDetails: React.FC<FTStepTrustDetailsProps> = ({ onNext }
   customer.otherBusinessActivity || ""
 );
 
+  // Auto-save to context so mobile bottom nav works
+  useEffect(() => {
+    updateCustomer({
+      trustName,
+      trusteeName,
+      businessActivity,
+      otherBusinessActivity:
+        businessActivity === "Other (Please Specify)"
+          ? otherBusinessActivity
+          : "",
+    });
+  }, [trustName, trusteeName, businessActivity, otherBusinessActivity]);
+
   const handleContinue = () => {
-  updateCustomer({
-    trustName,
-    trusteeName,
-    businessActivity,
-    otherBusinessActivity:
-      businessActivity === "Other (Please Specify)"
-        ? otherBusinessActivity
-        : "",
-  });
-  onNext();
-};
+    onNext();
+  };
 
 const isValid =
   trustName &&
