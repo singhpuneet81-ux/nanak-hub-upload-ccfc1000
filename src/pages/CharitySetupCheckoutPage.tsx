@@ -1,5 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { CheckoutFlowProvider, useCheckout } from "@/context/CheckoutFlowProvider";
+import { ArrowLeft, ArrowRight, Shield } from "lucide-react";
+import { formatCurrency } from "@/config/pricing.config";
+import { usePricingPackages } from "@/hooks/usePricingPackages";
 import { SummaryMobile } from "@/components/checkout/OrderSummary";
 import { useSearchParams } from "react-router-dom";
 import {
