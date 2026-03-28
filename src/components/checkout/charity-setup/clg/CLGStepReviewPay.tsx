@@ -123,7 +123,7 @@ export const CLGStepReviewPay: React.FC<{ onBack: () => void }> = ({ onBack }) =
             </div>
             <h3 className="font-semibold text-foreground">Directors & Members</h3>
           </div>
-          <div className="ml-11 space-y-2 text-sm">
+          <div className="sm:ml-11 space-y-2 text-sm">
             <div className="flex justify-between">
               <span className="text-muted-foreground">Number of Directors</span>
               <span className="font-medium text-foreground">{directors.length}</span>
