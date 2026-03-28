@@ -192,9 +192,9 @@ export const BTStepTrustee: React.FC = () => {
       </div>
 
       {/* Navigation */}
-      <div className="flex items-center justify-between pt-4">
-        <BackButton onClick={prevStep} />
-        <PrimaryButton onClick={nextStep} disabled={!isValid()}>
+      <div className="checkout-nav flex flex-col-reverse sm:flex-row gap-3 pt-4">
+        <BackButton onClick={prevStep} className="sm:w-32" />
+        <PrimaryButton onClick={nextStep} disabled={!isValid()} className="flex-1">
           Continue to Loan Details
         </PrimaryButton>
       </div>

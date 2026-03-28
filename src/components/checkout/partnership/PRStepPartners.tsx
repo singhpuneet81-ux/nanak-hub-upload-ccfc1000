@@ -263,7 +263,7 @@ export const PRStepPartners: React.FC = () => {
               onChange={(e) => updatePartner(partner.id, "streetAddress", e.target.value)}
               error={errors[`${partner.id}_streetAddress`]}
             />
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <SoftInput
                 label="City/Suburb"
                 required
