@@ -12,7 +12,6 @@ const steps: Step[] = [
   { number: 3, label: "Address" },
   { number: 4, label: "Trustees" },
   { number: 5, label: "Payment" },
-  { number: 6, label: "Review & Pay" },
 ];
 
 interface CSStepperProps {
