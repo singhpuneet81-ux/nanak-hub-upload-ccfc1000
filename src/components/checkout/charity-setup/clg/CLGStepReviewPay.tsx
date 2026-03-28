@@ -143,7 +143,7 @@ export const CLGStepReviewPay: React.FC<{ onBack: () => void }> = ({ onBack }) =
             </div>
             <h3 className="font-semibold text-foreground">Services Included</h3>
           </div>
-          <div className="ml-11">
+          <div className="sm:ml-11">
             <ul className="space-y-2">
               {SERVICES_INCLUDED.map((service, idx) => (
                 <li key={idx} className="flex items-center gap-2 text-sm">
