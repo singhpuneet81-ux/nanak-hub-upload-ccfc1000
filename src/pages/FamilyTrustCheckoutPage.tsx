@@ -58,7 +58,7 @@ const FamilyTrustCheckoutContent: React.FC = () => {
       <FTPageHeader />
       <FTStepper currentStep={currentStep} onStepClick={handleGoToStep} />
 
-      <div className="max-w-7xl mx-auto px-0 sm:px-4 py-4 sm:py-8">
+      <div className="max-w-7xl mx-auto px-0 sm:px-4 py-4 sm:py-8 pb-28 md:pb-8">
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Main content */}
           <div className="flex-1">
@@ -71,6 +71,31 @@ const FamilyTrustCheckoutContent: React.FC = () => {
           <div className={`w-full lg:w-[380px] ${currentStep < 6 ? 'hidden lg:block' : ''}`}>
             <FTOrderSummary />
           </div>
+        </div>
+      </div>
+
+      {/* Mobile Bottom Nav */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-card border-t border-border px-4 py-3 shadow-[0_-2px_10px_rgba(0,0,0,0.06)]">
+        <div className="flex items-center gap-3">
+          {currentStep > 1 && (
+            <button
+              onClick={handleBack}
+              className="h-12 px-5 rounded-2xl font-medium text-sm bg-card text-foreground border border-border hover:bg-secondary active:scale-[0.98] transition-all duration-200 flex items-center gap-2"
+            >
+              <ArrowLeft size={18} />
+              Back
+            </button>
+          )}
+          <button
+            onClick={currentStep < 6 ? handleNext : undefined}
+            className="flex-1 h-12 rounded-2xl font-semibold text-sm text-white flex items-center justify-center gap-2 active:scale-[0.98] transition-all duration-200"
+            style={{
+              background: "linear-gradient(180deg, hsl(24, 95%, 55%) 0%, hsl(24, 95%, 50%) 100%)",
+            }}
+          >
+            {currentStep < 6 ? "Continue" : "Complete & Pay"}
+            {currentStep < 6 && <ArrowRight size={18} />}
+          </button>
         </div>
       </div>
     </div>
