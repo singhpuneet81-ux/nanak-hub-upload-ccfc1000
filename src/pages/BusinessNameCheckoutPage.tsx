@@ -80,7 +80,7 @@ const BusinessNameCheckoutContent: React.FC = () => {
         steps={stepDefs.map((s) => s.label)}
       />
 
-      <div className="max-w-7xl mx-auto px-0 sm:px-4 py-4 sm:py-8">
+      <div className="max-w-7xl mx-auto px-0 sm:px-4 py-4 sm:py-8 pb-28 md:pb-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-2">
