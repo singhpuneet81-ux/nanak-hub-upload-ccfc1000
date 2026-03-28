@@ -59,7 +59,7 @@ const UnitTrustCheckoutPageContent: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-2">
-            <div className="checkout-content-pad bg-card sm:rounded-xl sm:border sm:border-border p-4 sm:p-6 md:p-8">
+            <div className="checkout-content-pad bg-card sm:rounded-xl sm:border sm:border-border p-3 sm:p-6 md:p-8">
               {renderStep()}
             </div>
           </div>
