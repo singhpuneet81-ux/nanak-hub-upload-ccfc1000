@@ -25,13 +25,16 @@ export const SMSFStepReviewPay: React.FC = () => {
   const { packages } = usePricingPackages();
   const SMSF_BASE_PRICE = packages.smsf.foundation.price;
   const BARE_TRUST_PRICE = packages.bare_trust.foundation.price;
+  const BARE_TRUST_BUNDLE_PRICE = 1500;
+  const ASIC_FEE = 611;
   const memberCount = customer.smsfMemberCount || 1;
   const bareTrustSelected = customer.smsfBareTrust || false;
 
+  // Match OrderSummary calculation exactly
   const { subtotal, gst, total } = useMemo(() => {
-    const sub = SMSF_BASE_PRICE + (bareTrustSelected ? BARE_TRUST_PRICE : 0);
-    const g = Math.round(sub * 0.1);
-    return { subtotal: sub, gst: g, total: sub + g };
+    const gstableAmount = SMSF_BASE_PRICE + (bareTrustSelected ? BARE_TRUST_BUNDLE_PRICE : 0);
+    const g = Math.round(gstableAmount / 11);
+    return { subtotal: gstableAmount + ASIC_FEE, gst: g, total: gstableAmount + ASIC_FEE + g };
   }, [bareTrustSelected, SMSF_BASE_PRICE]);
 
   const handleSubmit = async () => {

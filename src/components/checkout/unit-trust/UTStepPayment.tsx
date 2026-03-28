@@ -136,16 +136,24 @@ export const UTStepPayment: React.FC<UTStepPaymentProps> = ({
   const staffCount = customer?.staffCount || 0;
   const payrollFee = payrollEnabled ? staffCount * 120 : 0;
 
+  // State-based stamp duty (GST-free) - match OrderSummary
+  const STATE_STAMP_DUTY: Record<string, number> = { VIC: 200, NSW: 750, NT: 20 };
+  const stampDutyFee = STATE_STAMP_DUTY[customer?.trustState || ""] || 0;
+
+  const ASIC_FEE = 611;
   const subtotal =
     baseSetupFee +
+    ASIC_FEE +
     businessNameTotal +
     gstFee +
     registeredOfficeFee +
     accountingFee +
-    payrollFee;
-  // ASIC fees are GST-free - exclude BN ASIC fee from taxable amount
+    payrollFee +
+    stampDutyFee;
+  // Match OrderSummary: exclude ASIC_FEE, BN ASIC fee, and stamp duty from GST
   const bnAsicFee = businessNameEnabled ? (businessNameTerm === "3_years" ? 104 : 47) : 0;
-  const gstAmount = Math.round((subtotal - bnAsicFee) * 0.1);
+  const taxableAmount = subtotal - ASIC_FEE - bnAsicFee - stampDutyFee;
+  const gstAmount = Math.round(taxableAmount * 0.1);
   const total = subtotal + gstAmount;
 
   const getBusinessActivityLabel = (value: string) => {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Shield, Zap, Users, Award, CheckCircle } from "lucide-react";
 import { useCheckout } from "@/context/CheckoutFlowProvider";
 import { usePricingPackages } from "@/hooks/usePricingPackages";
@@ -7,23 +7,33 @@ import { NeedHelpCall } from "../shared/NeedHelpCall";
 
 export const FTOrderSummary: React.FC = () => {
   const { customer, selections, pricing } = useCheckout();
-  const { serviceMeta } = usePricingPackages();
+  const { packages, serviceMeta } = usePricingPackages();
 
   if (!pricing) return null;
 
-  const {
-    baseFee,
-    businessNameTotal,
-    gstFee,
-    registeredOfficeFee,
-    payrollFee,
-    stampDutyFee,
-    stampDutyState,
-  } = pricing;
-
+  const FT_BASE_PRICE = packages.family_trust.foundation.price;
   const ASIC_FEE = 611;
 
-  // Accounting from API tierPricing (overrides context's hardcoded pricing)
+  const STATE_STAMP_DUTY: Record<string, number> = { VIC: 200, NSW: 750, NT: 20 };
+  const stampDutyState = (customer.appointorState as string) || "";
+  const stampDutyFee = STATE_STAMP_DUTY[stampDutyState] || 0;
+
+  // Use packages API for addon prices (same as ReviewPay)
+  const selectedAddons: string[] = customer.selectedAddons || [];
+  const hasBN = selectedAddons.includes("business_name") || !!customer.businessNameAddon;
+  const bnTerm = (customer.businessNameTerm || "1yr") as string;
+  const bnServiceFee = packages.business_name.foundation.price;
+  const businessNameTotal = hasBN ? bnServiceFee + (bnTerm === "3_years" || bnTerm === "3yr" ? 102 : 44) : 0;
+
+  const hasGst = selectedAddons.includes("gst") || !!customer.gstAddon;
+  const gstFee = hasGst ? packages.gst.foundation.price : 0;
+
+  const hasOffice = selectedAddons.includes("registered_office") || !!customer.registeredOfficeAddon;
+  const registeredOfficeFee = hasOffice ? 220 : 0;
+
+  const payrollFee = customer.payrollEnabled ? ((selections.staffCount || 1) * 165) : 0;
+
+  // Accounting from API tierPricing
   const hasAccounting = selections.package === "registration_plus_accounting";
   const billingFrequency = selections.billingFrequency || "annual";
   const revenueBracket = selections.revenueBracket || "";
@@ -44,8 +54,8 @@ export const FTOrderSummary: React.FC = () => {
   const bracketLabel = packagePlans?.revenueBrackets?.find((b: any) => b.id === revenueBracket)?.label || revenueBracket;
   const planName = apiPlan?.name || "";
 
-  // Recalculate totals with API accounting fee
-  const subtotal = baseFee + ASIC_FEE + businessNameTotal + gstFee + registeredOfficeFee + accountingFee + payrollFee + stampDutyFee;
+  // Calculate totals - exclude ASIC_FEE and stampDuty from GST (same as ReviewPay)
+  const subtotal = FT_BASE_PRICE + ASIC_FEE + businessNameTotal + gstFee + registeredOfficeFee + accountingFee + payrollFee + stampDutyFee;
   const adjustedGst = Math.round((subtotal - ASIC_FEE - stampDutyFee) * 0.1);
   const total = subtotal + adjustedGst;
 
@@ -66,7 +76,7 @@ export const FTOrderSummary: React.FC = () => {
           <p className="font-medium text-foreground mb-2">Family Trust Setup</p>
           <div className="flex justify-between">
             <span className="text-muted-foreground">Our service fee</span>
-            <span className="font-medium text-foreground">${baseFee.toLocaleString()}</span>
+            <span className="font-medium text-foreground">${FT_BASE_PRICE.toLocaleString()}</span>
           </div>
           <div className="flex justify-between">
             <span className="text-muted-foreground">
