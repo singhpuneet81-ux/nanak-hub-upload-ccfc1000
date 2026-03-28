@@ -433,7 +433,7 @@ export const SMSFStepMember: React.FC<SMSFStepMemberProps> = ({
               <label className="form-label">
                 Place of Birth <span className="text-destructive">*</span>
               </label>
-              <div className="checkout-nav flex gap-4">
+              <div className="flex gap-4">
                 <label className="flex items-center gap-2 cursor-pointer">
                   <input
                     type="radio"
@@ -507,7 +507,7 @@ export const SMSFStepMember: React.FC<SMSFStepMemberProps> = ({
             <label className="form-label">
               Do you have a Director Identification Number? <span className="text-destructive">*</span>
             </label>
-            <div className="checkout-nav flex gap-4">
+            <div className="flex gap-4">
               <label className="flex items-center gap-2 cursor-pointer">
                 <input
                   type="radio"
@@ -697,7 +697,7 @@ export const SMSFStepMember: React.FC<SMSFStepMemberProps> = ({
             {COMPLIANCE_QUESTIONS.map((question, qIndex) => (
               <div key={qIndex} className="rounded-lg p-4 border border-border">
                 <p className="text-sm text-foreground mb-3">{question}</p>
-                <div className="checkout-nav flex gap-3">
+                <div className="flex gap-3">
                   <button
                     type="button"
                     onClick={() => updateCompliance(qIndex, "yes")}
