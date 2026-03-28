@@ -163,7 +163,7 @@ export const BTStepTrustee: React.FC = () => {
                 value={customer.btAddressLine2 || ""}
                 onChange={(e) => updateCustomer({ btAddressLine2: e.target.value })}
               />
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <SoftInput
                   label="City/Suburb"
                   required
