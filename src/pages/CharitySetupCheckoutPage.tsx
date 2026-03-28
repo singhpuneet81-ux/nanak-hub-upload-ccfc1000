@@ -228,6 +228,33 @@ const CharitySetupCheckoutContent: React.FC = () => {
     }
   };
 
+  const { packages } = usePricingPackages();
+  const charityStructure = customer?.charityStructure as string | undefined;
+
+  const CHARITY_STRUCTURES: Record<string, { name: string; price: number }> = {
+    incorporated_association: { name: "Incorporated Association", price: packages.charity_ia?.foundation?.price ?? 0 },
+    company_limited_guarantee: { name: "Company Limited by Guarantee", price: packages.charity_clg?.foundation?.price ?? 0 },
+    charitable_trust: { name: "Charitable Trust", price: packages.charity?.foundation?.price ?? 0 },
+  };
+
+  const total = charityStructure ? (CHARITY_STRUCTURES[charityStructure]?.price || 0) : 0;
+
+  const isContinueDisabled = currentStep === 1 ? !charityStructure : false;
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleMobileContinue = async () => {
+    if (currentStep === 5) {
+      // Submit on last step — trigger the contact/payment submit
+      return; // Let the inline form handle submission on desktop; on mobile the button is hidden for step 5
+    }
+    handleNext();
+  };
+
+  const mobileButtonText = currentStep === 5
+    ? `Complete & Pay ${total > 0 ? formatCurrency(total) : ""}`
+    : "Continue";
+
   return (
     <div className="min-h-screen bg-background">
       <CSPageHeader />
@@ -242,6 +269,32 @@ const CharitySetupCheckoutContent: React.FC = () => {
           <div className={`w-full lg:w-[380px] ${currentStep < 5 ? 'hidden lg:block' : ''}`}>
             <CSOrderSummary />
           </div>
+        </div>
+      </div>
+
+      {/* Mobile Bottom Nav Bar */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-card border-t border-border px-4 py-3 shadow-[0_-2px_10px_rgba(0,0,0,0.06)]">
+        <div className="flex items-center gap-3">
+          {currentStep > 1 && (
+            <button
+              onClick={handleBack}
+              className="h-12 px-5 rounded-2xl font-medium text-sm bg-card text-foreground border border-border hover:bg-secondary active:scale-[0.98] transition-all duration-200 flex items-center gap-2"
+            >
+              <ArrowLeft size={18} />
+              Back
+            </button>
+          )}
+          <button
+            onClick={handleMobileContinue}
+            disabled={isContinueDisabled}
+            className="flex-1 h-12 rounded-2xl font-semibold text-sm text-white flex items-center justify-center gap-2 active:scale-[0.98] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            style={{
+              background: "linear-gradient(180deg, hsl(24, 95%, 55%) 0%, hsl(24, 95%, 50%) 100%)",
+            }}
+          >
+            {mobileButtonText}
+            {currentStep < 5 && <ArrowRight size={18} />}
+          </button>
         </div>
       </div>
     </div>
