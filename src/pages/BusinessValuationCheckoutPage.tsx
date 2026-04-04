@@ -614,7 +614,7 @@ const Step2: React.FC<{
         {/* Delivery Timeline */}
         <div>
           <label className="block text-sm font-medium text-foreground mb-2">Delivery Timeline</label>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {[
               { id: "standard", label: "7-10 Business Days", sub: "Standard delivery", badge: "Included", icon: <Clock size={18} className="text-muted-foreground" /> },
               { id: "rush", label: "3-5 Business Days", sub: "Rush delivery", badge: `+${fmt(RUSH_FEE)}`, icon: <Sparkles size={18} className="text-orange-500" /> },
