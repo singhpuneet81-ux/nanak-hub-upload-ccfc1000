@@ -1367,8 +1367,9 @@ export default function BusinessDueDiligencePage() {
           </div>
 
           {/* Order Summary */}
-          <OrderSummary plan={selectedPlan} />
-        </div>
+          <div className="hidden lg:block">
+            <OrderSummary plan={selectedPlan} />
+          </div>
       </div>
     </div>
   );
