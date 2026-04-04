@@ -9,6 +9,7 @@ import { ITRStepPlanSelection } from "@/components/checkout/individual-tax/ITRSt
 import { HelpCircle } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import { calcIncomeStreamsTotal } from "@/components/checkout/individual-tax/ITRIncomeStreams";
+import { usePricingPackages } from "@/hooks/usePricingPackages";
 
 const ITRCheckoutContent: React.FC = () => {
   const { currentStep, setStep, customer } = useCheckout();
