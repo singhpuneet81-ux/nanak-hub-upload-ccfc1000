@@ -566,11 +566,11 @@ const Step2Requirements: React.FC<{
       </div>
     </div>
 
-    <div className="flex justify-between mt-8">
-      <button onClick={onBack} className="btn-secondary flex items-center gap-2">
+    <div className="checkout-nav flex flex-col-reverse sm:flex-row sm:justify-between mt-8 gap-3">
+      <button onClick={onBack} className="btn-secondary flex items-center justify-center gap-2">
         <ChevronLeft className="w-4 h-4" /> Back
       </button>
-      <button onClick={onNext} className="btn-cta flex items-center gap-2">
+      <button onClick={onNext} className="btn-cta flex items-center justify-center gap-2 flex-1 sm:flex-none">
         Continue <ChevronRight className="w-4 h-4" />
       </button>
     </div>
