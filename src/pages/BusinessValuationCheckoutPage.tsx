@@ -949,7 +949,9 @@ const BusinessValuationCheckoutPage: React.FC = () => {
           )}
 
           {/* Order Summary */}
-          <OrderSummary plan={selectedPlan} rushDelivery={rushDelivery} />
+          <div className="hidden lg:block">
+            <OrderSummary plan={selectedPlan} rushDelivery={rushDelivery} />
+          </div>
         </div>
       </div>
     </div>
