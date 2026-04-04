@@ -726,14 +726,14 @@ const Step3ReviewPay: React.FC<{
         </label>
       </div>
 
-      <div className="flex justify-between">
-        <button onClick={onBack} className="btn-secondary flex items-center gap-2">
+      <div className="checkout-nav flex flex-col-reverse sm:flex-row sm:justify-between gap-3">
+        <button onClick={onBack} className="btn-secondary flex items-center justify-center gap-2">
           <ChevronLeft className="w-4 h-4" /> Back
         </button>
         <button
           onClick={onSubmit}
           disabled={!agreed || isSubmitting}
-          className="btn-cta flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="btn-cta flex items-center justify-center gap-2 flex-1 sm:flex-none disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <Lock className="w-4 h-4" />
           {isSubmitting ? "Processing…" : `Pay $${deposit.toLocaleString()} (50% Deposit)`}
