@@ -657,16 +657,16 @@ const Step2: React.FC<{
         </div>
       </div>
 
-      <div className="flex justify-between mt-8">
+      <div className="checkout-nav flex flex-col-reverse sm:flex-row sm:justify-between mt-8 gap-3">
         <button
           onClick={onBack}
-          className="flex items-center gap-2 px-5 py-2.5 border border-border rounded-lg text-sm text-muted-foreground hover:bg-secondary transition-colors"
+          className="flex items-center justify-center gap-2 px-5 py-2.5 border border-border rounded-lg text-sm text-muted-foreground hover:bg-secondary transition-colors"
         >
           <ChevronLeft size={16} /> Back
         </button>
         <button
           onClick={() => validate() && onNext()}
-          className="flex items-center gap-2 px-6 py-2.5 bg-orange-500 hover:bg-orange-600 text-white rounded-2xl text-sm font-semibold transition-colors"
+          className="flex items-center justify-center gap-2 px-6 py-2.5 bg-[hsl(var(--cta))] hover:opacity-90 text-white rounded-2xl text-sm font-semibold transition-colors flex-1 sm:flex-none"
         >
           Continue <ChevronRight size={16} />
         </button>
