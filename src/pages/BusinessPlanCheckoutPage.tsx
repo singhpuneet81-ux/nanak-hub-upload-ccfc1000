@@ -476,8 +476,8 @@ const Step1BusinessInfo: React.FC<{
       </div>
     </div>
 
-    <div className="flex justify-end mt-8">
-      <button onClick={onNext} className="btn-cta flex items-center gap-2">
+    <div className="checkout-nav flex flex-col-reverse sm:flex-row sm:justify-end mt-8 gap-3">
+      <button onClick={onNext} className="btn-cta flex items-center justify-center gap-2 flex-1 sm:flex-none">
         Continue <ChevronRight className="w-4 h-4" />
       </button>
     </div>
