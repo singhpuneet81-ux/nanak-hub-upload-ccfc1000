@@ -17,7 +17,7 @@ export const ITRPageHeader: React.FC<ITRPageHeaderProps> = ({
       {/* Title row */}
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-3">
-          <img src="/favicon.webp" alt="Nanak Accountants" className="w-[79px] h-[79px] object-contain" />
+          <img src="/favicon.webp" alt="Nanak Accountants" className="w-10 h-10 sm:w-[79px] sm:h-[79px] object-contain" />
           <div>
             <h1 className="text-2xl font-bold text-foreground">{title}</h1>
             <p className="text-sm text-muted-foreground">{subtitle}</p>
