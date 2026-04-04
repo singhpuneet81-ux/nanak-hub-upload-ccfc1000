@@ -1370,6 +1370,7 @@ export default function BusinessDueDiligencePage() {
           <div className="hidden lg:block">
             <OrderSummary plan={selectedPlan} />
           </div>
+        </div>
       </div>
     </div>
   );
