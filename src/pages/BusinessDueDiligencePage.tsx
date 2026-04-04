@@ -588,22 +588,18 @@ const Step2Financials: React.FC<{
       </div>
 
       {/* Navigation */}
-      <div className="flex justify-between mt-8">
+      <div className="checkout-nav flex flex-col-reverse sm:flex-row sm:justify-between mt-8 gap-3">
         <button
           onClick={onBack}
-          className="flex items-center gap-1 px-4 py-2 border border-border rounded-lg text-sm text-muted-foreground hover:bg-gray-50 transition-colors"
+          className="flex items-center justify-center gap-1 px-4 py-2.5 border border-border rounded-lg text-sm text-muted-foreground hover:bg-secondary transition-colors"
         >
           <ChevronLeft size={16} /> Back
         </button>
         <button
-          onClick={() => {
-            if (validate()) onNext();
-          }}
+          onClick={() => { if (validate()) onNext(); }}
           disabled={!canContinue}
-          className={`flex items-center gap-1 px-6 py-2 rounded-2xl text-sm font-semibold transition-colors
-            ${
-              canContinue ? "bg-blue-600 text-white hover:bg-blue-700" : "bg-gray-200 text-gray-400 cursor-not-allowed"
-            }`}
+          className={`flex items-center justify-center gap-1 px-6 py-2.5 rounded-2xl text-sm font-semibold transition-colors flex-1 sm:flex-none
+            ${canContinue ? "bg-primary text-primary-foreground hover:bg-primary/90" : "bg-muted text-muted-foreground cursor-not-allowed"}`}
         >
           Continue <ChevronRight size={16} />
         </button>
