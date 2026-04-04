@@ -1293,11 +1293,11 @@ export default function BusinessDueDiligencePage() {
     <div className="min-h-screen bg-background">
       <div className="max-w-5xl mx-auto px-4 py-6 sm:py-10 pb-32 lg:pb-10 checkout-content-pad">
         {/* Page title */}
-        <div className="flex items-center justify-center gap-3 mb-8">
+        <div className="flex items-center justify-center gap-3 mb-6 sm:mb-8">
           <img src="/favicon.webp" alt="Nanak Accountants" className="w-10 h-10 object-contain" />
           <div className="text-center">
-            <h1 className="text-2xl font-bold text-foreground">Business Acquisition Review</h1>
-            <p className="text-sm text-blue-600 mt-1">Complete the details to get your financial review started</p>
+            <h1 className="text-lg sm:text-2xl font-bold text-foreground">Business Acquisition Review</h1>
+            <p className="text-xs sm:text-sm text-primary mt-1">Complete the details to get your financial review started</p>
           </div>
         </div>
 
