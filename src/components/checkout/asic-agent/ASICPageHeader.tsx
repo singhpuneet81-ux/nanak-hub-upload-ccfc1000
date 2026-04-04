@@ -7,7 +7,7 @@ export const ASICPageHeader: React.FC = () => {
       {/* Title row */}
       <div className="flex items-start justify-between mb-4">
         <div>
-          <h1 className="text-2xl font-bold text-foreground">ASIC Agent Services Application</h1>
+          <h1 className="text-lg sm:text-2xl font-bold text-foreground truncate">ASIC Agent Services</h1>
           <p className="text-sm text-muted-foreground">Complete your onboarding in a few simple steps</p>
         </div>
         <div className="text-right hidden sm:block">
