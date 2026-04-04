@@ -45,10 +45,11 @@ export const ASICStepper: React.FC<ASICStepperProps> = ({ currentStep, onStepCli
                 </div>
                 <p
                   className={`
-                    mt-1.5 text-xs font-medium whitespace-nowrap hidden md:block
+                    mt-1.5 text-xs font-medium whitespace-nowrap
                     ${status === "active" ? "text-[hsl(var(--cta))]" : ""}
                     ${status === "done" ? "text-foreground" : ""}
                     ${status === "pending" ? "text-muted-foreground" : ""}
+                    ${status !== "active" ? "hidden sm:block" : ""}
                   `}
                 >
                   {step.label}
