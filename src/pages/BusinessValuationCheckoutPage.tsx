@@ -815,11 +815,11 @@ const Step3: React.FC<{
         {errors.agreed && <p className="text-xs text-destructive mt-1">{errors.agreed}</p>}
       </div>
 
-      <div className="flex justify-between">
-        <button onClick={onBack} className="flex items-center gap-2 px-5 py-2.5 border border-border rounded-lg text-sm text-muted-foreground hover:bg-secondary transition-colors">
+      <div className="checkout-nav flex flex-col-reverse sm:flex-row sm:justify-between gap-3">
+        <button onClick={onBack} className="flex items-center justify-center gap-2 px-5 py-2.5 border border-border rounded-lg text-sm text-muted-foreground hover:bg-secondary transition-colors">
           <ChevronLeft size={16} /> Back
         </button>
-        <button onClick={() => validate() && onSubmit()} disabled={isSubmitting} className="btn-cta">
+        <button onClick={() => validate() && onSubmit()} disabled={isSubmitting} className="btn-cta flex items-center justify-center gap-2 flex-1 sm:flex-none">
           <Lock size={15} />
           {isSubmitting ? "Processing…" : `Pay ${fmt(deposit)} (50% Deposit)`}
         </button>
