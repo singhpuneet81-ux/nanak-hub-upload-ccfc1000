@@ -968,9 +968,9 @@ const BusinessPlanCheckoutPage: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="flex flex-col lg:grid lg:grid-cols-3 gap-6">
           {/* Form */}
-          <div className="lg:col-span-2 bg-card border border-border rounded-xl p-6 shadow-sm">
+          <div className="lg:col-span-2 bg-card border border-border rounded-xl p-4 sm:p-6 shadow-sm">
             {step === 1 && (
               <Step1BusinessInfo
                 plan={selectedPlan}
