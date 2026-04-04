@@ -1088,23 +1088,21 @@ const Step6Payment: React.FC<{
       </p>
 
       {/* CTA */}
-      <button
-        onClick={handleSubmit}
-        disabled={isSubmitting}
-        className="w-full flex items-center justify-center gap-2 py-4 bg-primary hover:bg-primary/90 disabled:opacity-60 text-primary-foreground rounded-full font-semibold text-base transition-colors"
-      >
-        <Lock size={16} />
-        {isSubmitting ? "Processing…" : "Proceed to Secure Payment →"}
-      </button>
-
-      {/* Back */}
-      <div className="flex justify-start mt-4">
+      <div className="checkout-nav flex flex-col-reverse sm:flex-row sm:justify-between gap-3">
         <button
           onClick={onBack}
           disabled={isSubmitting}
-          className="flex items-center gap-1 px-4 py-2 border border-border rounded-lg text-sm text-muted-foreground hover:bg-secondary transition-colors"
+          className="flex items-center justify-center gap-1 px-4 py-2.5 border border-border rounded-lg text-sm text-muted-foreground hover:bg-secondary transition-colors"
         >
           <ChevronLeft size={16} /> Back
+        </button>
+        <button
+          onClick={handleSubmit}
+          disabled={isSubmitting}
+          className="flex items-center justify-center gap-2 py-3 sm:py-4 bg-primary hover:bg-primary/90 disabled:opacity-60 text-primary-foreground rounded-2xl font-semibold text-sm sm:text-base transition-colors flex-1 sm:flex-none sm:px-8"
+        >
+          <Lock size={16} />
+          {isSubmitting ? "Processing…" : "Proceed to Secure Payment →"}
         </button>
       </div>
     </div>
