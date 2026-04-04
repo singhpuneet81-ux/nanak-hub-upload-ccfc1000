@@ -562,7 +562,7 @@ const Step2: React.FC<{
           <label className="block text-sm font-medium text-foreground mb-2">
             Do you have financial statements available? <span className="text-red-500">*</span>
           </label>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {[
               { id: "yes", label: "Yes, I Have Financials", sub: "Last 3 years available", icon: <CheckCircle size={18} className="text-green-500" /> },
               { id: "no", label: "Need Help with Financials", sub: "We'll guide you through it", icon: <Users size={18} className="text-blue-500" /> },
