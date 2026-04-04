@@ -219,16 +219,16 @@ const Stepper: React.FC<{ step: number }> = ({ step }) => (
           <div className="flex flex-col items-center">
             <div
               className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm border-2 transition-all
-                ${done ? "bg-orange-500 border-orange-500 text-white" : active ? "bg-orange-500 border-orange-500 text-white" : "bg-white border-gray-300 text-gray-400"}`}
+                ${done ? "bg-[hsl(var(--cta))] border-[hsl(var(--cta))] text-white" : active ? "bg-[hsl(var(--cta))] border-[hsl(var(--cta))] text-white" : "bg-card border-border text-muted-foreground"}`}
             >
               {done ? <CheckCircle size={18} /> : idx}
             </div>
-            <span className={`text-xs mt-1.5 font-medium ${active || done ? "text-orange-500" : "text-muted-foreground"}`}>
+            <span className={`text-xs mt-1.5 font-medium ${active || done ? "text-[hsl(var(--cta))]" : "text-muted-foreground"} ${!active ? "hidden sm:block" : ""}`}>
               {label}
             </span>
           </div>
           {i < STEP_LABELS.length - 1 && (
-            <div className={`h-0.5 w-20 mx-1 mb-5 ${step > idx ? "bg-orange-500" : "bg-gray-200"}`} />
+            <div className={`h-0.5 w-12 sm:w-20 mx-1 mb-5 ${step > idx ? "bg-[hsl(var(--cta))]" : "bg-border"}`} />
           )}
         </React.Fragment>
       );
