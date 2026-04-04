@@ -426,7 +426,7 @@ const Step1: React.FC<{
           <label className="block text-sm font-medium text-foreground mb-2">
             Primary Purpose of Valuation <span className="text-red-500">*</span>
           </label>
-          <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {PURPOSES.map((p) => (
               <button
                 key={p.id}
