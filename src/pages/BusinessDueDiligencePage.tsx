@@ -1304,7 +1304,7 @@ export default function BusinessDueDiligencePage() {
         {/* Stepper */}
         <Stepper step={step} />
 
-        <div className="grid lg:grid-cols-[1fr_320px] gap-6 items-start">
+        <div className="flex flex-col lg:grid lg:grid-cols-[1fr_320px] gap-6 items-start">
           {/* Main form */}
           <div>
             {step === 1 && (
