@@ -481,18 +481,16 @@ const Step1Business: React.FC<{
       </div>
 
       {/* Navigation */}
-      <div className="flex justify-between mt-8">
+      <div className="checkout-nav flex flex-col-reverse sm:flex-row sm:justify-between mt-8 gap-3">
         <button
           onClick={onBack}
-          className="flex items-center gap-1 px-4 py-2 border border-border rounded-lg text-sm text-muted-foreground hover:bg-gray-50 transition-colors"
+          className="flex items-center justify-center gap-1 px-4 py-2.5 border border-border rounded-lg text-sm text-muted-foreground hover:bg-secondary transition-colors"
         >
           <ChevronLeft size={16} /> Back
         </button>
         <button
-          onClick={() => {
-            if (validate()) onNext();
-          }}
-          className="flex items-center gap-1 px-6 py-2 bg-blue-600 text-white rounded-2xl text-sm font-semibold hover:bg-blue-700 transition-colors"
+          onClick={() => { if (validate()) onNext(); }}
+          className="flex items-center justify-center gap-1 px-6 py-2.5 bg-primary text-primary-foreground rounded-2xl text-sm font-semibold hover:bg-primary/90 transition-colors flex-1 sm:flex-none"
         >
           Continue <ChevronRight size={16} />
         </button>
