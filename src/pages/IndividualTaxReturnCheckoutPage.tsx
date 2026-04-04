@@ -9,6 +9,7 @@ import { ITRStepPlanSelection } from "@/components/checkout/individual-tax/ITRSt
 import { HelpCircle } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import { calcIncomeStreamsTotal } from "@/components/checkout/individual-tax/ITRIncomeStreams";
+import { usePricingPackages } from "@/hooks/usePricingPackages";
 
 const ITRCheckoutContent: React.FC = () => {
   const { currentStep, setStep, customer } = useCheckout();
@@ -88,13 +89,19 @@ const ITRCheckoutContent: React.FC = () => {
   );
 };
 
-const ITR_PRICES: Record<string, number> = { essential: 99, premium: 149 };
-
 const ITRMobileSummary: React.FC = () => {
   const { customer } = useCheckout();
+  const { packages } = usePricingPackages();
+  const apiBasePrice = packages.individual_tax_return.foundation.price;
+
+  const PLAN_PRICES: Record<string, number> = {
+    essential: apiBasePrice,
+    premium: Math.round(apiBasePrice * 1.5),
+  };
+
   const plan = customer.itrPlan || "premium";
   const returnCount = (customer.itrReturnCount as number) || 1;
-  const basePrice = (ITR_PRICES[plan] || 149) * returnCount;
+  const basePrice = (PLAN_PRICES[plan] || PLAN_PRICES.premium) * returnCount;
   const strategicTaxPrice = customer.strategicTaxPlanning ? 150 : 0;
   const streamsTotal = calcIncomeStreamsTotal(customer);
   const total = basePrice + (customer.itrAbnPrice || 0) + (customer.itrBasTotal || 0) + strategicTaxPrice + streamsTotal;
