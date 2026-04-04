@@ -266,13 +266,13 @@ const Stepper: React.FC<{ step: number }> = ({ step }) => (
             >
               {done ? <Check className="w-4 h-4" /> : num}
             </div>
-            <span className={`text-xs mt-1 font-medium ${active || done ? "text-foreground" : "text-muted-foreground"}`}>
+            <span className={`text-xs mt-1 font-medium ${active || done ? "text-foreground" : "text-muted-foreground"} ${!active ? "hidden sm:block" : ""}`}>
               {label}
             </span>
           </div>
           {i < STEP_LABELS.length - 1 && (
             <div
-              className={`h-0.5 w-16 sm:w-24 mx-1 mb-4 transition-colors ${
+              className={`h-0.5 w-12 sm:w-24 mx-1 mb-4 transition-colors ${
                 step > num ? "bg-primary" : "bg-border"
               }`}
             />
