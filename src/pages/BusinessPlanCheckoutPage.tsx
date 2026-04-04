@@ -1012,7 +1012,7 @@ const BusinessPlanCheckoutPage: React.FC = () => {
           </div>
 
           {/* Sidebar */}
-          <div className="lg:col-span-1">
+          <div className="hidden lg:block lg:col-span-1">
             <OrderSummary plan={selectedPlan} addOns={addOns} addonsSource={dynamicAddons} />
           </div>
         </div>
