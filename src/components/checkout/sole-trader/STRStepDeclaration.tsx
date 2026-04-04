@@ -98,7 +98,7 @@ export const STRStepDeclaration: React.FC = () => {
         </div>
 
         {/* Buttons */}
-        <div className="flex flex-col-reverse sm:flex-row gap-3 pb-6">
+        <div className="checkout-nav flex flex-col-reverse sm:flex-row gap-3 pb-6">
           <BackButton onClick={prevStep} className="w-full sm:w-32" />
           <PrimaryButton onClick={handleSubmit} disabled={!isValid() || isSubmitting} className="w-full sm:flex-1 h-14 sm:h-12 text-base sm:text-sm">
             <CheckCircle2 className="w-5 h-5 sm:w-4 sm:h-4 mr-1" />Proceed to payment

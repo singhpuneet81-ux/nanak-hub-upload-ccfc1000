@@ -33,7 +33,7 @@ export const ITRPageHeader: React.FC<ITRPageHeaderProps> = ({
       </div>
 
       {/* Trust strip - green */}
-      <div className="bg-[hsl(142_76%_94%)] border border-[hsl(142_71%_85%)] rounded-xl px-4 py-3 flex items-center justify-center gap-6 flex-wrap">
+      <div className="bg-[hsl(142_76%_94%)] border border-[hsl(142_71%_85%)] rounded-xl px-4 py-3 hidden sm:flex items-center justify-center gap-6 flex-wrap">
         <div className="flex items-center gap-1.5 text-sm text-[hsl(142_71%_35%)]">
           <Shield className="w-4 h-4" />
           <Check className="w-3 h-3" />
