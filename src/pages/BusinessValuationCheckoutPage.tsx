@@ -219,16 +219,16 @@ const Stepper: React.FC<{ step: number }> = ({ step }) => (
           <div className="flex flex-col items-center">
             <div
               className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm border-2 transition-all
-                ${done ? "bg-orange-500 border-orange-500 text-white" : active ? "bg-orange-500 border-orange-500 text-white" : "bg-white border-gray-300 text-gray-400"}`}
+                ${done ? "bg-[hsl(var(--cta))] border-[hsl(var(--cta))] text-white" : active ? "bg-[hsl(var(--cta))] border-[hsl(var(--cta))] text-white" : "bg-card border-border text-muted-foreground"}`}
             >
               {done ? <CheckCircle size={18} /> : idx}
             </div>
-            <span className={`text-xs mt-1.5 font-medium ${active || done ? "text-orange-500" : "text-muted-foreground"}`}>
+            <span className={`text-xs mt-1.5 font-medium ${active || done ? "text-[hsl(var(--cta))]" : "text-muted-foreground"} ${!active ? "hidden sm:block" : ""}`}>
               {label}
             </span>
           </div>
           {i < STEP_LABELS.length - 1 && (
-            <div className={`h-0.5 w-20 mx-1 mb-5 ${step > idx ? "bg-orange-500" : "bg-gray-200"}`} />
+            <div className={`h-0.5 w-12 sm:w-20 mx-1 mb-5 ${step > idx ? "bg-[hsl(var(--cta))]" : "bg-border"}`} />
           )}
         </React.Fragment>
       );
@@ -426,7 +426,7 @@ const Step1: React.FC<{
           <label className="block text-sm font-medium text-foreground mb-2">
             Primary Purpose of Valuation <span className="text-red-500">*</span>
           </label>
-          <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {PURPOSES.map((p) => (
               <button
                 key={p.id}
@@ -512,16 +512,16 @@ const Step1: React.FC<{
       </div>
 
       {/* Navigation */}
-      <div className="flex justify-between mt-8">
+      <div className="checkout-nav flex flex-col-reverse sm:flex-row sm:justify-between mt-8 gap-3">
         <button
           onClick={() => window.history.back()}
-          className="flex items-center gap-2 px-5 py-2.5 border border-border rounded-lg text-sm text-muted-foreground hover:bg-secondary transition-colors"
+          className="flex items-center justify-center gap-2 px-5 py-2.5 border border-border rounded-lg text-sm text-muted-foreground hover:bg-secondary transition-colors"
         >
           <ChevronLeft size={16} /> Back
         </button>
         <button
           onClick={() => validate() && onNext()}
-          className="flex items-center gap-2 px-6 py-2.5 bg-orange-500 hover:bg-orange-600 text-white rounded-2xl text-sm font-semibold transition-colors"
+          className="flex items-center justify-center gap-2 px-6 py-2.5 bg-[hsl(var(--cta))] hover:opacity-90 text-white rounded-2xl text-sm font-semibold transition-colors flex-1 sm:flex-none"
         >
           Continue <ChevronRight size={16} />
         </button>
@@ -562,7 +562,7 @@ const Step2: React.FC<{
           <label className="block text-sm font-medium text-foreground mb-2">
             Do you have financial statements available? <span className="text-red-500">*</span>
           </label>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {[
               { id: "yes", label: "Yes, I Have Financials", sub: "Last 3 years available", icon: <CheckCircle size={18} className="text-green-500" /> },
               { id: "no", label: "Need Help with Financials", sub: "We'll guide you through it", icon: <Users size={18} className="text-blue-500" /> },
@@ -614,7 +614,7 @@ const Step2: React.FC<{
         {/* Delivery Timeline */}
         <div>
           <label className="block text-sm font-medium text-foreground mb-2">Delivery Timeline</label>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {[
               { id: "standard", label: "7-10 Business Days", sub: "Standard delivery", badge: "Included", icon: <Clock size={18} className="text-muted-foreground" /> },
               { id: "rush", label: "3-5 Business Days", sub: "Rush delivery", badge: `+${fmt(RUSH_FEE)}`, icon: <Sparkles size={18} className="text-orange-500" /> },
@@ -657,16 +657,16 @@ const Step2: React.FC<{
         </div>
       </div>
 
-      <div className="flex justify-between mt-8">
+      <div className="checkout-nav flex flex-col-reverse sm:flex-row sm:justify-between mt-8 gap-3">
         <button
           onClick={onBack}
-          className="flex items-center gap-2 px-5 py-2.5 border border-border rounded-lg text-sm text-muted-foreground hover:bg-secondary transition-colors"
+          className="flex items-center justify-center gap-2 px-5 py-2.5 border border-border rounded-lg text-sm text-muted-foreground hover:bg-secondary transition-colors"
         >
           <ChevronLeft size={16} /> Back
         </button>
         <button
           onClick={() => validate() && onNext()}
-          className="flex items-center gap-2 px-6 py-2.5 bg-orange-500 hover:bg-orange-600 text-white rounded-2xl text-sm font-semibold transition-colors"
+          className="flex items-center justify-center gap-2 px-6 py-2.5 bg-[hsl(var(--cta))] hover:opacity-90 text-white rounded-2xl text-sm font-semibold transition-colors flex-1 sm:flex-none"
         >
           Continue <ChevronRight size={16} />
         </button>
@@ -815,11 +815,11 @@ const Step3: React.FC<{
         {errors.agreed && <p className="text-xs text-destructive mt-1">{errors.agreed}</p>}
       </div>
 
-      <div className="flex justify-between">
-        <button onClick={onBack} className="flex items-center gap-2 px-5 py-2.5 border border-border rounded-lg text-sm text-muted-foreground hover:bg-secondary transition-colors">
+      <div className="checkout-nav flex flex-col-reverse sm:flex-row sm:justify-between gap-3">
+        <button onClick={onBack} className="flex items-center justify-center gap-2 px-5 py-2.5 border border-border rounded-lg text-sm text-muted-foreground hover:bg-secondary transition-colors">
           <ChevronLeft size={16} /> Back
         </button>
-        <button onClick={() => validate() && onSubmit()} disabled={isSubmitting} className="btn-cta">
+        <button onClick={() => validate() && onSubmit()} disabled={isSubmitting} className="btn-cta flex items-center justify-center gap-2 flex-1 sm:flex-none">
           <Lock size={15} />
           {isSubmitting ? "Processing…" : `Pay ${fmt(deposit)} (50% Deposit)`}
         </button>
@@ -907,16 +907,16 @@ const BusinessValuationCheckoutPage: React.FC = () => {
   return (
   <div className="min-h-screen bg-background">
       <CheckoutLoader visible={isSubmitting} />
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-6xl mx-auto px-4 py-6 sm:py-8 pb-32 lg:pb-8 checkout-content-pad">
         <div className="flex items-center gap-3 mb-6">
-          <img src="/favicon.webp" alt="Nanak Accountants" className="w-[79px] h-[79px] object-contain" />
+          <img src="/favicon.webp" alt="Nanak Accountants" className="w-10 h-10 sm:w-[79px] sm:h-[79px] object-contain" />
           <div>
-            <h1 className="text-2xl font-bold text-foreground">Business Valuation</h1>
+            <h1 className="text-lg sm:text-2xl font-bold text-foreground truncate">Business Valuation</h1>
             <p className="text-sm text-muted-foreground">Complete your details below</p>
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-[1fr_340px] gap-6 items-start">
+        <div className="flex flex-col lg:grid lg:grid-cols-[1fr_340px] gap-6 items-start">
           {/* Step Content */}
           {step === 1 && (
             <Step1
@@ -949,7 +949,9 @@ const BusinessValuationCheckoutPage: React.FC = () => {
           )}
 
           {/* Order Summary */}
-          <OrderSummary plan={selectedPlan} rushDelivery={rushDelivery} />
+          <div className="hidden lg:block">
+            <OrderSummary plan={selectedPlan} rushDelivery={rushDelivery} />
+          </div>
         </div>
       </div>
     </div>

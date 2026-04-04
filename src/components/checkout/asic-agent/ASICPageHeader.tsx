@@ -7,7 +7,7 @@ export const ASICPageHeader: React.FC = () => {
       {/* Title row */}
       <div className="flex items-start justify-between mb-4">
         <div>
-          <h1 className="text-2xl font-bold text-foreground">ASIC Agent Services Application</h1>
+          <h1 className="text-lg sm:text-2xl font-bold text-foreground truncate">ASIC Agent Services</h1>
           <p className="text-sm text-muted-foreground">Complete your onboarding in a few simple steps</p>
         </div>
         <div className="text-right hidden sm:block">
@@ -20,7 +20,7 @@ export const ASICPageHeader: React.FC = () => {
       </div>
 
       {/* Trust strip - green */}
-      <div className="bg-[hsl(142_76%_94%)] border border-[hsl(142_71%_85%)] rounded-xl px-4 py-3 flex items-center justify-center gap-6 flex-wrap">
+      <div className="bg-[hsl(142_76%_94%)] border border-[hsl(142_71%_85%)] rounded-xl px-4 py-3 hidden sm:flex items-center justify-center gap-6 flex-wrap">
         <div className="flex items-center gap-1.5 text-sm text-[hsl(142_71%_35%)]">
           <Shield className="w-4 h-4" />
           <Check className="w-3 h-3" />

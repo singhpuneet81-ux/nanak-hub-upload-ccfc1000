@@ -76,7 +76,7 @@ export const STRStepDeclaration: React.FC = () => {
           <h3 className="font-bold text-foreground mb-4">What Happens Next</h3>
           <div className="space-y-3">
             {cfg.whatHappensNext.map((item, i) => (
-              <div key={i} className="checkout-nav flex gap-3">
+              <div key={i} className="flex gap-3">
                 <div className="w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-bold shrink-0">{i + 1}</div>
                 <div><p className="text-sm font-semibold text-foreground">{item.title}</p><p className="text-xs text-muted-foreground">{item.desc}</p></div>
               </div>
@@ -98,7 +98,7 @@ export const STRStepDeclaration: React.FC = () => {
         </div>
 
         {/* Buttons */}
-        <div className="flex flex-col-reverse sm:flex-row gap-3 pb-6">
+        <div className="checkout-nav flex flex-col-reverse sm:flex-row gap-3 pb-6">
           <BackButton onClick={prevStep} className="w-full sm:w-32" />
           <PrimaryButton onClick={handleSubmit} disabled={!isValid() || isSubmitting} className="w-full sm:flex-1 h-14 sm:h-12 text-base sm:text-sm">
             <CheckCircle2 className="w-5 h-5 sm:w-4 sm:h-4 mr-1" />Proceed to payment

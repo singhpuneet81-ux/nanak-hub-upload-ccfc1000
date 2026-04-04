@@ -364,8 +364,8 @@ export const ITRStepYourDetails: React.FC = () => {
 
         {/* ── Additional Income Streams ── */}
         <ITRIncomeStreams />
-        <div className="mt-8 hidden sm:flex justify-end">
-          <PrimaryButton onClick={nextStep} disabled={!isValid()}>
+        <div className="checkout-nav flex justify-end mt-8">
+          <PrimaryButton onClick={nextStep} disabled={!isValid()} className="flex-1 sm:flex-none">
             Continue
           </PrimaryButton>
         </div>

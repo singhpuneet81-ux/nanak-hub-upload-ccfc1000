@@ -84,7 +84,7 @@ export const ITRStepDeclaration: React.FC = () => {
           <h3 className="font-bold text-foreground mb-4">How Our Service Works</h3>
           <div className="space-y-4">
             {TIMELINE.map((item, i) => (
-              <div key={i} className="checkout-nav flex gap-4">
+              <div key={i} className="flex gap-4">
                 <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-sm font-bold shrink-0">
                   {i + 1}
                 </div>

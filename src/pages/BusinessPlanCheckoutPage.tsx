@@ -266,13 +266,13 @@ const Stepper: React.FC<{ step: number }> = ({ step }) => (
             >
               {done ? <Check className="w-4 h-4" /> : num}
             </div>
-            <span className={`text-xs mt-1 font-medium ${active || done ? "text-foreground" : "text-muted-foreground"}`}>
+            <span className={`text-xs mt-1 font-medium ${active || done ? "text-foreground" : "text-muted-foreground"} ${!active ? "hidden sm:block" : ""}`}>
               {label}
             </span>
           </div>
           {i < STEP_LABELS.length - 1 && (
             <div
-              className={`h-0.5 w-16 sm:w-24 mx-1 mb-4 transition-colors ${
+              className={`h-0.5 w-12 sm:w-24 mx-1 mb-4 transition-colors ${
                 step > num ? "bg-primary" : "bg-border"
               }`}
             />
@@ -476,8 +476,8 @@ const Step1BusinessInfo: React.FC<{
       </div>
     </div>
 
-    <div className="flex justify-end mt-8">
-      <button onClick={onNext} className="btn-cta flex items-center gap-2">
+    <div className="checkout-nav flex flex-col-reverse sm:flex-row sm:justify-end mt-8 gap-3">
+      <button onClick={onNext} className="btn-cta flex items-center justify-center gap-2 flex-1 sm:flex-none">
         Continue <ChevronRight className="w-4 h-4" />
       </button>
     </div>
@@ -566,11 +566,11 @@ const Step2Requirements: React.FC<{
       </div>
     </div>
 
-    <div className="flex justify-between mt-8">
-      <button onClick={onBack} className="btn-secondary flex items-center gap-2">
+    <div className="checkout-nav flex flex-col-reverse sm:flex-row sm:justify-between mt-8 gap-3">
+      <button onClick={onBack} className="btn-secondary flex items-center justify-center gap-2">
         <ChevronLeft className="w-4 h-4" /> Back
       </button>
-      <button onClick={onNext} className="btn-cta flex items-center gap-2">
+      <button onClick={onNext} className="btn-cta flex items-center justify-center gap-2 flex-1 sm:flex-none">
         Continue <ChevronRight className="w-4 h-4" />
       </button>
     </div>
@@ -726,14 +726,14 @@ const Step3ReviewPay: React.FC<{
         </label>
       </div>
 
-      <div className="flex justify-between">
-        <button onClick={onBack} className="btn-secondary flex items-center gap-2">
+      <div className="checkout-nav flex flex-col-reverse sm:flex-row sm:justify-between gap-3">
+        <button onClick={onBack} className="btn-secondary flex items-center justify-center gap-2">
           <ChevronLeft className="w-4 h-4" /> Back
         </button>
         <button
           onClick={onSubmit}
           disabled={!agreed || isSubmitting}
-          className="btn-cta flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="btn-cta flex items-center justify-center gap-2 flex-1 sm:flex-none disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <Lock className="w-4 h-4" />
           {isSubmitting ? "Processing…" : `Pay $${deposit.toLocaleString()} (50% Deposit)`}
@@ -959,18 +959,18 @@ const BusinessPlanCheckoutPage: React.FC = () => {
     <div className="min-h-screen bg-background">
       <CheckoutLoader visible={isSubmitting} />
 
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-6xl mx-auto px-4 py-6 sm:py-8 pb-32 lg:pb-8 checkout-content-pad">
         <div className="flex items-center gap-3 mb-6">
-          <img src="/favicon.webp" alt="Nanak Accountants" className="w-[79px] h-[79px] object-contain" />
+          <img src="/favicon.webp" alt="Nanak Accountants" className="w-10 h-10 sm:w-[79px] sm:h-[79px] object-contain" />
           <div>
-            <h1 className="text-2xl font-bold text-foreground">Business Plan</h1>
+            <h1 className="text-lg sm:text-2xl font-bold text-foreground truncate">Business Plan</h1>
             <p className="text-sm text-muted-foreground">Complete your details below</p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="flex flex-col lg:grid lg:grid-cols-3 gap-6">
           {/* Form */}
-          <div className="lg:col-span-2 bg-card border border-border rounded-xl p-6 shadow-sm">
+          <div className="lg:col-span-2 bg-card border border-border rounded-xl p-4 sm:p-6 shadow-sm">
             {step === 1 && (
               <Step1BusinessInfo
                 plan={selectedPlan}
@@ -1012,7 +1012,7 @@ const BusinessPlanCheckoutPage: React.FC = () => {
           </div>
 
           {/* Sidebar */}
-          <div className="lg:col-span-1">
+          <div className="hidden lg:block lg:col-span-1">
             <OrderSummary plan={selectedPlan} addOns={addOns} addonsSource={dynamicAddons} />
           </div>
         </div>

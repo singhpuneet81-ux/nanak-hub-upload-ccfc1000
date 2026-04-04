@@ -179,27 +179,27 @@ const Stepper: React.FC<{ step: number }> = ({ step }) => (
       const active = step === idx;
       return (
         <React.Fragment key={i}>
-          <div className="flex flex-col items-center" style={{ minWidth: 56 }}>
+          <div className="flex flex-col items-center" style={{ minWidth: 40 }}>
             <div
-              className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm border-2 transition-all
+              className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-xs sm:text-sm border-2 transition-all
                 ${
                   done
-                    ? "bg-blue-600 border-blue-600 text-white"
+                    ? "bg-primary border-primary text-primary-foreground"
                     : active
-                      ? "bg-blue-600 border-blue-600 text-white"
-                      : "bg-white border-gray-300 text-gray-400"
+                      ? "bg-primary border-primary text-primary-foreground"
+                      : "bg-card border-border text-muted-foreground"
                 }`}
             >
-              {done ? <CheckCircle size={18} /> : idx}
+              {done ? <CheckCircle size={16} /> : idx}
             </div>
             <span
-              className={`text-xs mt-1.5 font-medium text-center ${active ? "text-blue-600" : done ? "text-blue-600" : "text-gray-400"}`}
+              className={`text-[10px] sm:text-xs mt-1.5 font-medium text-center ${active ? "text-primary" : done ? "text-primary" : "text-muted-foreground"} ${!active ? "hidden sm:block" : ""}`}
             >
               {s.label}
             </span>
           </div>
           {i < STEP_LABELS.length - 1 && (
-            <div className={`h-0.5 flex-1 mx-1 mt-5 ${done ? "bg-blue-600" : "bg-gray-200"}`} />
+            <div className={`h-0.5 flex-1 mx-0.5 sm:mx-1 mt-4 sm:mt-5 ${done ? "bg-primary" : "bg-border"}`} />
           )}
         </React.Fragment>
       );
@@ -481,18 +481,16 @@ const Step1Business: React.FC<{
       </div>
 
       {/* Navigation */}
-      <div className="flex justify-between mt-8">
+      <div className="checkout-nav flex flex-col-reverse sm:flex-row sm:justify-between mt-8 gap-3">
         <button
           onClick={onBack}
-          className="flex items-center gap-1 px-4 py-2 border border-border rounded-lg text-sm text-muted-foreground hover:bg-gray-50 transition-colors"
+          className="flex items-center justify-center gap-1 px-4 py-2.5 border border-border rounded-lg text-sm text-muted-foreground hover:bg-secondary transition-colors"
         >
           <ChevronLeft size={16} /> Back
         </button>
         <button
-          onClick={() => {
-            if (validate()) onNext();
-          }}
-          className="flex items-center gap-1 px-6 py-2 bg-blue-600 text-white rounded-2xl text-sm font-semibold hover:bg-blue-700 transition-colors"
+          onClick={() => { if (validate()) onNext(); }}
+          className="flex items-center justify-center gap-1 px-6 py-2.5 bg-primary text-primary-foreground rounded-2xl text-sm font-semibold hover:bg-primary/90 transition-colors flex-1 sm:flex-none"
         >
           Continue <ChevronRight size={16} />
         </button>
@@ -590,22 +588,18 @@ const Step2Financials: React.FC<{
       </div>
 
       {/* Navigation */}
-      <div className="flex justify-between mt-8">
+      <div className="checkout-nav flex flex-col-reverse sm:flex-row sm:justify-between mt-8 gap-3">
         <button
           onClick={onBack}
-          className="flex items-center gap-1 px-4 py-2 border border-border rounded-lg text-sm text-muted-foreground hover:bg-gray-50 transition-colors"
+          className="flex items-center justify-center gap-1 px-4 py-2.5 border border-border rounded-lg text-sm text-muted-foreground hover:bg-secondary transition-colors"
         >
           <ChevronLeft size={16} /> Back
         </button>
         <button
-          onClick={() => {
-            if (validate()) onNext();
-          }}
+          onClick={() => { if (validate()) onNext(); }}
           disabled={!canContinue}
-          className={`flex items-center gap-1 px-6 py-2 rounded-2xl text-sm font-semibold transition-colors
-            ${
-              canContinue ? "bg-blue-600 text-white hover:bg-blue-700" : "bg-gray-200 text-gray-400 cursor-not-allowed"
-            }`}
+          className={`flex items-center justify-center gap-1 px-6 py-2.5 rounded-2xl text-sm font-semibold transition-colors flex-1 sm:flex-none
+            ${canContinue ? "bg-primary text-primary-foreground hover:bg-primary/90" : "bg-muted text-muted-foreground cursor-not-allowed"}`}
         >
           Continue <ChevronRight size={16} />
         </button>
@@ -674,16 +668,16 @@ const Step3Documents: React.FC<{
       </div>
 
       {/* Navigation */}
-      <div className="flex justify-between">
+      <div className="checkout-nav flex flex-col-reverse sm:flex-row sm:justify-between gap-3">
         <button
           onClick={onBack}
-          className="flex items-center gap-1 px-4 py-2 border border-border rounded-lg text-sm text-muted-foreground hover:bg-gray-50 transition-colors"
+          className="flex items-center justify-center gap-1 px-4 py-2.5 border border-border rounded-lg text-sm text-muted-foreground hover:bg-secondary transition-colors"
         >
           <ChevronLeft size={16} /> Back
         </button>
         <button
           onClick={onNext}
-          className="flex items-center gap-1 px-6 py-2 bg-blue-600 text-white rounded-2xl text-sm font-semibold hover:bg-blue-700 transition-colors"
+          className="flex items-center justify-center gap-1 px-6 py-2.5 bg-primary text-primary-foreground rounded-2xl text-sm font-semibold hover:bg-primary/90 transition-colors flex-1 sm:flex-none"
         >
           Continue <ChevronRight size={16} />
         </button>
@@ -785,16 +779,16 @@ const Step4Package: React.FC<{
       </div>
 
       {/* Navigation */}
-      <div className="flex justify-between">
+      <div className="checkout-nav flex flex-col-reverse sm:flex-row sm:justify-between gap-3">
         <button
           onClick={onBack}
-          className="flex items-center gap-1 px-4 py-2 border border-border rounded-lg text-sm text-muted-foreground hover:bg-gray-50 transition-colors"
+          className="flex items-center justify-center gap-1 px-4 py-2.5 border border-border rounded-lg text-sm text-muted-foreground hover:bg-secondary transition-colors"
         >
           <ChevronLeft size={16} /> Back
         </button>
         <button
           onClick={onNext}
-          className="flex items-center gap-1 px-6 py-2 bg-blue-600 text-white rounded-2xl text-sm font-semibold hover:bg-blue-700 transition-colors"
+          className="flex items-center justify-center gap-1 px-6 py-2.5 bg-primary text-primary-foreground rounded-2xl text-sm font-semibold hover:bg-primary/90 transition-colors flex-1 sm:flex-none"
         >
           Continue <ChevronRight size={16} />
         </button>
@@ -884,18 +878,16 @@ const Step5Contact: React.FC<{
         </div>
       </div>
 
-      <div className="flex justify-between mt-8">
+      <div className="checkout-nav flex flex-col-reverse sm:flex-row sm:justify-between mt-8 gap-3">
         <button
           onClick={onBack}
-          className="flex items-center gap-1 px-4 py-2 border border-border rounded-lg text-sm text-muted-foreground hover:bg-gray-50 transition-colors"
+          className="flex items-center justify-center gap-1 px-4 py-2.5 border border-border rounded-lg text-sm text-muted-foreground hover:bg-secondary transition-colors"
         >
           <ChevronLeft size={16} /> Back
         </button>
         <button
-          onClick={() => {
-            if (validate()) onNext();
-          }}
-          className="flex items-center gap-1 px-6 py-2 bg-blue-600 text-white rounded-2xl text-sm font-semibold hover:bg-blue-700 transition-colors"
+          onClick={() => { if (validate()) onNext(); }}
+          className="flex items-center justify-center gap-1 px-6 py-2.5 bg-primary text-primary-foreground rounded-2xl text-sm font-semibold hover:bg-primary/90 transition-colors flex-1 sm:flex-none"
         >
           Continue <ChevronRight size={16} />
         </button>
@@ -1096,23 +1088,21 @@ const Step6Payment: React.FC<{
       </p>
 
       {/* CTA */}
-      <button
-        onClick={handleSubmit}
-        disabled={isSubmitting}
-        className="w-full flex items-center justify-center gap-2 py-4 bg-primary hover:bg-primary/90 disabled:opacity-60 text-primary-foreground rounded-full font-semibold text-base transition-colors"
-      >
-        <Lock size={16} />
-        {isSubmitting ? "Processing…" : "Proceed to Secure Payment →"}
-      </button>
-
-      {/* Back */}
-      <div className="flex justify-start mt-4">
+      <div className="checkout-nav flex flex-col-reverse sm:flex-row sm:justify-between gap-3">
         <button
           onClick={onBack}
           disabled={isSubmitting}
-          className="flex items-center gap-1 px-4 py-2 border border-border rounded-lg text-sm text-muted-foreground hover:bg-secondary transition-colors"
+          className="flex items-center justify-center gap-1 px-4 py-2.5 border border-border rounded-lg text-sm text-muted-foreground hover:bg-secondary transition-colors"
         >
           <ChevronLeft size={16} /> Back
+        </button>
+        <button
+          onClick={handleSubmit}
+          disabled={isSubmitting}
+          className="flex items-center justify-center gap-2 py-3 sm:py-4 bg-primary hover:bg-primary/90 disabled:opacity-60 text-primary-foreground rounded-2xl font-semibold text-sm sm:text-base transition-colors flex-1 sm:flex-none sm:px-8"
+        >
+          <Lock size={16} />
+          {isSubmitting ? "Processing…" : "Proceed to Secure Payment →"}
         </button>
       </div>
     </div>
@@ -1301,20 +1291,20 @@ export default function BusinessDueDiligencePage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="max-w-5xl mx-auto px-4 py-10">
+      <div className="max-w-5xl mx-auto px-4 py-6 sm:py-10 pb-32 lg:pb-10 checkout-content-pad">
         {/* Page title */}
-        <div className="flex items-center justify-center gap-3 mb-8">
+        <div className="flex items-center justify-center gap-3 mb-6 sm:mb-8">
           <img src="/favicon.webp" alt="Nanak Accountants" className="w-10 h-10 object-contain" />
           <div className="text-center">
-            <h1 className="text-2xl font-bold text-foreground">Business Acquisition Review</h1>
-            <p className="text-sm text-blue-600 mt-1">Complete the details to get your financial review started</p>
+            <h1 className="text-lg sm:text-2xl font-bold text-foreground">Business Acquisition Review</h1>
+            <p className="text-xs sm:text-sm text-primary mt-1">Complete the details to get your financial review started</p>
           </div>
         </div>
 
         {/* Stepper */}
         <Stepper step={step} />
 
-        <div className="grid lg:grid-cols-[1fr_320px] gap-6 items-start">
+        <div className="flex flex-col lg:grid lg:grid-cols-[1fr_320px] gap-6 items-start">
           {/* Main form */}
           <div>
             {step === 1 && (
@@ -1377,7 +1367,9 @@ export default function BusinessDueDiligencePage() {
           </div>
 
           {/* Order Summary */}
-          <OrderSummary plan={selectedPlan} />
+          <div className="hidden lg:block">
+            <OrderSummary plan={selectedPlan} />
+          </div>
         </div>
       </div>
     </div>
