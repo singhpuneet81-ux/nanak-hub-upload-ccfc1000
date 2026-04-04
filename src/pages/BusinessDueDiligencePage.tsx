@@ -179,27 +179,27 @@ const Stepper: React.FC<{ step: number }> = ({ step }) => (
       const active = step === idx;
       return (
         <React.Fragment key={i}>
-          <div className="flex flex-col items-center" style={{ minWidth: 56 }}>
+          <div className="flex flex-col items-center" style={{ minWidth: 40 }}>
             <div
-              className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm border-2 transition-all
+              className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-xs sm:text-sm border-2 transition-all
                 ${
                   done
-                    ? "bg-blue-600 border-blue-600 text-white"
+                    ? "bg-primary border-primary text-primary-foreground"
                     : active
-                      ? "bg-blue-600 border-blue-600 text-white"
-                      : "bg-white border-gray-300 text-gray-400"
+                      ? "bg-primary border-primary text-primary-foreground"
+                      : "bg-card border-border text-muted-foreground"
                 }`}
             >
-              {done ? <CheckCircle size={18} /> : idx}
+              {done ? <CheckCircle size={16} /> : idx}
             </div>
             <span
-              className={`text-xs mt-1.5 font-medium text-center ${active ? "text-blue-600" : done ? "text-blue-600" : "text-gray-400"}`}
+              className={`text-[10px] sm:text-xs mt-1.5 font-medium text-center ${active ? "text-primary" : done ? "text-primary" : "text-muted-foreground"} ${!active ? "hidden sm:block" : ""}`}
             >
               {s.label}
             </span>
           </div>
           {i < STEP_LABELS.length - 1 && (
-            <div className={`h-0.5 flex-1 mx-1 mt-5 ${done ? "bg-blue-600" : "bg-gray-200"}`} />
+            <div className={`h-0.5 flex-1 mx-0.5 sm:mx-1 mt-4 sm:mt-5 ${done ? "bg-primary" : "bg-border"}`} />
           )}
         </React.Fragment>
       );
