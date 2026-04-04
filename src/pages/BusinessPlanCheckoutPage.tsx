@@ -959,11 +959,11 @@ const BusinessPlanCheckoutPage: React.FC = () => {
     <div className="min-h-screen bg-background">
       <CheckoutLoader visible={isSubmitting} />
 
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-6xl mx-auto px-4 py-6 sm:py-8 pb-32 lg:pb-8 checkout-content-pad">
         <div className="flex items-center gap-3 mb-6">
-          <img src="/favicon.webp" alt="Nanak Accountants" className="w-[79px] h-[79px] object-contain" />
+          <img src="/favicon.webp" alt="Nanak Accountants" className="w-10 h-10 sm:w-[79px] sm:h-[79px] object-contain" />
           <div>
-            <h1 className="text-2xl font-bold text-foreground">Business Plan</h1>
+            <h1 className="text-lg sm:text-2xl font-bold text-foreground truncate">Business Plan</h1>
             <p className="text-sm text-muted-foreground">Complete your details below</p>
           </div>
         </div>
