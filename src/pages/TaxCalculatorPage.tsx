@@ -289,7 +289,7 @@ const TaxCalculatorPage: React.FC = () => {
                     </p>
                   </div>
 
-                  <a href="/pricing" className="btn-cta w-full text-sm mt-4 inline-flex rounded-xl">
+                  <a href="https://calendly.com/nanakaccountant/property-related-cgt-implication?back=1&month=2026-04" target="_blank" rel="noopener noreferrer" className="btn-cta w-full text-sm mt-4 inline-flex rounded-xl">
                     {strat.cta} <ArrowRight className="w-4 h-4" />
                   </a>
                 </div>
