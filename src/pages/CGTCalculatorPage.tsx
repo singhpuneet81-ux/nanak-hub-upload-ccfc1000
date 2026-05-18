@@ -411,12 +411,6 @@ const CGTCalculatorPage: React.FC = () => {
     <div className="flex flex-col bg-background min-h-screen">
       {/* Hero */}
       <section className="flex flex-col items-center px-4 pt-10 pb-6 md:pt-14">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cta/10 border border-cta/20 mb-4">
-          <Sparkles className="w-3.5 h-3.5 text-cta" />
-          <span className="text-[11px] font-bold uppercase tracking-widest text-cta">
-            Budget 2026-27 · Free Tool
-          </span>
-        </div>
         <h1 className="text-[2rem] md:text-[2.5rem] font-extrabold text-foreground text-center max-w-2xl leading-tight tracking-tight">
           CGT Impact Calculator
         </h1>
