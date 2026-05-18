@@ -5,7 +5,6 @@ import {
   TrendingDown,
   TrendingUp,
   Check,
-  Sparkles,
   ClipboardList,
   AlertTriangle,
   ChevronDown,
