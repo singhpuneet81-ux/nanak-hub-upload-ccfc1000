@@ -890,7 +890,7 @@ const CGTCalculatorPage: React.FC = () => {
                     Accountants
                   </div>
                   <a
-                    href="https://calendly.com/nanakaccountant/property-related-cgt-implication?back=1&month=2026-04"
+                    href="https://calendly.com/nanakaccountant/property-related-cgt-implication?back=1&month=2026-05"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-white text-cta px-7 py-3.5 rounded-full font-bold text-sm hover:scale-[1.03] transition-transform shadow-lg"
