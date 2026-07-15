@@ -188,7 +188,7 @@ export const STRStepPlanSelection: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-2 sm:gap-3 shrink-0">
                   <span className="font-bold text-[hsl(var(--cta))] text-xs sm:text-sm whitespace-nowrap">
-                    {stream.pricePrefix || ""}${displayPrice}{stream.priceSuffix || ""}
+                    {stream.pricePrefix || ""}${displayPrice}{stream.id === "shares" ? "/share disposal" : (stream.priceSuffix || "")}
                   </span>
                   {(stream.type === "counter" || stream.type === "sharecounter") ? (
                     <div className="flex items-center gap-0 border border-border rounded-lg overflow-hidden" onClick={(e) => e.stopPropagation()}>
@@ -296,7 +296,7 @@ export const STRStepPlanSelection: React.FC = () => {
                           <span className="font-medium text-foreground">
                             {s.label}
                             {s.id === "rental" && rentalCount > 1 ? ` (×${rentalCount})` : ""}
-                            {s.id === "shares" ? ` (${sharesCount} sold)` : ""}
+                            {s.id === "shares" ? ` (${sharesCount} disposal${sharesCount === 1 ? "" : "s"})` : ""}
                           </span>
                           <span className="font-semibold text-foreground">${price}</span>
                         </div>

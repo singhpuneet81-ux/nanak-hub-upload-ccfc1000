@@ -29,7 +29,7 @@ export const STROrderSummary: React.FC = () => {
     if (s.id === "shares") amt = s.basePrice * sharesCount;
     let label = s.label;
     if (s.id === "rental" && rentalCount > 1) label += ` (×${rentalCount})`;
-    if (s.id === "shares") label += ` (${sharesCount} sold)`;
+    if (s.id === "shares") label += ` (${sharesCount} disposal${sharesCount === 1 ? "" : "s"})`;
     streams.push({ label, amount: amt });
   });
 

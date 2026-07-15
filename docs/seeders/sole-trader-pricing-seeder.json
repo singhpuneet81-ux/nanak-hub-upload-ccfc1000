@@ -6,7 +6,7 @@
     { "id": "abn", "label": "ABN Income (Sole Trader / Business)", "desc": "Self-employed income, Uber, freelancing", "basePrice": 40, "pricePrefix": "From ", "icon": "Building2", "type": "expandable" },
     { "id": "rental", "label": "Rental Properties", "desc": "Investment properties with rental income", "basePrice": 50, "priceSuffix": " each", "icon": "Home", "type": "counter" },
     { "id": "crypto", "label": "Cryptocurrency Capital Gains Schedule", "desc": "Crypto trading, DeFi, staking, NFTs", "basePrice": 100, "icon": "Bitcoin", "type": "checkbox" },
-    { "id": "shares", "label": "Shares & Investments", "desc": "Share trading, dividends (Comsec, NABSec), capital gains", "basePrice": 10, "priceSuffix": "/share sold", "icon": "TrendingUp", "type": "sharecounter" },
+    { "id": "shares", "label": "Shares & Investments", "desc": "Share trading, dividends (Comsec, NABSec), capital gains", "basePrice": 10, "priceSuffix": "/share disposal", "icon": "TrendingUp", "type": "sharecounter" },
     { "id": "cgt_property", "label": "Capital Gain Tax Property Sale", "desc": "Capital gains tax calculation on property sales", "basePrice": 250, "icon": "Landmark", "type": "checkbox" },
     { "id": "cfds", "label": "CFDs (Contracts for Difference)", "desc": "CFD trading tax calculations and reporting", "basePrice": 100, "icon": "CandlestickChart", "type": "checkbox" },
     { "id": "foreign_income", "label": "Foreign Income / Overseas Assets", "desc": "Foreign employment, overseas investments, rental abroad", "basePrice": 100, "icon": "Globe", "type": "checkbox" }
