@@ -25,6 +25,7 @@ import ASICAgentLandingPage from "./pages/ASICAgentLandingPage";
 import CompanyAccountingCheckoutPage from "./pages/CompanyAccountingCheckoutPage";
 import NFPAccountingCheckoutPage from "./pages/NFPAccountingCheckoutPage";
 import TaxCalculatorPage from "./pages/TaxCalculatorPage";
+import IncomeTaxCalculatorPage from "./pages/IncomeTaxCalculatorPage";
 import BusinessPlanCalculatorPage from "./pages/BusinessPlanCalculatorPage";
 import BusinessPlanCheckoutPage from "./pages/BusinessPlanCheckoutPage";
 import BusinessTaxPlanningPage from "./pages/BusinessTaxPlanningPage";
@@ -53,6 +54,8 @@ import PaymentFailure from "./pages/PaymentFailure";
 import CareersPage from "./pages/CareersPage";
 import JobApplicationPage from "./components/careers/JobApplicationPage";
 import WebinarPage from "./pages/WebinarPage";
+import BlogListPage from "./pages/BlogListPage";
+import BlogPostPage from "./pages/BlogPostPage";
 import BASConsultationPage from "./pages/BASConsultationPage";
 import { useIframeResize } from "./hooks/useIframeResize";
 import { usePageMeta } from "./hooks/usePageMeta";
@@ -91,6 +94,7 @@ const App = () => (
           <Route path="/nfp-accounting" element={<NFPAccountingCheckoutPage />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/tax-calculator" element={<TaxCalculatorPage />} />
+          <Route path="/income-tax-calculator" element={<IncomeTaxCalculatorPage />} />
           <Route path="/business-plan-calculator" element={<BusinessPlanCalculatorPage />} />
           <Route path="/business-plan" element={<BusinessPlanCheckoutPage />} />
           <Route path="/business-tax-planning" element={<BusinessTaxPlanningPage />} />
@@ -119,6 +123,8 @@ const App = () => (
           <Route path="/careers" element={<CareersPage />} />
           <Route path="/careers/apply" element={<JobApplicationPage />} />
           <Route path="/webinars" element={<WebinarPage />} />
+          <Route path="/blog" element={<BlogListPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/bas-consultation" element={<BASConsultationPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
