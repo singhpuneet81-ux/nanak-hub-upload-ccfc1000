@@ -57,6 +57,11 @@ import WebinarPage from "./pages/WebinarPage";
 import BlogListPage from "./pages/BlogListPage";
 import BlogPostPage from "./pages/BlogPostPage";
 import BASConsultationPage from "./pages/BASConsultationPage";
+import {
+  NewsletterEmbedPage,
+  PopupEmbedPage,
+  FooterTaxCheckEmbedPage,
+} from "./pages/EmbedHostPages";
 import { useIframeResize } from "./hooks/useIframeResize";
 import { usePageMeta } from "./hooks/usePageMeta";
 
@@ -125,6 +130,10 @@ const App = () => (
           <Route path="/webinars" element={<WebinarPage />} />
           <Route path="/blog" element={<BlogListPage />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
+          <Route path="/newsletter" element={<NewsletterEmbedPage />} />
+          <Route path="/popup" element={<PopupEmbedPage />} />
+          <Route path="/footer" element={<FooterTaxCheckEmbedPage />} />
+          <Route path="/tax-check" element={<FooterTaxCheckEmbedPage />} />
           <Route path="/bas-consultation" element={<BASConsultationPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
