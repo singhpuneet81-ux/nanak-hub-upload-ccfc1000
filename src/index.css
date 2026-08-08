@@ -407,7 +407,7 @@ select::placeholder {
      and hug content height so pricing/checkout cards are not clipped. */
   .iframe-embed {
     background: transparent !important;
-    overflow: auto !important;
+    overflow: visible !important;
     height: auto !important;
     min-height: 0 !important;
     width: 100% !important;
@@ -416,6 +416,7 @@ select::placeholder {
   .iframe-embed #root {
     height: auto !important;
     min-height: 0 !important;
+    overflow: visible !important;
   }
 
   .iframe-embed .min-h-screen {
