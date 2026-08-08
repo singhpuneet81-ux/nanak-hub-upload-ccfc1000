@@ -404,11 +404,20 @@ select::placeholder {
   }
 
   /* When embedded in an iframe (WordPress), make everything transparent
-     and kill internal scrolling so the parent page owns the scrollbar */
+     and hug content height so pricing/checkout cards are not clipped. */
   .iframe-embed {
     background: transparent !important;
-    overflow: visible !important;
+    overflow: auto !important;
     height: auto !important;
+    min-height: 0 !important;
+  }
+
+  .iframe-embed #root {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  .iframe-embed .min-h-screen {
     min-height: 0 !important;
   }
 
