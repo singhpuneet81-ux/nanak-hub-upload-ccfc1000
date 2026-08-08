@@ -117,12 +117,12 @@ export function PayCalculatorEmbedPage() {
   );
 }
 
-/** Blog page sidebar enquiry form */
+/** Blog page sidebar enquiry form — served from this domain's /embeds (not API). */
 export function BlogSidebarEmbedPage() {
   return (
     <EmbedHostPage
       title="Blog sidebar enquiry"
-      src={`${EMBED_BASE}/blog-sidebar.html`}
+      src="/embeds/blog-sidebar.html"
       initialHeight={620}
       maxHeight={900}
     />
