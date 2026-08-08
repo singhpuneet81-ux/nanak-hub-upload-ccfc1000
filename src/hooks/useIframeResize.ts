@@ -24,10 +24,9 @@ export function useIframeResize() {
     document.documentElement.style.minHeight = "0";
     document.body.style.height = "auto";
     document.body.style.minHeight = "0";
-    // Allow scrolling inside the iframe as a safety net if the parent
-    // hasn't applied the posted height yet (avoids half-cut cards).
-    document.documentElement.style.overflow = "auto";
-    document.body.style.overflow = "auto";
+    // No inner scrollbar: parent iframe height tracks content via postMessage.
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
 
     const forwardWheel = (e: WheelEvent) => {
       window.parent.postMessage(
@@ -77,7 +76,7 @@ export function useIframeResize() {
               frame.style.height = `${height}px`;
               frame.style.width = "100%";
               frame.style.maxWidth = "100%";
-              frame.style.overflow = "visible";
+              frame.style.overflow = "hidden";
               frame.removeAttribute("height");
               frame.setAttribute("scrolling", "no");
             }
@@ -145,7 +144,15 @@ export function useIframeResize() {
               var h = Number(e.data.height);
               if (!h) return;
               document.querySelectorAll("iframe").forEach(function(f) {
-                try { if (f.contentWindow === e.source) { f.style.height = h + "px"; f.removeAttribute("height"); } } catch(_) {}
+                try {
+                  if (f.contentWindow === e.source) {
+                    f.style.height = h + "px";
+                    f.style.minHeight = "0";
+                    f.style.overflow = "hidden";
+                    f.removeAttribute("height");
+                    f.setAttribute("scrolling", "no");
+                  }
+                } catch(_) {}
               });
             }
             if (e.data.type === "iframe-wheel") {
