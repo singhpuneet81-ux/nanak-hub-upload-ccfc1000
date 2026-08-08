@@ -410,17 +410,27 @@ select::placeholder {
     overflow: visible !important;
     height: auto !important;
     min-height: 0 !important;
+    max-height: none !important;
     width: 100% !important;
+  }
+
+  .iframe-embed body {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
   }
 
   .iframe-embed #root {
     height: auto !important;
     min-height: 0 !important;
+    max-height: none !important;
     overflow: visible !important;
   }
 
   .iframe-embed .min-h-screen {
     min-height: 0 !important;
+    height: auto !important;
   }
 
   .iframe-embed .bg-background {
