@@ -25,7 +25,6 @@ import ASICAgentLandingPage from "./pages/ASICAgentLandingPage";
 import CompanyAccountingCheckoutPage from "./pages/CompanyAccountingCheckoutPage";
 import NFPAccountingCheckoutPage from "./pages/NFPAccountingCheckoutPage";
 import TaxCalculatorPage from "./pages/TaxCalculatorPage";
-import IncomeTaxCalculatorPage from "./pages/IncomeTaxCalculatorPage";
 import BusinessPlanCalculatorPage from "./pages/BusinessPlanCalculatorPage";
 import BusinessPlanCheckoutPage from "./pages/BusinessPlanCheckoutPage";
 import BusinessTaxPlanningPage from "./pages/BusinessTaxPlanningPage";
@@ -62,11 +61,11 @@ import {
   PopupEmbedPage,
   FooterTaxCheckEmbedPage,
   PayCalculatorEmbedPage,
+  IncomeTaxCalculatorEmbedPage,
   BlogSidebarEmbedPage,
 } from "./pages/EmbedHostPages";
 import { useIframeResize } from "./hooks/useIframeResize";
 import { usePageMeta } from "./hooks/usePageMeta";
-
 
 const queryClient = new QueryClient();
 
@@ -101,7 +100,7 @@ const App = () => (
           <Route path="/nfp-accounting" element={<NFPAccountingCheckoutPage />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/tax-calculator" element={<TaxCalculatorPage />} />
-          <Route path="/income-tax-calculator" element={<IncomeTaxCalculatorPage />} />
+          <Route path="/income-tax-calculator" element={<IncomeTaxCalculatorEmbedPage />} />
           <Route path="/pay-calculator" element={<PayCalculatorEmbedPage />} />
           <Route path="/blog-sidebar" element={<BlogSidebarEmbedPage />} />
           <Route path="/business-plan-calculator" element={<BusinessPlanCalculatorPage />} />

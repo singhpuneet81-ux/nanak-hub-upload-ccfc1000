@@ -32,6 +32,11 @@ export function PayCalculatorEmbedPage() {
   return <RedirectEmbed to="/embeds/pay-calculator.html" />;
 }
 
+/** Public income tax calculator (same static-embed pattern as pay calculator) */
+export function IncomeTaxCalculatorEmbedPage() {
+  return <RedirectEmbed to="/embeds/income-tax-calculator.html" />;
+}
+
 /** Blog page sidebar enquiry */
 export function BlogSidebarEmbedPage() {
   return <RedirectEmbed to="/embeds/blog-sidebar.html" />;
