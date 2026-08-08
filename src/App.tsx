@@ -61,6 +61,8 @@ import {
   NewsletterEmbedPage,
   PopupEmbedPage,
   FooterTaxCheckEmbedPage,
+  PayCalculatorEmbedPage,
+  BlogSidebarEmbedPage,
 } from "./pages/EmbedHostPages";
 import { useIframeResize } from "./hooks/useIframeResize";
 import { usePageMeta } from "./hooks/usePageMeta";
@@ -100,6 +102,8 @@ const App = () => (
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/tax-calculator" element={<TaxCalculatorPage />} />
           <Route path="/income-tax-calculator" element={<IncomeTaxCalculatorPage />} />
+          <Route path="/pay-calculator" element={<PayCalculatorEmbedPage />} />
+          <Route path="/blog-sidebar" element={<BlogSidebarEmbedPage />} />
           <Route path="/business-plan-calculator" element={<BusinessPlanCalculatorPage />} />
           <Route path="/business-plan" element={<BusinessPlanCheckoutPage />} />
           <Route path="/business-tax-planning" element={<BusinessTaxPlanningPage />} />

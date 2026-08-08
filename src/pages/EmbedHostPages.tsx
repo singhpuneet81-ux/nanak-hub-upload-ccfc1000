@@ -1,9 +1,6 @@
 /**
  * Thin host pages so marketing embeds live on online.nanakaccountants.com.au
- * the same way /blog does — full-bleed iframe of the API embed.
- *
- * Height must hug content (no min-h-screen) so WordPress/Elementor footers
- * don't stretch to full viewport when iframe-ing /newsletter etc.
+ * Height hugs content (no min-h-screen) for footer widgets; calculators can grow tall.
  */
 import { useCallback, useEffect, useRef, useState } from "react";
 
@@ -40,11 +37,9 @@ export function EmbedHostPage({
     const onMessage = (event: MessageEvent) => {
       const data = event.data;
       if (!data || typeof data !== "object") return;
-      // Embeds post { type: 'nanak-embed-resize', height: number, source?: string }
       if (data.type !== "nanak-embed-resize") return;
       const h = Number(data.height);
       applyHeight(h);
-      // Bubble to WordPress/Elementor parent so outer iframe can shrink too
       try {
         if (window.parent && window.parent !== window) {
           window.parent.postMessage(
@@ -53,7 +48,7 @@ export function EmbedHostPage({
           );
         }
       } catch {
-        /* ignore cross-origin */
+        /* ignore */
       }
     };
     window.addEventListener("message", onMessage);
@@ -106,6 +101,30 @@ export function FooterTaxCheckEmbedPage() {
       src={`${EMBED_BASE}/tax-check.html`}
       initialHeight={420}
       maxHeight={700}
+    />
+  );
+}
+
+/** Public pay calculator — iframe-ready, no login */
+export function PayCalculatorEmbedPage() {
+  return (
+    <EmbedHostPage
+      title="Pay calculator"
+      src={`${EMBED_BASE}/pay-calculator.html`}
+      initialHeight={1100}
+      maxHeight={5000}
+    />
+  );
+}
+
+/** Blog page sidebar enquiry form */
+export function BlogSidebarEmbedPage() {
+  return (
+    <EmbedHostPage
+      title="Blog sidebar enquiry"
+      src={`${EMBED_BASE}/blog-sidebar.html`}
+      initialHeight={620}
+      maxHeight={900}
     />
   );
 }

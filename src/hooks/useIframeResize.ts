@@ -79,6 +79,7 @@ export function useIframeResize() {
       } catch (_) {
         // 2. Cross-origin fallback — postMessage
         window.parent.postMessage({ type: "resize-iframe", height }, "*");
+        window.parent.postMessage({ type: "nanak-embed-resize", height, source: "online-hub" }, "*");
       }
     };
 

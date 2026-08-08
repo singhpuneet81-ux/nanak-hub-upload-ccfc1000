@@ -326,8 +326,11 @@ const IncomeTaxCalculatorPage: React.FC = () => {
       income: Number(income) || 0,
       income_frequency: freq,
       has_help: hasHelp,
-      tax: result?.tax ?? null,
+      tax: result?.incomeTax ?? null,
+      medicare: result?.levy ?? null,
+      help_repayment: result?.help ?? null,
       net: result?.net ?? null,
+      display_period: period,
     };
 
     setLeadSubmitting(true);
@@ -344,10 +347,11 @@ const IncomeTaxCalculatorPage: React.FC = () => {
             mobile: phone || null,
             source: LEAD_SOURCE,
             service_interest: "individual_tax",
+            callback_requested: !!phone,
             marketing_optin: consentAll,
             consent: {
               email: true,
-              sms: !!phone,
+              sms: !!phone && consentAll,
               whatsapp: false,
             },
             calculator_snapshot: snapshot,
