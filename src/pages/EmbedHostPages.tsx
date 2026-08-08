@@ -105,17 +105,12 @@ export function FooterTaxCheckEmbedPage() {
   );
 }
 
-/** Public pay calculator — served from this domain's /embeds (not API). */
+/** Public pay calculator — static embed (no nested iframe that shrinks layout). */
 export function PayCalculatorEmbedPage() {
-  return (
-    <EmbedHostPage
-      title="Pay calculator"
-      src="/embeds/pay-calculator.html"
-      initialHeight={1100}
-      minHeight={0}
-      maxHeight={5000}
-    />
-  );
+  useEffect(() => {
+    window.location.replace("/embeds/pay-calculator.html");
+  }, []);
+  return null;
 }
 
 /** Blog page sidebar enquiry form — served from this domain's /embeds (not API). */
