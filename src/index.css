@@ -407,7 +407,7 @@ select::placeholder {
      and hug content height so pricing/checkout cards are not clipped. */
   .iframe-embed {
     background: transparent !important;
-    overflow: visible !important;
+    overflow: hidden !important;
     height: auto !important;
     min-height: 0 !important;
     max-height: none !important;
@@ -418,7 +418,7 @@ select::placeholder {
     height: auto !important;
     min-height: 0 !important;
     max-height: none !important;
-    overflow: visible !important;
+    overflow: hidden !important;
   }
 
   .iframe-embed #root {
@@ -429,6 +429,12 @@ select::placeholder {
   }
 
   .iframe-embed .min-h-screen {
+    min-height: 0 !important;
+    height: auto !important;
+  }
+
+  /* Income tax / pay calculator React pages — never force 100vh inside WP iframes */
+  .iframe-embed .itc {
     min-height: 0 !important;
     height: auto !important;
   }
