@@ -42,4 +42,9 @@ export function BlogSidebarEmbedPage() {
   return <RedirectEmbed to="/embeds/blog-sidebar.html" />;
 }
 
+/** Contact us form */
+export function ContactUsEmbedPage() {
+  return <RedirectEmbed to="/embeds/contact-us.html" />;
+}
+
 export default NewsletterEmbedPage;
