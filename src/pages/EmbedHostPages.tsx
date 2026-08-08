@@ -11,6 +11,8 @@ type Props = {
   src: string;
   /** Initial height before embed posts its measured size */
   initialHeight?: number;
+  /** Floor height (0 = hug content exactly). */
+  minHeight?: number;
   /** Cap growth so a broken embed can't blow up the page */
   maxHeight?: number;
 };
@@ -19,6 +21,7 @@ export function EmbedHostPage({
   title,
   src,
   initialHeight = 220,
+  minHeight = 0,
   maxHeight = 900,
 }: Props) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
@@ -27,10 +30,10 @@ export function EmbedHostPage({
   const applyHeight = useCallback(
     (raw: number) => {
       if (!Number.isFinite(raw) || raw <= 0) return;
-      const next = Math.min(maxHeight, Math.max(120, Math.ceil(raw)));
+      const next = Math.min(maxHeight, Math.max(minHeight, Math.ceil(raw)));
       setHeight((prev) => (Math.abs(prev - next) < 2 ? prev : next));
     },
-    [maxHeight]
+    [maxHeight, minHeight]
   );
 
   useEffect(() => {
@@ -72,14 +75,11 @@ export function EmbedHostPage({
 }
 
 export function NewsletterEmbedPage() {
-  return (
-    <EmbedHostPage
-      title="Newsletter signup"
-      src={`${EMBED_BASE}/newsletter.html`}
-      initialHeight={200}
-      maxHeight={360}
-    />
-  );
+  // Prefer the static embed (no React shell height). Keeps WP footer iframes tight.
+  useEffect(() => {
+    window.location.replace("/embeds/newsletter.html");
+  }, []);
+  return null;
 }
 
 export function PopupEmbedPage() {
