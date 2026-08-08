@@ -20,20 +20,12 @@ const ASICAgentLandingPage: React.FC = () => {
       {/* Hero Section */}
       <div className="bg-gradient-to-b from-primary/5 to-background py-12 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <div className="flex justify-center mb-5">
+          <div className="flex justify-center">
             <span className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-primary/10 text-primary text-sm font-medium rounded-full">
               <Shield className="w-4 h-4" />
               Simple, Transparent Pricing
             </span>
           </div>
-
-          <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-            Complete ASIC Compliance Management
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            One simple annual fee covers all your ASIC compliance needs. No hidden fees, no surprises—just professional service you can trust.
-          </p>
         </div>
       </div>
 
