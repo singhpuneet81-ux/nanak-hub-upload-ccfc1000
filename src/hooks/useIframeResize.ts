@@ -1,130 +1,72 @@
 import { useEffect } from "react";
 
 /**
- * Auto-size WordPress iframes like the working pay-calculator embed:
- * full content height, no internal scrollbar, no blank-space inflation.
+ * Size WordPress iframes to FULL content height so the WP page scrolls normally
+ * (no half-cut content, no inner iframe scrollbar).
  *
- * Posts { type: "nanak-embed-resize"|"resize-iframe", height }.
- * Requires /embeds/iframe-parent-resize.js on WordPress (once in footer).
+ * Requires footer once:
+ *   <script src="https://online.nanakaccountants.com.au/embeds/iframe-parent-resize.js" defer></script>
  */
 export function useIframeResize() {
   useEffect(() => {
     const isIframe = window.self !== window.top;
     if (!isIframe) return;
-
-    const isLovablePreview = window.location.hostname.includes("lovable.app");
-    if (isLovablePreview) return;
+    if (window.location.hostname.includes("lovable.app")) return;
 
     const html = document.documentElement;
     const body = document.body;
     html.classList.add("iframe-embed");
     body.classList.add("iframe-embed");
 
-    html.style.height = "auto";
-    html.style.minHeight = "0";
-    html.style.maxHeight = "none";
-    html.style.overflow = "hidden";
-    html.style.width = "100%";
-    body.style.height = "auto";
-    body.style.minHeight = "0";
-    body.style.maxHeight = "none";
-    body.style.overflow = "hidden";
-    body.style.width = "100%";
+    html.style.cssText += ";height:auto!important;min-height:0!important;max-height:none!important;overflow:hidden!important;width:100%!important";
+    body.style.cssText += ";height:auto!important;min-height:0!important;max-height:none!important;overflow:hidden!important;width:100%!important";
 
     let lastHeight = 0;
-    let stableHits = 0;
     let debounceTimer = 0;
-    let stopped = false;
 
     const contentEl = (): HTMLElement | null => {
       const root = document.getElementById("root");
       if (!root) return null;
-      // Prefer the main page wrapper (pricing / calculator), not #root chrome.
-      const inner =
+      return (
         (root.querySelector(".itc") as HTMLElement | null) ||
+        (root.querySelector("[class*='min-h-screen']") as HTMLElement | null) ||
         (root.firstElementChild as HTMLElement | null) ||
-        root;
-      return inner;
+        root
+      );
     };
 
+    /** Full content height — not the short iframe viewport. */
     const measureHeight = () => {
-      const el = contentEl();
       const root = document.getElementById("root");
-      if (!el) return 0;
+      const el = contentEl();
+      if (!root || !el) return 0;
 
-      // Unpin so we measure content, not the current iframe viewport.
-      el.style.height = "auto";
-      el.style.minHeight = "0";
-      el.style.maxHeight = "none";
-      if (root) {
-        root.style.height = "auto";
-        root.style.minHeight = "0";
-        root.style.maxHeight = "none";
+      root.style.setProperty("height", "auto", "important");
+      root.style.setProperty("min-height", "0", "important");
+      root.style.setProperty("max-height", "none", "important");
+      el.style.setProperty("height", "auto", "important");
+      el.style.setProperty("min-height", "0", "important");
+      el.style.setProperty("max-height", "none", "important");
+
+      // Walk direct children with offsetTop (immune to iframe clip).
+      let fromKids = 0;
+      const kids = el.children;
+      for (let i = 0; i < kids.length; i++) {
+        const child = kids[i] as HTMLElement;
+        fromKids = Math.max(fromKids, child.offsetTop + child.offsetHeight);
       }
 
-      // Content box only — never document/body scrollHeight (that caused blank growth).
       const h = Math.max(
+        fromKids,
         el.scrollHeight || 0,
         el.offsetHeight || 0,
-        Math.ceil(el.getBoundingClientRect().height || 0)
+        root.scrollHeight || 0
       );
 
-      return Math.max(Math.ceil(h) + 20, 120);
+      return Math.min(Math.max(Math.ceil(h) + 24, 120), 10000);
     };
 
-    const applySameOrigin = (height: number) => {
-      try {
-        window.parent.document.querySelectorAll("iframe").forEach((frame) => {
-          try {
-            if (frame.contentWindow !== window) return;
-            const prev = parseFloat(frame.style.height) || 0;
-            if (Math.abs(prev - height) < 3) return;
-            frame.style.height = `${height}px`;
-            frame.style.width = "100%";
-            frame.style.maxWidth = "100%";
-            frame.style.minHeight = "0";
-            frame.style.overflow = "hidden";
-            frame.removeAttribute("height");
-            frame.setAttribute("scrolling", "no");
-            frame.dataset.nanakSized = "1";
-          } catch {
-            /* other frame */
-          }
-        });
-      } catch {
-        /* cross-origin */
-      }
-    };
-
-    const sendHeight = () => {
-      const height = measureHeight();
-      if (!Number.isFinite(height) || height < 40) return;
-
-      // Reject absurd inflation jumps (blank-space bug).
-      if (lastHeight > 150 && height > lastHeight + 1800) return;
-      if (lastHeight > 150 && height > lastHeight * 2.5) return;
-
-      if (Math.abs(height - lastHeight) < 3) {
-        stableHits += 1;
-        // Stop aggressive settle timers once stable; keep ResizeObserver for async content.
-        if (stableHits >= 4 && !stopped) {
-          stopped = true;
-          window.clearTimeout(debounceTimer);
-          timers.forEach((t) => window.clearTimeout(t));
-        }
-        return;
-      }
-
-      // After settle, still allow real content growth (e.g. packages loaded) but not inflation.
-      if (stopped) {
-        if (height <= lastHeight) return;
-        if (height > lastHeight + 1800) return;
-      }
-
-      stableHits = 0;
-      lastHeight = height;
-      applySameOrigin(height);
-
+    const post = (height: number) => {
       try {
         window.parent.postMessage({ type: "resize-iframe", height }, "*");
         window.parent.postMessage(
@@ -136,14 +78,22 @@ export function useIframeResize() {
       }
     };
 
+    const sendHeight = () => {
+      const height = measureHeight();
+      if (!Number.isFinite(height) || height < 40) return;
+      if (Math.abs(height - lastHeight) < 4) return;
+      lastHeight = height;
+      post(height);
+    };
+
     const scheduleSend = () => {
       window.clearTimeout(debounceTimer);
-      debounceTimer = window.setTimeout(sendHeight, 120);
+      debounceTimer = window.setTimeout(sendHeight, 100);
     };
 
     sendHeight();
     requestAnimationFrame(sendHeight);
-    const timers = [150, 400, 900, 1600, 2800].map((ms) =>
+    const timers = [100, 300, 700, 1200, 2000, 3500, 5000, 8000].map((ms) =>
       window.setTimeout(sendHeight, ms)
     );
 
@@ -153,7 +103,7 @@ export function useIframeResize() {
       ro = new ResizeObserver(scheduleSend);
       const el = contentEl();
       if (el) ro.observe(el);
-      else if (root) ro.observe(root);
+      if (root && root !== el) ro.observe(root);
     }
 
     const observer = new MutationObserver(scheduleSend);
@@ -164,7 +114,6 @@ export function useIframeResize() {
     window.addEventListener("load", sendHeight);
 
     return () => {
-      stopped = true;
       observer.disconnect();
       ro?.disconnect();
       window.removeEventListener("load", sendHeight);
