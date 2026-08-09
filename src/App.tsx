@@ -59,6 +59,7 @@ import BASConsultationPage from "./pages/BASConsultationPage";
 import {
   NewsletterEmbedPage,
   PopupEmbedPage,
+  Free15MinCallEmbedPage,
   FooterTaxCheckEmbedPage,
   PayCalculatorEmbedPage,
   IncomeTaxCalculatorEmbedPage,
@@ -138,6 +139,8 @@ const App = () => (
           <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/newsletter" element={<NewsletterEmbedPage />} />
           <Route path="/popup" element={<PopupEmbedPage />} />
+          <Route path="/free-15min-call" element={<Free15MinCallEmbedPage />} />
+          <Route path="/free-15-min-call" element={<Free15MinCallEmbedPage />} />
           <Route path="/footer" element={<FooterTaxCheckEmbedPage />} />
           <Route path="/tax-check" element={<FooterTaxCheckEmbedPage />} />
           <Route path="/bas-consultation" element={<BASConsultationPage />} />

@@ -17,8 +17,13 @@ export function NewsletterEmbedPage() {
   return <RedirectEmbed to="/embeds/newsletter.html" />;
 }
 
-/** Free 15-minute call popup */
+/** Free 15-minute call popup (legacy path) */
 export function PopupEmbedPage() {
+  return <RedirectEmbed to="/embeds/free-15min-call.html" />;
+}
+
+/** Free 15-minute call iframe (WordPress embed) */
+export function Free15MinCallEmbedPage() {
   return <RedirectEmbed to="/embeds/free-15min-call.html" />;
 }
 
