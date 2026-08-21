@@ -14,7 +14,7 @@ import {
   PR_ONETIME_PRICES,
 } from "@/components/checkout/payroll-services/prPricing";
 
-const API_URL = "https://api.connect.cavaluer.com/api/admin/payroll-pricing";
+const API_URL = "https://api.cavaluer.com/api/admin/payroll-pricing";
 
 export interface PRApiTier {
   name: string;

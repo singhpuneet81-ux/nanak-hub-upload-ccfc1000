@@ -4,7 +4,7 @@ import { toast } from "sonner";
 import { CheckCircle, Check } from "lucide-react";
 import logoNanak from "@/assets/logo-nanak.webp";
 
-const API_BASE_URL = "https://api.connect.cavaluer.com";
+const API_BASE_URL = "https://api.cavaluer.com";
 
 const NEXT_STEPS = [
   "You'll receive a confirmation email shortly",

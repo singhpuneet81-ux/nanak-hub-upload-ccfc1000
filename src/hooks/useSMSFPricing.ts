@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import smsfFallback from "../../docs/seeders/smsf-pricing-seeder.json";
 
-const API_URL = "https://api.connect.cavaluer.com/api/admin/smsf-pricing";
+const API_URL = "https://api.cavaluer.com/api/admin/smsf-pricing";
 
 export interface SMSFInvestmentAddon {
   id: string;

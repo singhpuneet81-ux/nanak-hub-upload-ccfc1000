@@ -11,7 +11,7 @@ import {
   type AccountingServicePricing,
 } from "@/config/accountingPricingFallback";
 
-const API_URL = "https://api.connect.cavaluer.com/api/admin/accounting-pricing";
+const API_URL = "https://api.cavaluer.com/api/admin/accounting-pricing";
 
 async function fetchAccountingPricing(): Promise<AccountingServicePricing[]> {
   const res = await fetch(API_URL, { signal: AbortSignal.timeout(8000) });

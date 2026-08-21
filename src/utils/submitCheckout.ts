@@ -151,7 +151,7 @@ export function buildFormData({
  * The base URL for your backend API.
  * Update this to your actual backend URL when deployed.
  */
-const API_BASE_URL = "https://api.connect.cavaluer.com";
+const API_BASE_URL = "https://api.cavaluer.com";
 
 /**
  * Call this from every Review & Pay step.

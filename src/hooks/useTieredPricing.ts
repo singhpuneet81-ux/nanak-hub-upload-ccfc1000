@@ -5,7 +5,7 @@ import {
   type TieredServiceConfig,
 } from "@/config/tieredPricing.config";
 
-const API_BASE_URL = "https://api.connect.cavaluer.com";
+const API_BASE_URL = "https://api.cavaluer.com";
 
 interface ApiTieredPlan {
   id: string;

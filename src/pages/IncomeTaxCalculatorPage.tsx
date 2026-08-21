@@ -19,7 +19,7 @@ type YearRates = {
 };
 
 const LEAD_SOURCE = "income_tax_calculator";
-const API_BASE = "https://api.connect.cavaluer.com";
+const API_BASE = "https://api.cavaluer.com";
 
 const RATES: Record<FyKey, YearRates> = {
   y2526: {

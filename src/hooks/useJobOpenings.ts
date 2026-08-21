@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 
-const API_BASE = "https://api.connect.cavaluer.com";
+const API_BASE = "https://api.cavaluer.com";
 
 export type JobOpening = {
   _id: string;

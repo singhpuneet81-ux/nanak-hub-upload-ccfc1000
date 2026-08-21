@@ -30,7 +30,7 @@ const BASConsultationPage: React.FC = () => {
 
     setLoading(true);
     try {
-      const res = await fetch("https://api.connect.cavaluer.com/api/bas-consultations", {
+      const res = await fetch("https://api.cavaluer.com/api/bas-consultations", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

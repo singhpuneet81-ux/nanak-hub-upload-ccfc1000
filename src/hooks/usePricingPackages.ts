@@ -6,7 +6,7 @@ import {
   type PricingPackage,
 } from "@/config/pricing.config";
 
-const API_BASE_URL = "https://api.connect.cavaluer.com";
+const API_BASE_URL = "https://api.cavaluer.com";
 
 export type PricingCategory = "business_formation" | "accounting_tax" | "business_advisory";
 

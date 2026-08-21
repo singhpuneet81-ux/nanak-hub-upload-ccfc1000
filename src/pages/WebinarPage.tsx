@@ -42,7 +42,7 @@ const WebinarCard: React.FC<{ webinar: WebinarAPI; onRegister: (w: WebinarAPI) =
   onRegister,
 }) => {
   const displayDate = formatDate(webinar.date);
-  const imageBase = "https://api.connect.cavaluer.com";
+  const imageBase = "https://api.cavaluer.com";
 
   return (
     <div className="bg-background rounded-2xl border border-border shadow-card overflow-hidden hover:shadow-card-hover transition-shadow">

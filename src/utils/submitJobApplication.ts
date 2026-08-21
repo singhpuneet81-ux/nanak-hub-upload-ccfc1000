@@ -3,7 +3,7 @@
  * Matches the API spec in docs/CAREERS_API_DOCUMENTATION.md
  */
 
-const API_BASE = "https://api.connect.cavaluer.com";
+const API_BASE = "https://api.cavaluer.com";
 
 export interface JobApplicationPayload {
   jobId?: string | null;

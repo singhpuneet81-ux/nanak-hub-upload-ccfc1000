@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const API_BASE = "https://api.connect.cavaluer.com";
+const API_BASE = "https://api.cavaluer.com";
 
 export interface WebinarAPI {
   _id: string;

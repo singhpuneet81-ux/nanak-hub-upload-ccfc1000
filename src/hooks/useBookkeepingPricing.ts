@@ -14,7 +14,7 @@ import {
   BK_ALWAYS_INCLUDED,
 } from "@/components/checkout/bookkeeping/bkPricing";
 
-const API_URL = "https://api.connect.cavaluer.com/api/admin/bookkeeping-pricing";
+const API_URL = "https://api.cavaluer.com/api/admin/bookkeeping-pricing";
 
 export interface BKApiTier {
   name: string;

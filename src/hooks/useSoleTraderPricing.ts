@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import strFallback from "../../docs/seeders/sole-trader-pricing-seeder.json";
 
-const API_URL = "https://api.connect.cavaluer.com/api/admin/sole-trader-pricing";
+const API_URL = "https://api.cavaluer.com/api/admin/sole-trader-pricing";
 
 export interface STRIncomeStream {
   id: string;

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const API_BASE = "https://api.connect.cavaluer.com";
+const API_BASE = "https://api.cavaluer.com";
 
 export interface BlogPost {
   _id: string;
